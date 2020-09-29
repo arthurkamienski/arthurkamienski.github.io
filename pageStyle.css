@@ -9,3 +9,8 @@ footer {
 	bottom: 0;
 	width: 100%;
 }
+
+#main {
+	width: 50%;
+        margin: 0 auto;
+}
