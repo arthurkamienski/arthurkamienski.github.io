@@ -1,0 +1,4 @@
+body, h1, h2 {font-family: "Raleway", Arial, sans-serif}
+h1, h2 {letter-spacing: 6px}
+
+body {margin: 0; padding: 0; height: 100%; min-height: 100%}
