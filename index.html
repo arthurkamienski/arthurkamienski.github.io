@@ -9,6 +9,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="pageStyle.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(function(){
+  $("#header").load("header.html");
+  $("#footer").load("footer.html");
+});
+</script>
 <style>
 #main {
 	width: 50%;
@@ -19,21 +25,7 @@
   <div class="w3-content" style="max-width:1500px; height:100%">
   
   <!-- Header -->
-  <header class="w3-panel w3-center w3-opacity" style="margin-bottom: 16px">
-    <h1>Arthur Kamienski</h1>
-    
-    <div class="w3-padding-32">
-      <div class="w3-bar w3-border">
-        <a href="/" class="w3-bar-item w3-button">Home</a>
-        <a href="/draw" class="w3-bar-item w3-button">Draw</a>
-        <!-- <a href="/blog" class="w3-bar-item w3-button">Blog</a> -->
-        <a href="/games" class="w3-bar-item w3-button">Games</a>
-        <a href="/chat" class="w3-bar-item w3-button">Chat</a>
-        <a href="/contact" class="w3-bar-item w3-button">Contact</a>
-        <a href="/about" class="w3-bar-item w3-button">About</a>
-      </div>
-    </div>
-  </header>
+  <div id="header"></div>
   <center>
      <div id="main">
         <h1 class="w3-xlarge">HELLO!</h1>
@@ -53,14 +45,7 @@
         New features are constantly being added. Check back again later to see what's new!
     </div>
   </center>
-	
-  <footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-large" style="margin-top: 64px; width: 100%;"> 
-    <a href="http://www.facebook.com/arthur.kamienski" target="_blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
-    <a href="http://www.instagram.com/arthurkamienski" target="_blank"><i class="fa fa-instagram w3-hover-opacity"></i></a>
-    <a href="http://www.linkedin.com/in/arthur-kamienski-90174a16a" target="_blank"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
-    <a href="https://github.com/arthurkamienski" target="_blank"><i class="fa fa-github w3-hover-opacity"></i></a>
-    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-  </footer>
+  <div id="footer"></div>
 </div>
 </body>
 </html>
