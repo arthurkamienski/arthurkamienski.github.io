@@ -58,7 +58,7 @@ header {
     display: block;
   }
   .page-title {
-    display: none;
+    display: block;
   }
 }
 
