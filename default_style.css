@@ -19,7 +19,7 @@ header {
 	width: 100%;
 }
 
-a:hover {
+.main a:hover {
 	opacity: 0.5;
 }
 
