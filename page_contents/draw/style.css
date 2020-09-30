@@ -23,8 +23,12 @@ td, table,tr {
 	padding: 15px;
 }
 
-canvas, .outer {
+#canvas-div {
 	margin-top: 40px;
+	margin: 20px;
+}
+
+canvas, .outer {
 	border-radius: 20px;
 	width: 100%;
 	border: 1px solid lightgrey;
