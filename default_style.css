@@ -14,7 +14,6 @@ footer {
 }
 
 header {
-	margin-bottom: 16px;
 	width: 100%;
 }
 
@@ -49,6 +48,8 @@ header {
 }
 
 .main {
+	padding-top: 20px;
+	padding-bottom: 20px;
 	flex: 1;
 	max-width:1500px;
 	width: 70%;
