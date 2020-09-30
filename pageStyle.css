@@ -20,6 +20,11 @@ header {
 	width: 100%;
 }
 
+.titleImg{
+	height: 1em;
+	width: 1em;
+}
+
 .pageTitle {
 	display: inline;
 }
