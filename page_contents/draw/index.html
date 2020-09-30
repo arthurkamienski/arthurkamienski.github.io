@@ -1,3 +1,132 @@
-<div class="comingsoon-div">
-    <h1>COMING SOON</h1>
+<div class="draw-wrapper">
+  <h1 class="w3-xlarge">DRAW!</h1>
+  <table>
+    <tr>
+      <td class="outer">
+        <table>
+          <tr>
+            <td style="width: 100px">
+      	Brush size:
+            </td>
+            <td>
+      	<input type="range" min="2" max="100" value="10" id="size">
+            </td>
+            <td style="min-width: 30px">
+      	<a id='sizeText'>10</a>
+            </td>
+          </tr>
+        </table>
+        Color:
+        <table style="margin: 0 auto;">
+          <tr>
+            <td>
+              <table style="margin: 0 auto;">
+                <tr>
+                  <td>
+                    <div class="colorDiv" style="background-color: rgb(0, 255, 0);" onclick="changeColor(0, 255, 0);"></div>
+                  </td>
+                  <td>
+        	      <div class="colorDiv" style="background-color: rgb(153, 102, 51);" onclick="changeColor(153, 102, 51);"></div>
+                  </td>
+                  <td>
+        	      <div class="colorDiv" style="background-color: rgb(255, 0, 0);" onclick="changeColor(255, 0, 0);"></div>
+                  </td>
+                  <td>
+        	      <div class="colorDiv" style="background-color: rgb(255, 153, 0);" onclick="changeColor(255, 153, 0);"></div>
+                  </td>
+                  <td>
+                    <div class="colorDiv" style="background-color: rgb(255, 255, 0);" onclick="changeColor(255, 255, 0);"></div>
+                  </td>
+                </tr>
+                <tr>
+        	    <td>
+        	      <div class="colorDiv" style="background-color: rgb(0, 0, 255);" onclick="changeColor(0, 0, 255);"></div>
+        	    </td>
+        	    <td>
+        	      <div class="colorDiv" style="background-color: rgb(204, 102, 255);" onclick="changeColor(204, 102, 255);"></div>
+        	    </td>
+        	    <td>
+        	      <div class="colorDiv" style="background-color: rgb(255, 102, 255);" onclick="changeColor(255, 102, 255);"></div>
+        	    </td>
+        	    <td>
+        	      <div class="colorDiv" style="background-color: rgb(0, 0, 0);" onclick="changeColor(0, 0, 0);"></div>
+        	    </td>
+        	    <td>
+        	      <div class="colorDiv" style="background-color: rgb(255, 255, 255);" onclick="changeColor(255, 255, 255);"></div>
+        	    </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table>
+                <tr>
+                  <td>
+                    <table>
+                      <tr>
+                        <td>
+                          Red:
+                        </td>
+                        <td>
+                          <input type="range" min="0" max="255" value="0" id="red">
+                        </td>
+                        <td style="min-width: 30px">
+                          <a id='redText'>0</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Green:
+                        </td>
+                        <td>
+                          <input type="range" min="0" max="255" value="0" id="green">
+                        </td>
+                        <td style="min-width: 30px">
+                          <a id='greenText'>0</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Blue:
+                        </td>
+                        <td>
+                          <input type="range" min="0" max="255" value="0" id="blue">
+                        </td>
+                        <td style="min-width: 30px">
+                          <a id='blueText'>0</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <table>
+                      <tr>
+                        <td style="min-width: 70px;">
+                          <a id='colorText'>#000000</a>
+                        </td>
+                        <td>
+                          <div class="colorDiv" id="color"></div>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+
+        <button id='clear'>Clear</button>
+        <button id='save'>Save</button>
+        <a id="link" download='my-drawing.png'></a>
+      </td>
+      <td class="outer">
+        <canvas id="canvas" width="500" height="500" style="margin-bottom: 0px"></canvas>
+      </td>
+    </tr>
+  </table>
 </div>
+<script src="draw.js"></script>	

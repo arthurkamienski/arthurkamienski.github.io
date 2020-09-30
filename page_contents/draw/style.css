@@ -4,3 +4,29 @@
 	background-color: black;
 	width: 100%;
  }
+
+.draw-wrapper {
+	width: 50%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.colorDiv {
+	position: relative;
+	margin: 0 auto;
+	width: 30px;
+	height: 20px;
+	background-color: black;
+	border-style: solid;
+	border-width: 1px;
+}
+
+td, table,tr {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.outer {
+	border-style: solid;
+	border-width: 1px;
+}
