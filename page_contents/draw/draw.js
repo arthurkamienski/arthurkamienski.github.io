@@ -40,23 +40,23 @@ document.getElementById('save').onclick = function() {
 
 document.getElementById('size').oninput = function() {
   size = this.value;
-  sizeText.text = this.value-1;
+  sizeText.innerHTML = this.value-1;
 }
 
 document.getElementById('red').oninput = function() {
   red = toHex(this.value);
-  redText.text = this.value;
+  redText.innerHTML = this.value;
   updateColor();
 }
 
 document.getElementById('green').oninput = function() {
   green = toHex(this.value);
-  greenText.text = this.value;
+  greenText.innerHTML = this.value;
   updateColor();
 }
 document.getElementById('blue').oninput = function() {
   blue = toHex(this.value);
-  blueText.text = this.value;
+  blueText.innerHTML = this.value;
   updateColor();
 }
 
@@ -68,13 +68,13 @@ function clear() {
 function changeColor(r, g, b) {
 	document.getElementById('red').value = r;
 	red = toHex(r);
-	redText.text = r;
+	redText.innerHTML = r;
 	document.getElementById('green').value = g;
 	green = toHex(g);
-	greenText.text = g;
+	greenText.innerHTML = g;
 	document.getElementById('blue').value = b;
 	blue = toHex(b);
-	blueText.text = b;
+	blueText.innerHTML = b;
 
 	updateColor();
 }
