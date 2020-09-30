@@ -6,13 +6,13 @@
         <table>
           <tr>
             <td style="width: 100px">
-      	Brush size:
+      	      Brush size:
             </td>
             <td>
-      	<input type="range" min="2" max="100" value="10" id="size">
+      	      <input type="range" min="2" max="100" value="10" id="size">
             </td>
             <td style="min-width: 30px">
-      	<a id='sizeText'>10</a>
+      	      <span id='sizeText'>10</span>
             </td>
           </tr>
         </table>
@@ -72,7 +72,7 @@
                           <input type="range" min="0" max="255" value="0" id="red">
                         </td>
                         <td style="min-width: 30px">
-                          <a id='redText'>0</a>
+                          <span id='redText'>0</span>
                         </td>
                       </tr>
                       <tr>
@@ -83,7 +83,7 @@
                           <input type="range" min="0" max="255" value="0" id="green">
                         </td>
                         <td style="min-width: 30px">
-                          <a id='greenText'>0</a>
+                          <span id='greenText'>0</span>
                         </td>
                       </tr>
                       <tr>
@@ -94,7 +94,7 @@
                           <input type="range" min="0" max="255" value="0" id="blue">
                         </td>
                         <td style="min-width: 30px">
-                          <a id='blueText'>0</a>
+                          <span id='blueText'>0</span>
                         </td>
                       </tr>
                     </table>
@@ -105,7 +105,7 @@
                     <table>
                       <tr>
                         <td style="min-width: 70px;">
-                          <a id='colorText'>#000000</a>
+                          #<input id='colorText' maxlength=6 minlength=6 value="000000"/>
                         </td>
                         <td>
                           <div class="colorDiv" id="color"></div>
