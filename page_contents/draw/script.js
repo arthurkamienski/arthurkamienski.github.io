@@ -1,3 +1,3 @@
 document.title = 'Draw - ' + document.title;
 
-$.getScript('draw.js');
+$.getScript('/page_contents/draw/draw.js');
