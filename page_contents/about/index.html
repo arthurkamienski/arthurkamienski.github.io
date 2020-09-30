@@ -1,6 +1,6 @@
 <div>
   <h1 class="w3-xlarge">ABOUT ME</h1>
-  <img class="profile-pic" src="/images/profile.jpg"> My name is Arthur Kamienski, I am 21 years old and I am a student at the <a href="http://ufabc.edu.br">Federal University of ABC (UFABC)</a> in Santo André, São Paulo, Brazil. I am currently studying Computer Sciences and I should be done in December 2019.<br><br>
+  <img class="profile-pic" src="/images/profile.jpg"> My name is Arthur Kamienski, I am <span id="age"></span> years old and I am a student at the <a href="http://ufabc.edu.br">Federal University of ABC (UFABC)</a> in Santo André, São Paulo, Brazil. I am currently studying Computer Sciences and I should be done in December 2019.<br><br>
   
   I consider myself a geek, with a deep love for programming, games and tecnology in general, and heavy influences of pop culture.<br><br>
   
@@ -27,3 +27,15 @@
   
   Now the website is mostly used as a place where I can test new web applications and make school projects. It also serves as a portfolio and a place where I can show to any and everyone the things I have been working on. 
 </div>
+<script>
+function calculate_age(dob) { 
+    var diff_ms = Date.now() - dob.getTime();
+    var age_dt = new Date(diff_ms); 
+  
+    return Math.abs(age_dt.getUTCFullYear() - 1970);
+}
+
+var age = calculate_age(new Date(1997, 8, 15));
+$("#age").text(age);
+
+</script>
