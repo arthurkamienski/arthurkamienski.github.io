@@ -13,8 +13,28 @@
 <script src="/scripts/defaultScript.js"></script>
 <script>
 $(function(){
-  $(".main").load("/page_contents/index/index.html");
+  var page_name    = "index"
+  var page_content = `/page_contents/{page_name}/index.html`
+  var page_style   = `/page_contents/{page_name}/style.css`
+  var page_script  = `/page_contents/{page_name}/script.js`
+
+  $(".main").load(page_content);
+
+  $.get(page_style)
+    .done(function() { 
+      $('head').append(
+        $("<link />",{
+          rel: "stylesheet",
+          type: "text/css",
+          href: page_style
+        })
+      );
+    }
 });
+
+function addCss(fileName) {
+   link);
+}
 </script>
 </head>
 <body>
