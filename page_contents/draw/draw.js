@@ -107,6 +107,10 @@ function on(evt) {
 	var x = parseInt(evt.clientX-rect.left);
 	var y = parseInt(evt.clientY-rect.top);
 
+        console.log(rect);
+        console.log(x);
+        console.log(y);
+
 	ctx.fillStyle = color;
 	ctx.beginPath();
 	ctx.arc(x, y, size/2, 0, 2 * Math.PI);
@@ -133,12 +137,8 @@ function off(evt) {
 
 function draw(evt) {
 	var rect = canvas.getBoundingClientRect();
-        console.log(rect);
 	var x = parseInt(evt.clientX-rect.left);
 	var y = parseInt(evt.clientY-rect.top);
-	
-        console.log(x);
-        console.log(y);
 
 	ctx.fillStyle = color;
 	ctx.strokeStyle = color;
