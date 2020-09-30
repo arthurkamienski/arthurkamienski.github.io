@@ -101,10 +101,10 @@ function action(evt) {
 }
 
 function on(evt) {
-	canvas.addEventListener('mouseup', off);
-	canvas.addEventListener('mouseleave', off);
-        canvas.addEventListener('touchend', off);
-        canvas.addEventListener('touchcancel', off);
+	document.addEventListener('mouseup', off);
+	//canvas.addEventListener('mouseleave', off);
+        //canvas.addEventListener('touchend', off);
+        //canvas.addEventListener('touchcancel', off);
         document.addEventListener('selectstart', disableSelect);
 
 	var rect = canvas.getBoundingClientRect();
@@ -138,10 +138,10 @@ function off(evt) {
 	canvas.removeEventListener('mousemove', draw);
         canvas.removeEventListener('touchmove', draw);
 
-	canvas.removeEventListener('mouseup', off);
-	canvas.removeEventListener('mouseleave', off);
-        canvas.removeEventListener('touchend', off);
-        canvas.removeEventListener('touchcancel', off);
+	document.removeEventListener('mouseup', off);
+	//canvas.removeEventListener('mouseleave', off);
+        //canvas.removeEventListener('touchend', off);
+        //canvas.removeEventListener('touchcancel', off);
         document.removeEventListener('selectstart', disableSelect);
 }
 
