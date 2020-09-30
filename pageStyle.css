@@ -38,7 +38,6 @@ header {
 .main {
 	width: 70%;
         margin: 0 auto;
-	margin-bottom: 150px;
 }
 
 @media screen and (max-width: 600px) {
