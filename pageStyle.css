@@ -20,6 +20,10 @@ header {
 	width: 100%;
 }
 
+.pageTitle {
+	display: inline;
+}
+
 .topnav {
 	overflow: hidden;
 	min-width: 125px;
