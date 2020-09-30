@@ -11,4 +11,9 @@ a.btn {
 
     text-decoration: none;
     color: initial;
+
+    width: 100px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    padding: 5px;
 }
