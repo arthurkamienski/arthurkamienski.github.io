@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Arthur Kamienski</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="default_style.css">
+<link rel="icon" type="image/png" href="images/icons/icon_black_bg.png"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/scripts/defaultScript.js"></script>
+<script>
+$(function(){
+  var page_name    = "games"
+  var page_content = `/page_contents/${page_name}/index.html`
+  var page_style   = `/page_contents/${page_name}/style.css`
+  var page_script  = `/page_contents/${page_name}/script.js`
+
+  $(".main").load(page_content);
+
+  $('head').append(
+    $("<link />",{
+      rel: "stylesheet",
+      type: "text/css",
+      href: page_style
+    })
+  );
+  
+  $('head').append(
+    $("<link />",{
+      rel: "stylesheet",
+      type: "text/css",
+      href: page_style
+    })
+  );
+
+  $.getScript(page_script);
+});
+</script>
+</head>
+<body>
+  <div class="w3-content w3-center content-div">
+    <div id="header"></div>
+    <div class="main"></div>
+  </div>
+  <div id="footer"></div>
+</div>
+</body>
+</html>
