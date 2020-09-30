@@ -20,16 +20,23 @@ $(function(){
 
   $(".main").load(page_content);
 
-  $.get(page_style)
-    .done(function() { 
-      $('head').append(
-        $("<link />",{
-          rel: "stylesheet",
-          type: "text/css",
-          href: page_style
-        })
-      );
-    });
+  $('head').append(
+    $("<link />",{
+      rel: "stylesheet",
+      type: "text/css",
+      href: page_style
+    })
+  );
+  
+  $('head').append(
+    $("<link />",{
+      rel: "stylesheet",
+      type: "text/css",
+      href: page_style
+    })
+  );
+
+  $.getScript(page_script);
 });
 </script>
 </head>
