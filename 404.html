@@ -13,7 +13,30 @@
 <script src="/scripts/defaultScript.js"></script>
 <script>
 $(function(){
-  $(".main").load("/page_contents/404/index.html");
+  var page_name    = "404"
+  var page_content = `/page_contents/${page_name}/index.html`
+  var page_style   = `/page_contents/${page_name}/style.css`
+  var page_script  = `/page_contents/${page_name}/script.js`
+
+  $(".main").load(page_content);
+
+  $('head').append(
+    $("<link />",{
+      rel: "stylesheet",
+      type: "text/css",
+      href: page_style
+    })
+  );
+  
+  $('head').append(
+    $("<link />",{
+      rel: "stylesheet",
+      type: "text/css",
+      href: page_style
+    })
+  );
+
+  $.getScript(page_script);
 });
 </script>
 </head>
