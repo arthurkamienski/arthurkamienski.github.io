@@ -100,7 +100,8 @@ function action(evt) {
 }
 
 function on(evt) {
-	canvas.addEventListener('mouseup', off);
+	document.addEventListener('mouseup', off);
+        document.addEventListener('selectstart', disableSelect);
 
 	var rect = canvas.getBoundingClientRect();
 	var x = parseInt(evt.clientX-rect.left);
@@ -126,7 +127,8 @@ function off(evt) {
 	ctx.fill();
 
 	canvas.removeEventListener('mousemove', draw);
-	canvas.removeEventListener('mouseup', off);
+	document.removeEventListener('mouseup', off);
+        document.removeEventListener('selectstart', disableSelect);
 }
 
 function draw(evt) {
@@ -148,4 +150,8 @@ function draw(evt) {
 	ctx.fill();
 
 	pos = [x, y];
+}
+
+function disableSelect(evt) {
+    evt.preventDefault();
 }
