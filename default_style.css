@@ -1,20 +1,16 @@
 body, h1, h2 {font-family: "Raleway", Arial, sans-serif}
 h1, h2 {letter-spacing: 6px}
 
-html {
-	position: relative;
-	height: 100%;
-}
-
 body {
 	margin: 0 0;
 	padding: 0;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
 }
 
 footer {
 	width: 100%;
-	position: absolute;
-	bottom: 0;
 }
 
 header {
@@ -41,6 +37,7 @@ header {
 }
 
 .content-div {
+	flex: 1;
 }
 
 .main {
