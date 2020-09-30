@@ -2,11 +2,12 @@ body, h1, h2 {font-family: "Raleway", Arial, sans-serif}
 h1, h2 {letter-spacing: 6px}
 
 html {
+	position: relative;
 	height: 100%;
 }
 
 body {
-	margin: 0;
+	margin: 0 0 100px;
 	padding: 0;
 	height: 100%;
 	min-height: 100%;
@@ -14,7 +15,9 @@ body {
 
 footer {
 	width: 100%;
-	margin-top: 50px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
 }
 
 header {
