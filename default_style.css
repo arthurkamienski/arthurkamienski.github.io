@@ -38,6 +38,7 @@ header {
 
 .content-div {
 	flex: 1;
+	margin-bottom: 50px;
 }
 
 .main {
