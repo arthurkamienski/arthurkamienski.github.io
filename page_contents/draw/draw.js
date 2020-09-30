@@ -111,7 +111,9 @@ function on(evt) {
 	var x = parseInt(evt.clientX-rect.left);
 	var y = parseInt(evt.clientY-rect.top);
 
-        console.log(rect, x, y);
+        console.log(rect);
+        console.log(x);
+        console.log(y);
 
 	ctx.fillStyle = color;
 	ctx.beginPath();
