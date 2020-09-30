@@ -88,6 +88,7 @@ function updateColor() {
 window.onload = function() {
 	clear();
 	canvas.addEventListener('mousedown', action);
+        canvas.addEventListener('touchstart', action);
 }
 
 function action(evt) {
@@ -101,15 +102,13 @@ function action(evt) {
 
 function on(evt) {
 	document.addEventListener('mouseup', off);
+        document.addEventListener('touchend', off);
+        document.addEventListener('touchcancel', off);
         document.addEventListener('selectstart', disableSelect);
 
 	var rect = canvas.getBoundingClientRect();
 	var x = parseInt(evt.clientX-rect.left);
 	var y = parseInt(evt.clientY-rect.top);
-
-        console.log(rect);
-        console.log(x);
-        console.log(y);
 
 	ctx.fillStyle = color;
 	ctx.beginPath();
@@ -119,6 +118,7 @@ function on(evt) {
 	pos = [x, y];
 
 	canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('touchmove', draw);
 }
 
 function off(evt) {
@@ -131,7 +131,11 @@ function off(evt) {
 	ctx.fill();
 
 	canvas.removeEventListener('mousemove', draw);
+        canvas.removeEventListener('touchmove', draw);
+
 	document.removeEventListener('mouseup', off);
+        document.removeEventListener('touchend', off);
+        document.removeEventListener('touchcancel', off);
         document.removeEventListener('selectstart', disableSelect);
 }
 
