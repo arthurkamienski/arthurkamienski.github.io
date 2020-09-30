@@ -82,7 +82,7 @@ function changeColor(r, g, b) {
 function updateColor() {
 	color = "#"+red+green+blue;
 	colorPrev.style.backgroundColor = color;
-	colorText.value = color.toUpperCase();
+	colorText.text = color.toUpperCase();
 }
 
 window.onload = function() {
