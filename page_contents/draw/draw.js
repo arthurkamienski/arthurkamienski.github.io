@@ -111,8 +111,6 @@ function on(evt) {
 	var x = parseInt(evt.clientX-rect.left);
 	var y = parseInt(evt.clientY-rect.top);
 
-        console.log(evt.clientX);
-        console.log(evt.clientY);
         console.log(rect);
         console.log(x);
         console.log(y);
