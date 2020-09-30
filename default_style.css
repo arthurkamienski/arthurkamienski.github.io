@@ -9,11 +9,12 @@ html {
 body {
 	margin: 0 0;
 	padding: 0;
-	height: 100%;
 }
 
 footer {
 	width: 100%;
+	position: absolute;
+	bottom: 0;
 }
 
 header {
@@ -40,8 +41,6 @@ header {
 }
 
 .content-div {
-	height:100%;
-	min-height:100%;
 }
 
 .main {
