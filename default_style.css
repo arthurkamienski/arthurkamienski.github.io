@@ -19,6 +19,10 @@ header {
 	width: 100%;
 }
 
+a:hover {
+	opacity: 0.5;
+}
+
 .title {
 	margin: 32px
 }
