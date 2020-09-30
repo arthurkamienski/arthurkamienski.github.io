@@ -20,11 +20,10 @@ td, table,tr {
 }
 
 .outer {
-	border-style: solid;
-	border-width: 1px;
+	padding: 15px;
 }
 
-canvas {
+canvas, .outer {
 	margin-top: 40px;
 	border-radius: 20px;
 	width: 100%;
