@@ -23,3 +23,14 @@ td, table,tr {
 	border-style: solid;
 	border-width: 1px;
 }
+
+canvas {
+	margin-top: 40px;
+	border-radius: 20px;
+	width: 100%;
+	border: 1px solid lightgrey;
+}
+
+.main {
+	width: 100%;
+}
