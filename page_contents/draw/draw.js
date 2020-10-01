@@ -112,7 +112,7 @@ function drawPos(evt) {
   return [canvasX, canvasY];
 }
 
-function drawPoint(evnt) {
+function drawPoint(evt) {
   const [x, y] = drawPos(evt);
 
   ctx.fillStyle = color;
