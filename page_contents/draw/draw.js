@@ -88,23 +88,37 @@ function updateColor() {
 
 window.onload = function() {
   clear();
-  console.log('aaa');
-  canvas.addEventListener('mousedown', action);
-  canvas.addEventListener('touchstart', action);
+  canvas.addEventListener('mousedown', canvasMouseClick);
+  canvas.addEventListener('touchstart', canvasTouch);
 }
 
-// does not do anything right now, but will be handy for more tools
-function action(evt) {
+function mouseEvtPos(evt) {
+  return {x: evt.clientX, y: evt.clientY};
+}
+
+function touchEvtPos(evt) {
+  return {x: evt.touches[0].clientX, y: evt.touches[0].clientY};
+}
+
+function canvasMouseClick(evt) {
   var tool = 'brush';
   if(tool == 'brush') {
-    brushStart(evt);
-  } 
+    brushStartMouse(evt);
+ } 
 }
 
-function drawPos(evt) {
+function canvasTouch(evt) {
+  evt.preventDefault();
+  var tool = 'brush';
+  if(tool == 'brush') {
+    brushStartTouch(evt);
+ } 
+}
+
+function canvasPos(evtPos) {
   var rect = canvas.getBoundingClientRect();
-  var x = parseInt(evt.clientX-rect.left);
-  var y = parseInt(evt.clientY-rect.top);
+  var x = parseInt(evtPos.X-rect.left);
+  var y = parseInt(evtPos.Y-rect.top);
   
   var canvasX = x/rect.width*500;
   var canvasY = y/rect.height*500;
@@ -112,8 +126,8 @@ function drawPos(evt) {
   return [canvasX, canvasY];
 }
 
-function drawPoint(evt) {
-  const [x, y] = drawPos(evt);
+function drawPoint(evtPos) {
+  const [x, y] = canvasPos(evtPos);
 
   ctx.fillStyle = color;
   ctx.beginPath();
@@ -123,8 +137,9 @@ function drawPoint(evt) {
   prevPos = [x, y]
 }
 
-function drawLine(evt) {
-  const [x, y] = drawPos(evt);
+function drawLine(evtPos) {
+  const [x, y] = canvasPos(evtPos);
+
   ctx.fillStyle = color;
   ctx.strokeStyle = color;
   ctx.lineWidth = size;
@@ -141,29 +156,60 @@ function drawLine(evt) {
   prevPos = [x, y];
 }
 
-function brushStart(evt) {
-  document.addEventListener('mouseup', brushEnd);
-  //canvas.addEventListener('touchend', off);
-  //canvas.addEventListener('touchcancel', off);
+function brushStartMouse(evt) {
+  document.addEventListener('mouseup', brushEndMouse);
   document.addEventListener('selectstart', disableSelect);
-  
-  drawPoint(evt);
-  console.log('a');
-  
-  canvas.addEventListener('mousemove', drawLine);
-  //canvas.addEventListener('touchmove', draw);
+
+  var evtPos = mouseEvtPos(evt);
+
+  drawPoint(evtPos);
+
+  canvas.addEventListener('mousemove', drawLineMouse);
 }
 
-function brushEnd(evt) {
-  drawPoint(evt);
+function brushStartTouch(evt) {
+  document.addEventListener('touchend', brushEndTouch);
+  document.addEventListener('touchcancel', brushEndTouch);
 
-  canvas.removeEventListener('mousemove', drawLine);
-  //canvas.removeEventListener('touchmove', draw);
+  var evtPos = touchEvtPos(evt);
 
-  document.removeEventListener('mouseup', brushEnd);
-  //canvas.removeEventListener('touchend', off);
-  //canvas.removeEventListener('touchcancel', off);
+  drawPoint(evtPos);
+
+  canvas.addEventListener('touchmove', drawLineTouch);
+}
+
+function brushEndMouse(evt) {
+  var evtPos = mouseEvtPos(evt);
+  
+  drawPoint(evtPos);
+
+  canvas.removeEventListener('mousemove', drawLineMouse);
+
+  document.removeEventListener('mouseup', brushEndMouse);
   document.removeEventListener('selectstart', disableSelect);
+}
+
+function brushEndTouch(evt) {
+  var evtPos = touchEvtPos(evt);
+
+  drawPoint(evtPos);
+
+  canvas.removeEventListener('touchmove', drawLineTouch);
+
+  document.removeEventListener('touchend', brushEndTouch);
+  document.removeEventListener('touchcancel', brushEndTouch);
+}
+
+function drawLineMouse(evt) {
+  var evtPos = mouseEvtPos(evt);
+
+  drawLine(evtPos);
+}
+
+function drawLineTouch(evt) {
+  var evtPos = touchEvtPos(evt);
+
+  drawLine(evtPos);
 }
 
 function disableSelect(evt) {
