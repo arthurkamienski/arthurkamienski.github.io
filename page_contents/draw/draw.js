@@ -4,7 +4,6 @@ var redText = document.getElementById('redText');
 var blueText = document.getElementById('blueText');
 var greenText = document.getElementById('greenText');
 var colorText = document.getElementById('colorText');
-var ctx = canvas.getContext("2d");
 
 var colorPrev = document.getElementById('color');
 
@@ -105,7 +104,7 @@ function on(evt) {
 	//canvas.addEventListener('mouseleave', off);
         //canvas.addEventListener('touchend', off);
         //canvas.addEventListener('touchcancel', off);
-        document.addEventListener('selectstart', disableSelect);
+        //document.addEventListener('selectstart', disableSelect);
 
 	var rect = canvas.getBoundingClientRect();
 	var x = parseInt(evt.clientX-rect.left);
@@ -114,6 +113,8 @@ function on(evt) {
         console.log(rect);
         console.log(x);
         console.log(y);
+        
+        var ctx = canvas.getContext("2d");
 
 	ctx.fillStyle = color;
 	ctx.beginPath();
@@ -131,7 +132,9 @@ function off(evt) {
 	var x = parseInt(evt.clientX-rect.left);
 	var y = parseInt(evt.clientY-rect.top);
 
-	ctx.beginPath();
+        var ctx = canvas.getContext("2d");
+	
+        ctx.beginPath();
 	ctx.arc(x, y, size/2, 0, 2 * Math.PI);
 	ctx.fill();
 
@@ -142,7 +145,7 @@ function off(evt) {
 	//canvas.removeEventListener('mouseleave', off);
         //canvas.removeEventListener('touchend', off);
         //canvas.removeEventListener('touchcancel', off);
-        document.removeEventListener('selectstart', disableSelect);
+        //document.removeEventListener('selectstart', disableSelect);
 }
 
 function draw(evt) {
@@ -150,7 +153,9 @@ function draw(evt) {
 	var x = parseInt(evt.clientX-rect.left);
 	var y = parseInt(evt.clientY-rect.top);
 
-	ctx.fillStyle = color;
+        var ctx = canvas.getContext("2d");
+	
+        ctx.fillStyle = color;
 	ctx.strokeStyle = color;
 	ctx.lineWidth = size;
 
