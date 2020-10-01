@@ -5,6 +5,6 @@ script.src = "/page_contents/draw/draw.js";
 
 document.head.appendChild(script);
 
-script.onload(function(){
+script.onload = function() {
   canvas.addEventListener('touchstart', canvasTouch, {passive: false});
 });
