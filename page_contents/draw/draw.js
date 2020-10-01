@@ -35,6 +35,7 @@ document.getElementById('clear').onclick = function() {
   clear();
 }
 
+//TODO: add alert before download
 document.getElementById('save').onclick = function() {
   var link = document.getElementById('link');
   var href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
@@ -92,16 +93,25 @@ function updateColor() {
 
 window.onload = function() {
   clear();
+
   canvas.addEventListener('mousedown', canvasMouseClick);
-  canvas.addEventListener('touchstart', canvasTouch, {passive: false});
+
+  canvas.addEventListener('touchstart', function(e) {
+    var mouseEvt = touchToMouseEvt(e, "mousedown");
+    canvas.dispatchEvent(mouseEvt);
+  }, {passive: false});
 }
 
 function mouseEvtPos(evt) {
   return {x: evt.clientX, y: evt.clientY};
 }
 
-function touchEvtPos(evt) {
-  return {x: evt.touches[0].clientX, y: evt.touches[0].clientY};
+function touchToMouseEvt(evt, mouseEventName) {
+  var touch = evt.touches[0]
+  return new MouseEvent(mouseEventName, {
+    clientX: touch.clientX,
+    clientY: touch.clientY
+  });
 }
 
 function canvasMouseClick(evt) {
