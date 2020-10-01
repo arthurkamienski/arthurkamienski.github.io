@@ -39,6 +39,10 @@ canvas, .outer {
 	width: 100%;
 }
 
+canvas {
+	touch-action: none;
+}
+
 button {
 	background-color: white;
 	border: 1px solid lightgrey;
