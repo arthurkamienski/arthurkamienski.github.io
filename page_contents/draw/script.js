@@ -7,4 +7,4 @@ document.head.appendChild(script);
 
 script.onload = function() {
   canvas.addEventListener('touchstart', canvasTouch, {passive: false});
-});
+};
