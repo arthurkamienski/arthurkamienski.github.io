@@ -100,7 +100,7 @@ function action(evt) {
 }
 
 function on(evt) {
-	document.addEventListener('mouseup', off);
+	document.addEventListener('mouseup', off, {passive: true});
 	//canvas.addEventListener('mouseleave', off);
         //canvas.addEventListener('touchend', off);
         //canvas.addEventListener('touchcancel', off);
