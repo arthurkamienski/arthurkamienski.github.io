@@ -1,7 +1,3 @@
-document.body.addEventListener("touchstart", function(e){ if (e.target.nodeName == 'CANVAS') { e.preventDefault(); } }, false);
-document.body.addEventListener("touchend", function(e){ if (e.target.nodeName == 'CANVAS') { e.preventDefault(); } }, false);
-document.body.addEventListener("touchmove", function(e){ if (e.target.nodeName == 'CANVAS') { e.preventDefault(); } }, false);
-
 var canvas = document.getElementById('canvas');
 var sizeText = document.getElementById('sizeText');
 var redText = document.getElementById('redText');
@@ -115,7 +111,6 @@ function canvasMouseClick(evt) {
 }
 
 function canvasTouch(evt) {
-  console.log('event trigered');
   var tool = 'brush';
   if(tool == 'brush') {
     brushStartTouch(evt);
@@ -135,8 +130,6 @@ function canvasPos(evtPos) {
 
 function drawPoint(evtPos) {
   const [x, y] = canvasPos(evtPos);
-
-  console.log(x, y);
 
   ctx.fillStyle = color;
   ctx.beginPath();
@@ -199,10 +192,6 @@ function brushEndMouse(evt) {
 }
 
 function brushEndTouch(evt) {
-  var evtPos = touchEvtPos(evt);
-
-  drawPoint(evtPos);
-
   canvas.removeEventListener('touchmove', drawLineTouch);
 
   document.removeEventListener('touchend', brushEndTouch);
