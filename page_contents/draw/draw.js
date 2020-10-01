@@ -129,6 +129,8 @@ function canvasPos(evtPos) {
 function drawPoint(evtPos) {
   const [x, y] = canvasPos(evtPos);
 
+  console.log(x, y);
+
   ctx.fillStyle = color;
   ctx.beginPath();
   ctx.arc(x, y, size/2, 0, 2 * Math.PI);
@@ -190,6 +192,7 @@ function brushEndMouse(evt) {
 }
 
 function brushEndTouch(evt) {
+  evt.preventDefault();
   var evtPos = touchEvtPos(evt);
 
   drawPoint(evtPos);
@@ -207,6 +210,7 @@ function drawLineMouse(evt) {
 }
 
 function drawLineTouch(evt) {
+  evt.preventDefault();
   var evtPos = touchEvtPos(evt);
 
   drawLine(evtPos);
