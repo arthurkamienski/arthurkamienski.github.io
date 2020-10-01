@@ -4,8 +4,9 @@ var redText = document.getElementById('redText');
 var blueText = document.getElementById('blueText');
 var greenText = document.getElementById('greenText');
 var colorText = document.getElementById('colorText');
-
 var colorPrev = document.getElementById('color');
+
+var ctx = canvas.getContext("2d");
 
 var red = "00";
 var green = "00";
@@ -16,14 +17,14 @@ var color = "#000000";
 var tool = 'fill';
 var size = 10;
 
-var pos = [0, 0];
+var prevPos = [0, 0];
 
 function toHex(num) {
-	var hex = Number(num).toString(16);
-	  if (hex.length < 2) {
-	       hex = "0" + hex;
-	  }
-	return hex;
+  var hex = Number(num).toString(16);
+    if (hex.length < 2) {
+         hex = "0" + hex;
+    }
+  return hex;
 }
 
 document.getElementById('clear').onclick = function() {
@@ -31,10 +32,10 @@ document.getElementById('clear').onclick = function() {
 }
 
 document.getElementById('save').onclick = function() {
-	var link = document.getElementById('link');
-	var href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-	link.setAttribute('href', href);
-	link.click();
+  var link = document.getElementById('link');
+  var href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+  link.setAttribute('href', href);
+  link.click();
 }
 
 document.getElementById('size').oninput = function() {
@@ -60,115 +61,115 @@ document.getElementById('blue').oninput = function() {
 }
 
 function clear() {
+  var ctx = canvas.getContext("2d");
   ctx.fillStyle = 'white';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
 function changeColor(r, g, b) {
-	document.getElementById('red').value = r;
-	red = toHex(r);
-	redText.innerHTML = r;
-	document.getElementById('green').value = g;
-	green = toHex(g);
-	greenText.innerHTML = g;
-	document.getElementById('blue').value = b;
-	blue = toHex(b);
-	blueText.innerHTML = b;
-
-	updateColor();
+  document.getElementById('red').value = r;
+  red = toHex(r);
+  redText.innerHTML = r;
+  document.getElementById('green').value = g;
+  green = toHex(g);
+  greenText.innerHTML = g;
+  document.getElementById('blue').value = b;
+  blue = toHex(b);
+  blueText.innerHTML = b;
+  
+  updateColor();
 }
 
 function updateColor() {
-	color = "#"+red+green+blue;
-	colorPrev.style.backgroundColor = color;
-	colorText.innerHTML = color.toUpperCase();
+  color = "#"+red+green+blue;
+  colorPrev.style.backgroundColor = color;
+  colorText.innerHTML = color.toUpperCase();
 }
 
 window.onload = function() {
-	clear();
-	canvas.addEventListener('mousedown', action);
-        canvas.addEventListener('touchstart', action);
+  clear();
+  canvas.addEventListener('mousedown', action);
+  //canvas.addEventListener('touchstart', action);
 }
 
+// does not do anything right now, but will be handy for more tools
 function action(evt) {
-	var tool = 'brush';
-	if(tool == 'brush') {
-		on(evt);
-	} else {
-		fill(evt);
-	}
+  var tool = 'brush';
+  if(tool == 'brush') {
+  	on(evt);
+  } else {
+  	fill(evt);
+  }
+}
+
+function drawPos(evt) {
+  var rect = canvas.getBoundingClientRect();
+  var x = parseInt(evt.clientX-rect.left);
+  var y = parseInt(evt.clientY-rect.top);
+  
+  var canvasX = x/rect.width*500;
+  var canvasY = y/rect.height*500;
+
+  return [canvasX, canvasY];
+}
+
+function drawPoint(x, y) {
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  ctx.arc(x, y, size/2, 0, 2 * Math.PI);
+  ctx.fill();
+}
+
+function drawLine(x, y) {
+  ctx.fillStyle = color;
+  ctx.strokeStyle = color;
+  ctx.lineWidth = size;
+  
+  ctx.beginPath();
+  ctx.moveTo(prevPos[0], prevPos[1]);
+  ctx.lineTo(x, y);
+  ctx.stroke();
+  
+  ctx.beginPath();
+  ctx.arc(x, y, size/2, 0, 2 * Math.PI);
+  ctx.fill();
 }
 
 function on(evt) {
-	canvas.addEventListener('mouseup', off);
-	canvas.addEventListener('mouseleave', off);
-        canvas.addEventListener('touchend', off);
-        canvas.addEventListener('touchcancel', off);
-        //document.addEventListener('selectstart', disableSelect);
+	document.addEventListener('mouseup', off);
+        //canvas.addEventListener('touchend', off);
+        //canvas.addEventListener('touchcancel', off);
+        document.addEventListener('selectstart', disableSelect);
 
-	var rect = canvas.getBoundingClientRect();
-	var x = parseInt(evt.clientX-rect.left);
-	var y = parseInt(evt.clientY-rect.top);
+        const [x, y] = drawPos(evt);
 
-        console.log(rect);
-        console.log(x);
-        console.log(y);
+        drawPoint(x, y);
+        prevPos = [x, y]
         
-        var ctx = canvas.getContext("2d");
-
-	ctx.fillStyle = color;
-	ctx.beginPath();
-	ctx.arc(x, y, size/2, 0, 2 * Math.PI);
-	ctx.fill();
-
-	pos = [x, y];
-
 	canvas.addEventListener('mousemove', draw);
-        canvas.addEventListener('touchmove', draw);
+        //canvas.addEventListener('touchmove', draw);
 }
 
 function off(evt) {
-	var rect = canvas.getBoundingClientRect();
-	var x = parseInt(evt.clientX-rect.left);
-	var y = parseInt(evt.clientY-rect.top);
+        const [x, y] = drawPos(evt);
 
-        var ctx = canvas.getContext("2d");
-	
-        ctx.beginPath();
-	ctx.arc(x, y, size/2, 0, 2 * Math.PI);
-	ctx.fill();
+        drawPoint(x, y);
 
 	canvas.removeEventListener('mousemove', draw);
-        canvas.removeEventListener('touchmove', draw);
+        //canvas.removeEventListener('touchmove', draw);
 
-	canvas.removeEventListener('mouseup', off);
-	canvas.removeEventListener('mouseleave', off);
-        canvas.removeEventListener('touchend', off);
-        canvas.removeEventListener('touchcancel', off);
-        //document.removeEventListener('selectstart', disableSelect);
+	document.removeEventListener('mouseup', off);
+        //canvas.removeEventListener('touchend', off);
+        //canvas.removeEventListener('touchcancel', off);
+        document.removeEventListener('selectstart', disableSelect);
 }
 
 function draw(evt) {
-	var rect = canvas.getBoundingClientRect();
-	var x = parseInt(evt.clientX-rect.left);
-	var y = parseInt(evt.clientY-rect.top);
+        const [x, y] = drawPos(evt);
+        
+        drawLine(x, y);
 
-        var ctx = canvas.getContext("2d");
-	
-        ctx.fillStyle = color;
-	ctx.strokeStyle = color;
-	ctx.lineWidth = size;
-
-	ctx.beginPath();
-	ctx.moveTo(pos[0], pos[1]);
-	ctx.lineTo(x, y);
-	ctx.stroke();
-
-	ctx.beginPath();
-	ctx.arc(x, y, size/2, 0, 2 * Math.PI);
-	ctx.fill();
-
-	pos = [x, y];
+        prevPos = [x, y];
 }
 
 function disableSelect(evt) {
