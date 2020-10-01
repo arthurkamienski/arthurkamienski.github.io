@@ -117,8 +117,8 @@ function canvasTouch(evt) {
 
 function canvasPos(evtPos) {
   var rect = canvas.getBoundingClientRect();
-  var x = parseInt(evtPos.X-rect.left);
-  var y = parseInt(evtPos.Y-rect.top);
+  var x = parseInt(evtPos.x-rect.left);
+  var y = parseInt(evtPos.y-rect.top);
   
   var canvasX = x/rect.width*500;
   var canvasY = y/rect.height*500;
