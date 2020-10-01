@@ -109,6 +109,7 @@ function canvasMouseClick(evt) {
 
 function canvasTouch(evt) {
   evt.preventDefault();
+  console.log('event trigered');
   var tool = 'brush';
   if(tool == 'brush') {
     brushStartTouch(evt);
