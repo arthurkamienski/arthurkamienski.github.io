@@ -93,7 +93,7 @@ function updateColor() {
 window.onload = function() {
   clear();
   canvas.addEventListener('mousedown', canvasMouseClick);
-  canvas.addEventListener('touchstart', canvasTouch);
+  canvas.addEventListener('touchstart', canvasTouch, {passive: false});
 }
 
 function mouseEvtPos(evt) {
@@ -175,14 +175,14 @@ function brushStartMouse(evt) {
 }
 
 function brushStartTouch(evt) {
-  document.addEventListener('touchend', brushEndTouch);
-  document.addEventListener('touchcancel', brushEndTouch);
+  document.addEventListener('touchend', brushEndTouch, {passive: false});
+  document.addEventListener('touchcancel', brushEndTouch, {passive: false});
 
   var evtPos = touchEvtPos(evt);
 
   drawPoint(evtPos);
 
-  canvas.addEventListener('touchmove', drawLineTouch);
+  canvas.addEventListener('touchmove', drawLineTouch, {passive: false});
 }
 
 function brushEndMouse(evt) {
