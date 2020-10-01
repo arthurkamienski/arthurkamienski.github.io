@@ -87,14 +87,6 @@ function updateColor() {
   colorText.innerHTML = color.toUpperCase();
 }
 
-window.onload = function() {
-  clear();
-
-  canvas.addEventListener('mousedown', canvasMouseClick);
-
-  canvas.addEventListener('touchstart', canvasTouch, {passive: false});
-}
-
 function mouseEvtPos(evt) {
   return {x: evt.clientX, y: evt.clientY};
 }
