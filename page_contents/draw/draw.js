@@ -112,7 +112,6 @@ function canvasMouseClick(evt) {
 }
 
 function canvasTouch(evt) {
-  evt.preventDefault();
   console.log('event trigered');
   var tool = 'brush';
   if(tool == 'brush') {
@@ -197,7 +196,6 @@ function brushEndMouse(evt) {
 }
 
 function brushEndTouch(evt) {
-  evt.preventDefault();
   var evtPos = touchEvtPos(evt);
 
   drawPoint(evtPos);
@@ -215,7 +213,6 @@ function drawLineMouse(evt) {
 }
 
 function drawLineTouch(evt) {
-  evt.preventDefault();
   var evtPos = touchEvtPos(evt);
 
   drawLine(evtPos);
