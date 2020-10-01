@@ -88,18 +88,17 @@ function updateColor() {
 
 window.onload = function() {
   clear();
+  console.log('aaa');
   canvas.addEventListener('mousedown', action);
-  //canvas.addEventListener('touchstart', action);
+  canvas.addEventListener('touchstart', action);
 }
 
 // does not do anything right now, but will be handy for more tools
 function action(evt) {
   var tool = 'brush';
   if(tool == 'brush') {
-  	on(evt);
-  } else {
-  	fill(evt);
-  }
+    brushStart(evt);
+  } 
 }
 
 function drawPos(evt) {
@@ -113,14 +112,19 @@ function drawPos(evt) {
   return [canvasX, canvasY];
 }
 
-function drawPoint(x, y) {
+function drawPoint(evnt) {
+  const [x, y] = drawPos(evt);
+
   ctx.fillStyle = color;
   ctx.beginPath();
   ctx.arc(x, y, size/2, 0, 2 * Math.PI);
   ctx.fill();
+  
+  prevPos = [x, y]
 }
 
-function drawLine(x, y) {
+function drawLine(evt) {
+  const [x, y] = drawPos(evt);
   ctx.fillStyle = color;
   ctx.strokeStyle = color;
   ctx.lineWidth = size;
@@ -133,43 +137,33 @@ function drawLine(x, y) {
   ctx.beginPath();
   ctx.arc(x, y, size/2, 0, 2 * Math.PI);
   ctx.fill();
+  
+  prevPos = [x, y];
 }
 
-function on(evt) {
-	document.addEventListener('mouseup', off);
-        //canvas.addEventListener('touchend', off);
-        //canvas.addEventListener('touchcancel', off);
-        document.addEventListener('selectstart', disableSelect);
-
-        const [x, y] = drawPos(evt);
-
-        drawPoint(x, y);
-        prevPos = [x, y]
-        
-	canvas.addEventListener('mousemove', draw);
-        //canvas.addEventListener('touchmove', draw);
+function brushStart(evt) {
+  document.addEventListener('mouseup', brushEnd);
+  //canvas.addEventListener('touchend', off);
+  //canvas.addEventListener('touchcancel', off);
+  document.addEventListener('selectstart', disableSelect);
+  
+  drawPoint(evt);
+  console.log('a');
+  
+  canvas.addEventListener('mousemove', drawLine);
+  //canvas.addEventListener('touchmove', draw);
 }
 
-function off(evt) {
-        const [x, y] = drawPos(evt);
+function brushEnd(evt) {
+  drawPoint(evt);
 
-        drawPoint(x, y);
+  canvas.removeEventListener('mousemove', drawLine);
+  //canvas.removeEventListener('touchmove', draw);
 
-	canvas.removeEventListener('mousemove', draw);
-        //canvas.removeEventListener('touchmove', draw);
-
-	document.removeEventListener('mouseup', off);
-        //canvas.removeEventListener('touchend', off);
-        //canvas.removeEventListener('touchcancel', off);
-        document.removeEventListener('selectstart', disableSelect);
-}
-
-function draw(evt) {
-        const [x, y] = drawPos(evt);
-        
-        drawLine(x, y);
-
-        prevPos = [x, y];
+  document.removeEventListener('mouseup', brushEnd);
+  //canvas.removeEventListener('touchend', off);
+  //canvas.removeEventListener('touchcancel', off);
+  document.removeEventListener('selectstart', disableSelect);
 }
 
 function disableSelect(evt) {
