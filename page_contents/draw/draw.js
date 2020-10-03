@@ -28,15 +28,18 @@ function toHex(num) {
 }
 
 document.getElementById('clear').onclick = function() {
-  clear();
+  if (confirm('Do you really wish to clear your drawing?')) {
+    clear();
+  }
 }
 
-//TODO: add alert before download
 document.getElementById('save').onclick = function() {
-  var link = document.getElementById('link');
-  var href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-  link.setAttribute('href', href);
-  link.click();
+  if (confirm('Do you really want to save your drawing?\n(It will be downloaded as a file)')) {
+    var link = document.getElementById('link');
+    var href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+    link.setAttribute('href', href);
+    link.click();
+  }
 }
 
 document.getElementById('size').oninput = function() {
