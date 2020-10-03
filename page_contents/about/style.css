@@ -17,3 +17,7 @@ a.btn {
     border: 1px solid grey;
     padding: 5px;
 }
+
+img {
+	border-radius: 30px;
+}
