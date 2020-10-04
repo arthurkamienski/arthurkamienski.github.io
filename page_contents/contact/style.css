@@ -131,6 +131,12 @@
 	}
 }
 
+@media screen and (max-width: 380px) {
+	.contact-cell h1 {
+		font-size: 70%;
+	}
+}
+
 .tooltiptext {
   visibility: hidden;
   width: 120px;
