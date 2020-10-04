@@ -30,7 +30,7 @@
 	align-items: center;
 	opacity: 100;
 	transition: opacity 1s ease-in-out;
-	transition-delay: 0.5s;
+	transition-delay: 0.3s;
 	z-index: 20;
 }
 
@@ -57,10 +57,10 @@
 	transition: opacity 0.5s ease-in-out;
 }
 
-.contact-info:hover ~ div {
+.contact-info-icon:hover ~ .contact-info-name {
 	opacity: 100;
 	transition: opacity 0.5s ease-in-out;
-	transition-delay: 0.5s;
+	transition-delay: 0.3s;
 }
 
 .gmail, .ualberta {
