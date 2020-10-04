@@ -71,6 +71,24 @@
 	background-color: white;
 }
 
+.gmail, .ualberta {
+	width: 45%;
+	padding-top: 45%;
+	background-color: lightgrey;
+}
+
+.ualberta-logo {
+	width: 55px;
+}
+
+.gmail {
+	background-color: #DB4437;
+}
+
+.ualberta {
+	background-color: #007C41;
+}
+
 @media screen and (max-width: 700px) {
 	.contact-cell {
 		width: 45%;
