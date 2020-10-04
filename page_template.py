@@ -1,3 +1,6 @@
+import sys
+
+template = lambda page_name: '''
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +16,7 @@
 <script src="/scripts/defaultScript.js"></script>
 <script>
 $(function(){
-  var page_name    = "index"
+  var page_name    = "''' + page_name + '''"
   var page_content = `/page_contents/${page_name}/index.html`
   var page_style   = `/page_contents/${page_name}/style.css`
   var page_script  = `/page_contents/${page_name}/script.js`
@@ -49,3 +52,9 @@ $(function(){
 </div>
 </body>
 </html>
+'''
+
+new_page_name = sys.argv[1]
+
+with open(f"{new_page_name}.html", 'w') as f:
+    f.write(template(new_page_name))
