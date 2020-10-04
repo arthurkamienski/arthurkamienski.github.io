@@ -36,7 +36,7 @@
 	opacity: 100;
 	transition: opacity 1s ease-in-out;
 	transition-delay: 0.3s;
-	z-index: 20;
+	z-index: 10;
 }
 
 .contact-info-icon i {
@@ -57,9 +57,10 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	z-index: 10;
+	z-index: 20;
 	opacity: 0;
 	transition: opacity 0.5s ease-in-out;
+	cursor: pointer;
 }
 
 .contact-info-icon:hover {
