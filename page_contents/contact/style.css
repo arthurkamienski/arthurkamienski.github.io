@@ -79,7 +79,7 @@
 	display: block;
 }
 
-.mobile {
+.mobile, .email-copied {
 	display: none;
 }
 
