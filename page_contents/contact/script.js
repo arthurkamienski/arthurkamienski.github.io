@@ -1,8 +1,8 @@
 document.title = 'Contact - ' + document.title;
 
 function copyEmail(d) {
-  var email = $(d).text();
-  email.select();
-  email.setSelectionRange(0, 99999);
-
+    var emailInput = $(d).find("input")[0];
+    emailInput.select()
+    emailInput.setSelectionRange(0, 99999);
+    document.execCommand("copy");
 }
