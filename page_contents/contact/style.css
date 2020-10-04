@@ -24,6 +24,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 100;
+	transition: opacity 1s ease-in-out;
+	transition-delay: 0.5s;
+	z-index: 20;
+}
+
+.contact-info-name {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
 }
 
 .main {
@@ -56,6 +72,22 @@
 
 .contact-info i {
 	color: white;
+}
+
+.contact-info:hover {
+	opacity: 0;
+	transition: opacity 0.5s ease-in-out;
+}
+
+.contact-info-name {
+	opacity: 0;
+	transition: opacity 0.5s ease-in-out;
+}
+
+.contact-info:hover ~ div {
+	opacity: 100;
+	transition: opacity 0.5s ease-in-out;
+	transition-delay: 0.5s;
 }
 
 .researchgate i {
