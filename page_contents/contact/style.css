@@ -43,7 +43,7 @@
 	color: white;
 }
 
-.contact-info-icon:hover {
+.contact-info-name:hover ~ .contact-info-icon {
 	opacity: 0;
 	transition: opacity 0.5s ease-in-out;
 }
@@ -62,8 +62,8 @@
 	transition: opacity 0.5s ease-in-out;
 }
 
-.contact-info-icon:hover ~ .contact-info-name {
-	opacity: 100;
+.contact-info-icon:hover {
+	opacity: 1;
 	transition: opacity 0.5s ease-in-out;
 	transition-delay: 0.3s;
 }
@@ -144,7 +144,7 @@
   opacity: 0;
 }
 
-.contact-info-icon:hover ~ .contact-info-name .tooltiptext {
+.contact-info-name:hover .tooltiptext {
   visibility: visible;
   opacity: 0.7;
   transition: opacity 2s ease-in-out;
