@@ -173,12 +173,23 @@
   opacity: 0;
 }
 
-.contact-info-name:hover .tooltiptext {
+.email-copied {
+	opacity: 0.7;
+}
+
+.contact-info-name:hover .fadein {
   visibility: visible;
   opacity: 0.7;
   transition: opacity 2s ease-in-out;
   transition-delay: 1s;
 }
+
+.fadeout {
+	opacity: 0;
+	transition: opacity 2s ease-in-out;
+	transition-delay: 1s;
+}
+
 
 
 input {
