@@ -19,6 +19,10 @@
 	border-radius: 10px;
 }
 
+.contact-cell h1 {
+	color: white;
+}
+
 .contact-info-icon {
 	position: absolute;
 	top: 0;
