@@ -63,7 +63,7 @@
 	cursor: pointer;
 }
 
-.contact-info-icon:hover {
+.contact-info-name:hover {
 	opacity: 1;
 	transition: opacity 0.5s ease-in-out;
 	transition-delay: 0.3s;
