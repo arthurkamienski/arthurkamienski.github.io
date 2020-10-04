@@ -2,6 +2,7 @@
 	width: 30%;
 	margin-right: 15px;
 	float: left;
+	border-radius: 30px;
 }
 
 a.btn {
@@ -16,8 +17,4 @@ a.btn {
     border-radius: 5px;
     border: 1px solid grey;
     padding: 5px;
-}
-
-img {
-	border-radius: 30px;
 }
