@@ -58,6 +58,19 @@
 	color: white;
 }
 
+.researchgate i {
+	color: #00CCBB;
+	z-index: 10;
+}
+
+.bg {
+	position: absolute;
+	height: 60px;
+	width: 60px;
+	z-index: 1;
+	background-color: white;
+}
+
 @media screen and (max-width: 700px) {
 	.contact-cell {
 		width: 45%;
