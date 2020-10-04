@@ -129,3 +129,35 @@
 		padding-top: 45%;
 	}
 }
+
+.tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  margin-top: -50%;
+  opacity: 0;
+}
+
+.contact-info-icon:hover ~ .contact-info-name .tooltiptext {
+  visibility: visible;
+  opacity: 0.7;
+  transition: opacity 2s ease-in-out;
+  transition-delay: 1s;
+}
+
+.tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
