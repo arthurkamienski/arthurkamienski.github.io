@@ -69,6 +69,14 @@
 	transition-delay: 0.3s;
 }
 
+.desktop {
+	display: block;
+}
+
+.mobile {
+	display: none;
+}
+
 .gmail, .ualberta {
 	width: 45%;
 	padding-top: 45%;
@@ -128,6 +136,14 @@
 	.contact-cell {
 		width: 45%;
 		padding-top: 45%;
+	}
+
+	.desktop {
+		display: none;
+	}
+
+	.mobile {
+		display: block;
 	}
 }
 
