@@ -4,23 +4,26 @@ var canvas = $("#canvas").get(0);
 var ctx = canvas.getContext("2d");
 var color = "#000000"
 
-bird = {
-  x: canvas.width/2,
-  y: canvas.heigth/2,
-  speed: {x: 1, y: 0},
-  right: function() {
+function Bird(x, y, speed) {
+  this.x = canvas.width/2;
+  this.y = canvas.heigth/2;
+
+  this.speed = speed;
+
+  this.right = function() {
     var dir = this.dir();
     return {x: dir.y, y: -dir.x};
-  },
-  left: function() {
+  };
+
+  this.left = function() {
     var dir = this.dir();
     return {x: -dir.y, y: dir.x};
-  },
-  dir: function() {
-    return {x: this.x+this.speed.x, y: this.y+this.speed.y};
-  },
+  };
 
-};
+  this.dir = function() {
+    return {x: this.x+this.speed.x, y: this.y+this.speed.y};
+  }
+}
 
 
 function drawBird(bird) {
@@ -35,6 +38,3 @@ function drawBird(bird) {
   ctx.lineTo(right.x, right.y);
   ctx.fill();
 }
-
-
-drawBird(bird);
