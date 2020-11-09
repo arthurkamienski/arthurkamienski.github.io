@@ -5,8 +5,8 @@ var ctx = canvas.getContext("2d");
 var color = "#000000"
 
 function Bird(x, y, speed) {
-  this.x = canvas.width/2;
-  this.y = canvas.heigth/2;
+  this.x = x;
+  this.y = y;
 
   this.speed = speed;
 
