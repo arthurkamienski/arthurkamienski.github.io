@@ -11,15 +11,14 @@ bird = {
   right: function() {
     var dir = this.dir();
     return {x: dir.y, y: -dir.x};
-  }
-
+  },
   left: function() {
     var dir = this.dir();
     return {x: -dir.y, y: dir.x};
-  }
+  },
   dir: function() {
     return {x: this.x+this.speed.x, y: this.y+this.speed.y};
-  }
+  },
 
 };
 
