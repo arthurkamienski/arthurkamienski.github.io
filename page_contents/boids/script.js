@@ -10,18 +10,18 @@ bird = {
   speed: {x: 1, y: 0},
   right: function() {
     var dir = this.dir();
-    return {x: dir.y, y: -dir.x}
+    return {x: dir.y, y: -dir.x};
   }
 
   left: function() {
     var dir = this.dir();
-    return {x: -dir.y, y: dir.x}
+    return {x: -dir.y, y: dir.x};
   }
   dir: function() {
-    return {x: this.x+this.speed.x, y: this.y+this.speed.y}
+    return {x: this.x+this.speed.x, y: this.y+this.speed.y};
   }
 
-}
+};
 
 
 function drawBird(bird) {
