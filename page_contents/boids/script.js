@@ -1,6 +1,6 @@
 document.title = 'Boids - ' + document.title;
 
-var canvas = $("#canvas");
+var canvas = $("#canvas").get(0);
 var ctx = canvas.getContext("2d");
 var color = "#000000"
 
