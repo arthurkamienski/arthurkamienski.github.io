@@ -16,8 +16,8 @@ function normalize(x, y) {
 }
 
 function makeRandomBird() {
-  var x = Math.random()*500;
-  var y = Math.random()*500;
+  var x = Math.random()*canvas.width;
+  var y = Math.random()*canvas.height;
   var [sx, sy] = normalize(Math.random(), Math.random());
 
   birds.push(new Bird(x, y, {x: sx, y: sy}));
