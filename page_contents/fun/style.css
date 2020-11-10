@@ -20,7 +20,7 @@
 }
 
 .cell h1 {
-	color: white;
+	color: black;
 	font-size: 100%;
 	-webkit-touch-callout: none;
     	-webkit-user-select: none;
@@ -28,6 +28,14 @@
     	-moz-user-select: none;
     	-ms-user-select: none;
     	user-select: none;
+}
+
+.draw {
+	background-image: url('/page_contents/fun/draw.png');
+}
+
+.boids {
+	background-image: url('/page_contents/fun/boids.png');
 }
 
 .name:hover ~ .image {
