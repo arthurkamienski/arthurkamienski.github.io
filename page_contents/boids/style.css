@@ -5,3 +5,7 @@ canvas {
 	border: 1px solid lightgrey;
 	border-radius: 30px;
 }
+
+.main {
+	width: 95%;
+}
