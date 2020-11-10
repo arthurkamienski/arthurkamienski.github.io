@@ -238,10 +238,10 @@ function draw(bird) {
   ctx.fill();
 
   if($("#showNext").is(":checked")){
-    ctx.fillStyle = "red";
+    ctx.fillStyle = "#FF0000";
     ctx.beginPath();
     ctx.moveTo(bird.x, bird.y);
-    ctx.lineTo(bird.newDir.x * 50 + bird.x, bird.newDir.y * 50 + bird.y);
+    ctx.lineTo(bird.newDir.x * 30 + bird.x, bird.newDir.y * 30 + bird.y);
     ctx.stroke();
   }
 }
