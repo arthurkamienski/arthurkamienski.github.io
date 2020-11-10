@@ -233,7 +233,7 @@ function draw(bird) {
     ctx.fillStyle = "red";
     ctx.beginPath();
     ctx.moveTo(bird.x, bird.y);
-    ctx.lineTo(bird.newDir.x + bird.x, bird.newDir.y + bird.y);
+    ctx.lineTo(bird.newDir.x * bird.size+ bird.x, bird.newDir.y * bird.size + bird.y);
     ctx.stroke();
   }
 
