@@ -229,20 +229,20 @@ function draw(bird) {
     ctx.fill();
   }
 
-  if($("#showNext").is(":checked")){
-    ctx.fillStyle = "red";
-    ctx.beginPath();
-    ctx.moveTo(bird.x, bird.y);
-    ctx.lineTo(bird.newDir.x * bird.size+ bird.x, bird.newDir.y * bird.size + bird.y);
-    ctx.stroke();
-  }
-
   ctx.fillStyle = color;
   ctx.beginPath();
   ctx.moveTo(head.x, head.y);
   ctx.lineTo(left.x, left.y);
   ctx.lineTo(right.x, right.y);
   ctx.fill();
+
+  if($("#showNext").is(":checked")){
+    ctx.fillStyle = "red";
+    ctx.beginPath();
+    ctx.moveTo(bird.x, bird.y);
+    ctx.lineTo(bird.newDir.x * 50 + bird.x, bird.newDir.y * 50 + bird.y);
+    ctx.stroke();
+  }
 }
 
 function updateBirds() {
