@@ -10,13 +10,13 @@
 
 .cell {
 	flex-grow: 1;
-	width: 30%;
+	width: 45%;
 	overflow: hidden;
 	height: 0;
-	padding-top: 30%;
+	padding-top: 45%;
 	position: relative;
 	margin: 1%;
-	border-radius: 10px;
+	border-radius: 30px;
 }
 
 .cell h1 {
@@ -73,7 +73,7 @@
 }
 
 @media screen and (max-width: 700px) {
-	.contact-cell {
+	.cell {
 		width: 45%;
 		padding-top: 45%;
 	}
@@ -88,7 +88,7 @@
 }
 
 @media screen and (max-width: 380px) {
-	.contact-cell h1 {
+	.cell h1 {
 		font-size: 70%;
 	}
 }
