@@ -33,8 +33,8 @@ window.onload = function () {
   
   setInterval(function() {
     updateBirds();
-    updateBirdsPos();
     if(!$("#pause").is(":checked")) {
+      updateBirdsPos();
     }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBirds();
