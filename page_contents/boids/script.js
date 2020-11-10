@@ -192,12 +192,17 @@ function Bird(x, y, dir) {
     var nety = wy;
 
     if(wx == 0 && wx == 0) {
+      var s = $("#separation").val();
+      var c = $("#cohesion").val();
+      var a = $("#alignment").val();
+
+
       var [sx, sy] = this.separationForce();
       var [cx, cy] = this.cohesionForce();
       var [ax, ay] = this.alignmentForce();
 
-      var netx = netx+sx+cx+ax;
-      var nety = nety+sy+cy+ay;
+      var netx = netx+s*sx+c*cx+a*ax;
+      var nety = nety+s*sy+c*cy+a*ay;
     }
 
 
