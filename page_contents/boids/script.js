@@ -41,7 +41,7 @@ window.onload = function () {
 function Bird(x, y, dir) {
   this.maxTurnAngle = 2;
   this.maxTurnAngleRad = Math.PI/180*this.maxTurnAngle;
-  this.visionLength = $("visionLength").val();
+  this.visionLength = $("#visionLength").val();
   this.size = 10;
   this.speed = 2;
   this.x = x;
@@ -187,7 +187,7 @@ function Bird(x, y, dir) {
   }
 
   this.update = function() {
-    this.visionLength = $("visionLength").val();
+    this.visionLength = $("#visionLength").val();
     
     this.nearby = birds.filter(b => this.distanceTo(b.x, b.y) < this.visionLength && b != this);
 
