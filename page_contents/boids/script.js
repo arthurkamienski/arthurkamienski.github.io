@@ -34,9 +34,9 @@ window.onload = function () {
   setInterval(function() {
     if(!$("#pause").is(":checked")) {
       updateBirds();
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      drawBirds();
     }
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBirds();
   }, 1000/fps);
 }
 
@@ -233,7 +233,7 @@ function draw(bird) {
     ctx.fillStyle = "red";
     ctx.beginPath();
     ctx.moveTo(bird.x, bird.y);
-    ctx.lineTo(bird.newDir.x, bird.newDir.y);
+    ctx.lineTo(bird.newDir.x + bird.x, bird.newDir.y + bird.y);
     ctx.stroke();
   }
 
