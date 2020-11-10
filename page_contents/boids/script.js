@@ -32,8 +32,9 @@ window.onload = function () {
   }
   
   setInterval(function() {
+    updateBirds();
+    updateBirdsPos();
     if(!$("#pause").is(":checked")) {
-      updateBirds();
     }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBirds();
@@ -247,6 +248,9 @@ function draw(bird) {
 
 function updateBirds() {
   birds.forEach(b => b.update());
+}
+
+function updateBirdsPos() {
   birds.forEach(b => b.updatePos());
 }
 
