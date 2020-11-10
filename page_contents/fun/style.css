@@ -17,6 +17,7 @@
 	position: relative;
 	margin: 1%;
 	border-radius: 30px;
+	border: 1px solid lightgrey;
 }
 
 .cell h1 {
@@ -38,7 +39,7 @@
 	left: 0;
 	height: 100%;
 	width: 100%;
-	background-color: black;
+	background-color: white;
 }
 
 .draw .bg {
