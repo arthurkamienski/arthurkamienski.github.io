@@ -41,7 +41,7 @@ window.onload = function () {
 function Bird(x, y, dir) {
   this.maxTurnAngle = 2;
   this.maxTurnAngleRad = Math.PI/180*this.maxTurnAngle;
-  this.visionLength = 100;
+  this.visionLength = $("visionLength").val();
   this.size = 10;
   this.speed = 2;
   this.x = x;
@@ -52,6 +52,7 @@ function Bird(x, y, dir) {
   this.turnLeft = Math.random() > 0.5;
 
   this.dir = dir;
+  this.newDir = dir;
 
   this.right = function() {
     var scale = this.size/3;
@@ -69,6 +70,7 @@ function Bird(x, y, dir) {
   }
 
   this.updatePos = function() {
+    this.dir = this.newDir;
     this.x = this.x+this.dir.x*this.speed;
     this.y = this.y+this.dir.y*this.speed;
   }
@@ -104,7 +106,7 @@ function Bird(x, y, dir) {
         console.log(x, y, angle);
       }
 
-      this.dir = {
+      this.newDir = {
         x: x*cos-y*sin,
         y: x*sin+y*cos
       };
@@ -185,6 +187,8 @@ function Bird(x, y, dir) {
   }
 
   this.update = function() {
+    this.visionLength = $("visionLength").val();
+    
     this.nearby = birds.filter(b => this.distanceTo(b.x, b.y) < this.visionLength && b != this);
 
     var [wx, wy] = this.wallForce();
@@ -207,8 +211,6 @@ function Bird(x, y, dir) {
 
 
     this.turn(netx, nety);
-
-    this.updatePos();
   }
 }
 
@@ -218,11 +220,12 @@ function draw(bird) {
   var left = bird.left();
   var right = bird.right();
 
-  
-  //ctx.fillStyle = "rgba(100, 100, 100, 0.1)";
-  //ctx.beginPath();
-  //ctx.arc(bird.x, bird.y, bird.visionLength, 0, 2 * Math.PI);
-  //ctx.fill();
+  if($("#showVision").is(":checked")) {
+    ctx.fillStyle = "rgba(100, 100, 100, 0.1)";
+    ctx.beginPath();
+    ctx.arc(bird.x, bird.y, bird.visionLength, 0, 2 * Math.PI);
+    ctx.fill();
+  }
 
   ctx.fillStyle = color;
   ctx.beginPath();
@@ -234,6 +237,7 @@ function draw(bird) {
 
 function updateBirds() {
   birds.forEach(b => b.update());
+  birds.forEach(b => b.updatePos());
 }
 
 function drawBirds() {
