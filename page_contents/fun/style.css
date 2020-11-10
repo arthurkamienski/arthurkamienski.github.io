@@ -21,16 +21,20 @@
 }
 
 .cell h1 {
-	color: black;
-	font-size: 100%;
+	background-color: rgb(0,0,0); /* Fallback color */
+    	background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+	color: white;
+	font-weight: bold;
+	font-size: 150%;
+	border-radius: 10px;
+    	padding: 0  5px 0 5px;
+
 	-webkit-touch-callout: none;
     	-webkit-user-select: none;
     	-khtml-user-select: none;
     	-moz-user-select: none;
     	-ms-user-select: none;
     	user-select: none;
-	border-radius: 10px;
-    	padding: 0  5px 0 5px;
 }
 
 .bg {
@@ -50,7 +54,7 @@
 	background-image: url('/page_contents/fun/boids.png');
 }
 
-.name:hover ~ .image {
+.name:hover ~ .bg {
 	opacity: 0;
 	transition: opacity 0.5s ease-in-out;
 }
@@ -103,20 +107,6 @@
 	.cell h1 {
 		font-size: 70%;
 	}
-}
-
-.name:hover .fadein {
-	visibility: visible;
-	opacity: 0.7;
-	transition: opacity 2s ease-in-out;
-	transition-delay: 1s;
-}
-
-.fadeout {
-	visibility: visible;
-	opacity: 0;
-	transition: opacity 2s ease-in-out;
-	transition-delay: 1s;
 }
 
 input {
