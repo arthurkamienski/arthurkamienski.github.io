@@ -32,9 +32,11 @@ window.onload = function () {
   }
   
   setInterval(function() {
-    updateBirds();
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawBirds();
+    if(!$("#pause").is(":checked")) {
+      updateBirds();
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawBirds();
+    }
   }, 1000/fps);
 }
 
@@ -225,6 +227,14 @@ function draw(bird) {
     ctx.beginPath();
     ctx.arc(bird.x, bird.y, bird.visionLength, 0, 2 * Math.PI);
     ctx.fill();
+  }
+
+  if($("#showNext").is(":checked")){
+    ctx.fillStyle = "red";
+    ctx.beginPath();
+    ctx.moveTo(bird.x, bird.y);
+    ctx.lineTo(bird.newDir.x, bird.newDir.y);
+    ctx.stroke();
   }
 
   ctx.fillStyle = color;
