@@ -28,13 +28,24 @@
     	-moz-user-select: none;
     	-ms-user-select: none;
     	user-select: none;
+	border-radius: 10px;
+    	padding: 0  5px 0 5px;
 }
 
-.draw {
+.bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: black;
+}
+
+.draw .bg {
 	background-image: url('/page_contents/fun/draw.png');
 }
 
-.boids {
+.boids .bg {
 	background-image: url('/page_contents/fun/boids.png');
 }
 
