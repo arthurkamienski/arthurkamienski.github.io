@@ -1,20 +1,30 @@
 <h1>BOIDS</h1>
 Separation
-<input type="range" id="separation" min=0 max=10>
+<input type="range" id="separation" min=0 max=0.1 step=0.01>
 Cohesion
-<input type="range" id="cohesion" min=0 max=10>
+<input type="range" id="cohesion" min=0 max=0.1 step=0.01>
 Alignment
-<input type="range" id="alignment" min=0 max=10>
+<input type="range" id="alignment" min=0 max=0.01 step=0.001>
 Vision
-<input type="range" id="visionLength" min=30 max=300>
-Show vision
-<input type="checkbox" id="showVision">
+<input type="range" id="visionDistance" min=100 max=200>
+Birds
+<input type="range" id="birdNum" min=0 max=500 value=100>
+Size
+<input type="range" id="size" min=5 max=15>
 Pause
 <input type="checkbox" id="pause">
+Show vision
+<input type="checkbox" id="showVision">
 Show force
 <input type="checkbox" id="showForce">
+Show speed
+<input type="checkbox" id="showSpeed">
+Show path
+<input type="checkbox" id="showPath">
+
 <button onclick="reset();">Reset</button>
+
 <canvas id="canvas" width=1200 height=700></canvas>
 
-<script src="script.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+<!-- <script src="script.js"></script> -->
