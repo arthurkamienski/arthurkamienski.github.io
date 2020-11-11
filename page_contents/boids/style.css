@@ -12,6 +12,7 @@ canvas {
 
 
 .custom-slider {
+  margin: 10px;
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
