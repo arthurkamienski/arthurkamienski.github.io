@@ -3,7 +3,7 @@ canvas {
 	width: 100%;
 	border: 1px solid lightgrey;
 	border-radius: 30px;
-	margin: 20px 0 20px 0;
+	margin: 20px 0 0 0;
 }
 
 .main {
@@ -16,21 +16,43 @@ canvas {
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+	flex-wrap: wrap;
 }
 
 .settings-column {
 	display: flex;
-	width: 45%;
+	width: 30%;
+	height: 300px;
 	flex-direction: column;
 	border: 1px solid lightgrey;
 	border-radius: 10px;
-	padding: 5px;
+	padding: 15px;
 	margin: 10px;
 	align-items:center;
 	justify-content:center;
 }
 
+.color-column{
+	height: 400px;
+	width: 46%;
+}
+
+.column-title {
+	margin: 10px;
+}
+
+.column-content {
+	flex: 1;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items:center;
+	justify-content:space-between;
+}
+
 .settings-buttons {
+	margin: 20px 0 20px 0;
+	width: 100%;
 	display: flex;
 	flex-direction: row;
 	justify-content:center;
@@ -41,7 +63,7 @@ canvas {
 	flex-direction: column;
 	border: 1px solid lightgrey;
 	border-radius: 10px;
-	width: 70%;
+	width: 100%;
 }
 
 .button {
@@ -73,6 +95,34 @@ canvas {
 	margin: 2px;
 }
 
+.color-display {
+	cursor: pointer;
+	margin: 2px;
+	width: 40px;
+	height: 30px;
+	background-color: black;
+	border: 1px solid lightgrey;
+	border-radius: 5px;
+}
+
+.color-row {
+	display: flex;
+	flex-direction: row;
+}
+
+.color-grid {
+	display: flex;
+	flex-direction: column;
+}
+
+.color-preview {
+	margin: 5px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
 @media screen and (max-width: 700px) {
 	canvas {
 		height: 350px;
@@ -88,5 +138,13 @@ canvas {
 
 	.settings-column {
 		width: 95%;
+	}
+
+	.color-column {
+		width: 95%;
+	}
+
+	.button:hover {
+		background-color: white;
 	}
 }

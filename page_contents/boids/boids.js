@@ -4,7 +4,8 @@ var cohesionForce   = 2;
 var separationForce = 1;
 var alignmentForce  = 0.5;
 
-var color;
+var birdColor;
+var backgroundColor;
 var maxSpeed;
 
 var birdNum;
@@ -17,11 +18,12 @@ var separation;
 var birds = [];
 var fps   = 60;
 
-var isPaused   = false;
-var showVision = false;
-var showPath   = false;
-var showForce  = false;
-var showSpeed  = false;
+var randomBirdColor = false;
+var isPaused    = false;
+var showVision  = false;
+var showPath    = false;
+var showForce   = false;
+var showSpeed   = false;
 
 function normalize(x, y) {
   if(x != 0 || y != 0) {
@@ -38,6 +40,14 @@ function makeRandomBird() {
   var [sx, sy] = [Math.random()*5, Math.random()*5];
   var speed    = {x: sx, y: sy};
 
+  var color;
+
+  if(randomBirdColor) {
+    color = makeRandomColor();
+  } else {
+    color = birdColor;
+  }
+
   birds.push(new Bird(x, y, speed, color));
 }
 
@@ -52,10 +62,10 @@ function pause() {
   if(isPaused) {
     isPaused = false;
     $("#pause").text("Pause");
-    $("#pause").css("background-color","")
+    $("#pause").css("background-color","");
   } else {
     isPaused = true;
-    $("#pause").css("background-color","#DDDDDD")
+    $("#pause").css("background-color","#DDDDDD");
     $("#pause").text("Paused");
   }
 }
@@ -63,50 +73,112 @@ function pause() {
 function toggleVision() {
   if(showVision) {
     showVision = false;
-    $("#vision").css("background-color","")
+    $("#vision").css("background-color","");
   } else {
     showVision = true;
-    $("#vision").css("background-color","#DDDDDD")
+    $("#vision").css("background-color","#DDDDDD");
   }
 }
 
 function toggleForce() {
   if(showForce) {
     showForce = false;
-    $("#force").css("background-color","")
+    $("#force").css("background-color","");
   } else {
     showForce = true;
-    $("#force").css("background-color","#DDDDDD")
+    $("#force").css("background-color","#DDDDDD");
   }
 }
 
 function toggleSpeed() {
   if(showSpeed) {
     showSpeed = false;
-    $("#speed").css("background-color","")
+    $("#speed").css("background-color","");
   } else {
     showSpeed = true;
-    $("#speed").css("background-color","#DDDDDD")
+    $("#speed").css("background-color","#DDDDDD");
   }
 }
 
 function togglePath() {
   if(showPath) {
     showPath = false;
-    $("#path").css("background-color","")
+    $("#path").css("background-color","");
   } else {
     showPath = true;
-    $("#path").css("background-color","#DDDDDD")
+    $("#path").css("background-color","#DDDDDD");
   }
+}
+
+function randomColor() {
+  if(randomBirdColor) {
+    randomBirdColor = false;
+    $("#randomBirdColor").css("background-color","");
+  } else {
+    randomBirdColor = true;
+    $("#randomBirdColor").css("background-color","#DDDDDD");
+    birds.forEach(b => b.color = makeRandomColor());
+  }
+}
+
+function makeRandomColor() {
+  var r = Math.round(Math.random()*255);
+  var g = Math.round(Math.random()*255);
+  var b = Math.round(Math.random()*255);
+
+  return rgbToHex(r, g, b);
 }
 
 function limit(x, lim) {
   return Math.max(Math.min(x, lim), -lim);
 }
 
+function changeBirdColor(r, g, b) {
+  $("#birdRed").val(r);
+  $("#birdGreen").val(g);
+  $("#birdBlue").val(b);
+}
+
+function updateBirdColor() {
+  var r = parseInt($("#birdRed").val());
+  var g = parseInt($("#birdGreen").val());
+  var b = parseInt($("#birdBlue").val());
+
+  var newColor = rgbToHex(r, g, b);
+  
+  if(newColor != birdColor) {
+    birdColor = newColor;
+    $("#birdColorCode").text(birdColor);
+    $("#birdColorPreview").css("background-color", birdColor);
+    birds.forEach(b => b.color = birdColor);
+  }
+}
+
+function changeBackgroundColor(r, g, b) {
+  $("#backgroundRed").val(r);
+  $("#backgroundGreen").val(g);
+  $("#backgroundBlue").val(b);
+}
+
+function updateBackgroundColor() {
+  var r = parseInt($("#backgroundRed").val());
+  var g = parseInt($("#backgroundGreen").val());
+  var b = parseInt($("#backgroundBlue").val());
+
+  var newColor = rgbToHex(r, g, b);
+  
+  if(newColor != backgroundColor) {
+    backgroundColor = newColor;
+    $("#backgroundColorCode").text(backgroundColor);
+    $("#backgroundColorPreview").css("background-color", backgroundColor);
+  }
+}
+
 function updateVars() {
-  color    = "#000000";
-  maxSpeed = 5;
+  updateBirdColor();
+  updateBackgroundColor()
+  
+  maxSpeed = $("#maxSpeed").val();
 
   birdNum  = $("#birdNum").val();
   size     = $("#size").val();
@@ -145,7 +217,8 @@ function start() {
       updateBirdsPos();
     }
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = backgroundColor;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     drawBirds();
   }, 1000/fps);
@@ -383,7 +456,7 @@ function Bird(x, y, speed, color) {
   }
 
   this.drawPath = function() {
-    ctx.strokeStyle = hexToRgbA(this.color, 0.1);
+    ctx.strokeStyle = hexToRgbA(this.color, 0.5);
     ctx.beginPath();
 
     ctx.moveTo(this.x, this.y);
@@ -446,4 +519,13 @@ function hexToRgbA(hex, alpha){
   }
   c= '0x'+c.join('');
   return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+','+alpha+')';
+}
+
+function componentToHex(c) {
+  var hex = c.toString(16);
+  return hex.length == 1 ? "0" + hex : hex;
+}
+
+function rgbToHex(r, g, b) {
+  return ("#" + componentToHex(r) + componentToHex(g) + componentToHex(b)).toUpperCase();
 }
