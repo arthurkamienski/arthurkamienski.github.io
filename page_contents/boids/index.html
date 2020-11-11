@@ -6,12 +6,15 @@ Cohesion
 Alignment
 <input type="range" id="alignment" min=0 max=10>
 Vision
-<input type="range" id="visionLength" min=0 max=100>
+<input type="range" id="visionLength" min=30 max=300>
 Show vision
 <input type="checkbox" id="showVision">
 Pause
 <input type="checkbox" id="pause">
-Show next dir
-<input type="checkbox" id="showNext">
+Show force
+<input type="checkbox" id="showForce">
+<button onclick="reset();">Reset</button>
+<canvas id="canvas" width=1200 height=700></canvas>
 
-<canvas id="canvas" width=500 height=500></canvas>
+<script src="script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

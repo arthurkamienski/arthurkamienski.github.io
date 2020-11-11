@@ -4,7 +4,7 @@ var canvas, ctx;
 var color = "#000000";
 var fps = 60;
 
-var birds = []
+var birds = [];
 
 function normalize(x, y) {
   if(x != 0 || y != 0) {
@@ -18,18 +18,30 @@ function normalize(x, y) {
 function makeRandomBird() {
   var x = Math.random()*canvas.width;
   var y = Math.random()*canvas.height;
-  var [sx, sy] = normalize(Math.random(), Math.random());
+  var [sx, sy] = [Math.random()*5, Math.random()*5];
 
   birds.push(new Bird(x, y, {x: sx, y: sy}));
+}
+
+function reset() {
+  birds = [];
+  for(i=0; i<70; i++) {
+    makeRandomBird();
+  }
+}
+
+function limit(x, lim) {
+  return Math.max(Math.min(x, lim), -lim);
 }
 
 window.onload = function () {
   canvas = $("#canvas").get(0);
   ctx = canvas.getContext("2d");
+  
+  reset();
 
-  for(i=0; i<70; i++) {
-    makeRandomBird();
-  }
+  //birds.push(new Bird(canvas.width/2, canvas.height/2, {x: 1, y: 0}));
+
   
   setInterval(function() {
     updateBirds();
@@ -41,21 +53,19 @@ window.onload = function () {
   }, 1000/fps);
 }
 
-function Bird(x, y, dir) {
-  this.maxTurnAngle = 2;
-  this.maxTurnAngleRad = Math.PI/180*this.maxTurnAngle;
+function Bird(x, y, speed) {
+  this.maxSpeed = 5;
+  this.minSpeed = 1;
   this.visionLength = $("#visionLength").val();
+
   this.size = 10;
-  this.speed = 2;
+  this.speed = speed;
+
   this.x = x;
   this.y = y;
   this.nearby = [];
 
-  this.newTurn = true;
-  this.turnLeft = Math.random() > 0.5;
-
-  this.dir = dir;
-  this.newDir = dir;
+  this.force = {x: 0, y:0};
 
   this.right = function() {
     var scale = this.size/3;
@@ -72,81 +82,44 @@ function Bird(x, y, dir) {
     return {x: this.dir.x*scale+this.x, y: this.dir.y*scale+this.y};
   }
 
-  this.updatePos = function() {
-    this.dir = this.newDir;
-    this.x = this.x+this.dir.x*this.speed;
-    this.y = this.y+this.dir.y*this.speed;
-  }
-
-  this.angleBetween = function(x, y) {
-    var dirx = this.dir.x;
-    var diry = this.dir.y;
-
-    var dotProduct = dirx*x + diry*y;
-    var mag        = Math.sqrt((x**2+y**2)*(dirx**2+diry**2));
-
-    var cos = Math.max(Math.min(dotProduct/mag, 1), -1);
-
-    return Math.acos(cos);
-  }
-
   this.distanceTo = function(x, y) {
     return Math.sqrt((this.x-x)**2+(this.y-y)**2);
-  }
-
-  this.turn = function(x, y) {
-    if(x != 0 || y != 0) {
-      var angle = this.angleBetween(x, y);
-
-      angle = Math.max(Math.min(this.maxTurnAngleRad, angle), -this.maxTurnAngleRad);
-
-      var sin = Math.sin(angle);
-      var cos = Math.cos(angle);
-      var x = this.dir.x;
-      var y = this.dir.y;
-
-      if(isNaN(cos)) {
-        console.log(x, y, angle);
-      }
-
-      this.newDir = {
-        x: x*cos-y*sin,
-        y: x*sin+y*cos
-      };
-    }
   }
 
   this.wallForce = function() {
     var x = 0;
     var y = 0;
 
-    if(this.x >= canvas.height-100) {
-      x = -1;
+    if(this.x >= canvas.width-100) {
+      x = -10/this.distanceTo(canvas.width, this.y);
     } else if(this.x <= 100) {
-      x = 1;
+      x = 10/this.distanceTo(0, this.y);
     }
 
     if(this.y >= canvas.height-100) {
-      y = -1;
+      y = -10/this.distanceTo(this.x, canvas.height);
     } else if(this.y <= 100) {
-      y = 1;
+      y = 10/this.distanceTo(this.x, 0);
     }
 
-    return normalize(x, y);
+    return [x, y];
   }
-
 
   this.separationForce = function() {
     var x = 0;
     var y = 0;
 
     this.nearby.forEach(b => {
-        x = x + this.x - b.x;
-        y = y + this.y - b.y;
+        var d = this.distanceTo(b.x, b.y);
+        x = x + (this.x - b.x)/d;
+        y = y + (this.y - b.y)/d;
       }
     );
+    
+    var s = $("#separation").val()/50;
+    [x, y] = normalize(x, y);
 
-    return normalize(x, y);
+    return [x*s, y*s];
   }
 
   this.cohesionForce = function() {
@@ -167,7 +140,11 @@ function Bird(x, y, dir) {
       y = y - this.y;
     }
 
-    return normalize(x, y);
+    var c = $("#cohesion").val()/40;
+
+    [x, y] = normalize(x, y);
+
+    return [x*c, y*c];
   }
 
   this.alignmentForce = function() {
@@ -186,35 +163,66 @@ function Bird(x, y, dir) {
       y = y/this.nearby.length;
     }
 
-    return normalize(x, y);
+    var a = $("#alignment").val()/1000;
+
+    [x, y] = normalize(x, y);
+
+    return [x*a, y*a];
   }
 
   this.update = function() {
     this.visionLength = $("#visionLength").val();
-    
     this.nearby = birds.filter(b => this.distanceTo(b.x, b.y) < this.visionLength && b != this);
+    this.updateForce();
+  }
 
+  this.getNetForce = function() {
     var [wx, wy] = this.wallForce();
     var netx = wx;
     var nety = wy;
 
-    if(wx == 0 && wx == 0) {
-      var s = $("#separation").val();
-      var c = $("#cohesion").val();
-      var a = $("#alignment").val();
+    var [sx, sy] = this.separationForce();
+    var [cx, cy] = this.cohesionForce();
+    var [ax, ay] = this.alignmentForce();
 
+    var netx = netx+sx+cx+ax;
+    var nety = nety+sy+cy+ay;
 
-      var [sx, sy] = this.separationForce();
-      var [cx, cy] = this.cohesionForce();
-      var [ax, ay] = this.alignmentForce();
-
-      var netx = netx+s*sx+c*cx+a*ax;
-      var nety = nety+s*sy+c*cy+a*ay;
-    }
-
-
-    this.turn(netx, nety);
+    return [netx, nety];
   }
+
+  this.updateForce = function() {
+    var [x, y] = this.getNetForce();
+
+    this.force.x = x;
+    this.force.y = y;
+  }
+
+  this.updateSpeed = function(x, y) {
+    this.speed.x += this.force.x;
+    this.speed.y += this.force.y;
+
+    this.speed.x = Math.max(Math.min(this.maxSpeed, this.speed.x), -this.maxSpeed);
+    this.speed.y = Math.max(Math.min(this.maxSpeed, this.speed.y), -this.maxSpeed);
+  }
+
+  this.updatePos = function() {
+    this.updateSpeed();
+    this.updateDir();
+
+    this.x += this.speed.x;
+    this.y += this.speed.y;
+  }
+
+  this.updateDir = function() {
+    var [x, y] = normalize(this.speed.x, this.speed.y);
+
+    this.dir = {
+      x: x,
+      y: y
+    }
+  }
+  this.updateDir();
 }
 
 
@@ -223,11 +231,17 @@ function draw(bird) {
   var left = bird.left();
   var right = bird.right();
 
-  if($("#showVision").is(":checked")) {
-    ctx.fillStyle = "rgba(100, 100, 100, 0.1)";
+
+  if($("#showForce").is(":checked")){
+    ctx.strokeStyle = "#FF0000";
     ctx.beginPath();
-    ctx.arc(bird.x, bird.y, bird.visionLength, 0, 2 * Math.PI);
-    ctx.fill();
+    ctx.moveTo(bird.x, bird.y);
+    
+    var x = limit(bird.force.x * 1000, 10);
+    var y = limit(bird.force.y * 1000, 10);
+
+    ctx.lineTo(x + bird.x, y + bird.y);
+    ctx.stroke();
   }
 
   ctx.fillStyle = color;
@@ -236,14 +250,13 @@ function draw(bird) {
   ctx.lineTo(left.x, left.y);
   ctx.lineTo(right.x, right.y);
   ctx.fill();
+}
 
-  if($("#showNext").is(":checked")){
-    ctx.fillStyle = "#FF0000";
-    ctx.beginPath();
-    ctx.moveTo(bird.x, bird.y);
-    ctx.lineTo(bird.newDir.x * 30 + bird.x, bird.newDir.y * 30 + bird.y);
-    ctx.stroke();
-  }
+function drawVision(bird) {
+  ctx.fillStyle = "rgba(200, 200, 200, 0.1)";
+  ctx.beginPath();
+  ctx.arc(bird.x, bird.y, bird.visionLength, 0, 2 * Math.PI);
+  ctx.fill();
 }
 
 function updateBirds() {
@@ -255,6 +268,9 @@ function updateBirdsPos() {
 }
 
 function drawBirds() {
+  if($("#showVision").is(":checked")) {
+    birds.forEach(b => drawVision(b));
+  }
   birds.forEach(b => draw(b));
 }
 
