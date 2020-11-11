@@ -442,7 +442,7 @@ function Bird(x, y, speed, color) {
     var yCenter = (head.y + this.y)/2;
 
 
-    ctx.fillStyle = "rgba(200, 200, 200, 0.1)";
+    ctx.fillStyle = "rgba(200, 200, 200, 0.2)";
     ctx.beginPath();
     ctx.arc(xCenter, yCenter, visionDistance, 0, 2 * Math.PI);
     ctx.fill();
