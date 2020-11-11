@@ -4,7 +4,7 @@
 
 <div class="settings-container">
   <div class="settings-title">
-    <h1>Settings</h1>
+    <h3>Settings</h3>
   </div>
   <div class="settings-buttons">
     <div class="button" onclick="reset();">Reset</div>
@@ -12,32 +12,44 @@
   </div>
   <div class="settings">
     <div class="settings-column">
-      Separation
-      <input type="range" id="separation" min=0 max=0.1 step=0.01>
-      Cohesion
-      <input type="range" id="cohesion" min=0 max=0.1 step=0.01>
-      Alignment
-      <input type="range" id="alignment" min=0 max=0.01 step=0.001>
-      Vision
-      <input type="range" id="visionDistance" min=30 max=270>
-      Birds
-      <input type="range" id="birdNum" min=0 max=200>
+      <div class="slider">
+        Separation
+        <input type="range" id="separation" min=0 max=0.1 step=0.01>
+      </div>
+      <div class="slider">
+        Cohesion
+        <input type="range" id="cohesion" min=0 max=0.1 step=0.01>
+      </div>
+      <div class="slider">
+        Alignment
+        <input type="range" id="alignment" min=0 max=0.01 step=0.001>
+      </div>
+      <div class="slider">
+        Vision distance
+        <input type="range" id="visionDistance" min=30 max=270>
+      </div>
+      <div class="slider">
+        Number of birds
+        <input type="range" id="birdNum" min=0 max=200>
+      </div>
     </div>
     <div class="settings-column">
-      Size
-      <input type="range" id="size" min=6 max=20>
-      Show vision
-      <input type="checkbox" id="showVision">
-      Show force
-      <input type="checkbox" id="showForce">
-      Show speed
-      <input type="checkbox" id="showSpeed">
-      Show path
-      <input type="checkbox" id="showPath">
+      <div class="slider">
+        Bird size
+        <input type="range" id="size" min=6 max=20>
+      </div>
+      <div class="settings-button button" id="vision" onclick="toggleVision();">
+        Show vision distance
+      </div>
+      <div class="settings-button button" id="force" onclick="toggleForce();">
+        Show net force
+      </div>
+      <div class="settings-button button" id="speed" onclick="toggleSpeed();">
+        Show speed
+      </div>
+      <div class="settings-button button" id="path" onclick="togglePath();">
+        Draw path
+      </div>
     </div>
   </div>
 </div>
-<!--
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="script.js"></script>
--->

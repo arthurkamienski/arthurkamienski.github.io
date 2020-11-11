@@ -17,6 +17,12 @@ var separation;
 var birds = [];
 var fps   = 60;
 
+var isPaused   = false;
+var showVision = false;
+var showPath   = false;
+var showForce  = false;
+var showSpeed  = false;
+
 function normalize(x, y) {
   if(x != 0 || y != 0) {
     var n = Math.sqrt(x**2+ y**2);
@@ -39,6 +45,58 @@ function reset() {
   birds = [];
   for(i=0; i < birdNum; i++) {
     makeRandomBird();
+  }
+}
+
+function pause() {
+  if(isPaused) {
+    isPaused = false;
+    $("#pause").text("Pause");
+    $("#pause").css("background-color","")
+  } else {
+    isPaused = true;
+    $("#pause").css("background-color","#DDDDDD")
+    $("#pause").text("Paused");
+  }
+}
+
+function toggleVision() {
+  if(showVision) {
+    showVision = false;
+    $("#vision").css("background-color","")
+  } else {
+    showVision = true;
+    $("#vision").css("background-color","#DDDDDD")
+  }
+}
+
+function toggleForce() {
+  if(showForce) {
+    showForce = false;
+    $("#force").css("background-color","")
+  } else {
+    showForce = true;
+    $("#force").css("background-color","#DDDDDD")
+  }
+}
+
+function toggleSpeed() {
+  if(showSpeed) {
+    showSpeed = false;
+    $("#speed").css("background-color","")
+  } else {
+    showSpeed = true;
+    $("#speed").css("background-color","#DDDDDD")
+  }
+}
+
+function togglePath() {
+  if(showPath) {
+    showPath = false;
+    $("#path").css("background-color","")
+  } else {
+    showPath = true;
+    $("#path").css("background-color","#DDDDDD")
   }
 }
 
@@ -83,7 +141,7 @@ function start() {
     updateNumBirds();
     updateBirds();
     
-    if(!$("#pause").is(":checked")) {
+    if(!isPaused) {
       updateBirdsPos();
     }
 
@@ -362,19 +420,19 @@ function updateBirdsPos() {
 }
 
 function drawBirds() {
-  if($("#showVision").is(":checked")) {
+  if(showVision) {
     birds.forEach(b => b.drawVision());
   }
 
-  if($("#showForce").is(":checked")){
+  if(showForce){
     birds.forEach(b => b.drawForce());
   }
 
-  if($("#showSpeed").is(":checked")){
+  if(showSpeed){
     birds.forEach(b => b.drawSpeed());
   }
 
-  if($("#showPath").is(":checked")){
+  if(showPath){
     birds.forEach(b => b.drawPath());
   }
 
