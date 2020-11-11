@@ -24,6 +24,7 @@ var showVision  = false;
 var showPath    = false;
 var showForce   = false;
 var showSpeed   = false;
+var showSettings = false;
 
 function normalize(x, y) {
   if(x != 0 || y != 0) {
@@ -55,6 +56,18 @@ function reset() {
   birds = [];
   for(i=0; i < birdNum; i++) {
     makeRandomBird();
+  }
+}
+
+function toggleSettings() {
+  if(showSettings) {
+    showSettings = false;
+    $("#openSettings").css("background-color","");
+    $(".settings-container").css("display", "none");
+  } else {
+    showSettings = true;
+    $("#openSettings").css("background-color","#DDDDDD");
+    $(".settings-container").css("display", "flex");
   }
 }
 
