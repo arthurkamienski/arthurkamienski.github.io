@@ -114,6 +114,7 @@ function randomColor() {
   if(randomBirdColor) {
     randomBirdColor = false;
     $("#randomBirdColor").css("background-color","");
+    birds.forEach(b => b.color = birdColor);
   } else {
     randomBirdColor = true;
     $("#randomBirdColor").css("background-color","#DDDDDD");
@@ -150,7 +151,12 @@ function updateBirdColor() {
     birdColor = newColor;
     $("#birdColorCode").text(birdColor);
     $("#birdColorPreview").css("background-color", birdColor);
-    birds.forEach(b => b.color = birdColor);
+    
+    if(randomBirdColor) {
+      randomColor();
+    } else {
+      birds.forEach(b => b.color = birdColor);
+    }
   }
 }
 
