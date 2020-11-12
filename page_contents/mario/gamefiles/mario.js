@@ -50,31 +50,31 @@ window.onload = function() {
   $(".right").on('touchcancel', stopRight);
 }
 
-function moveUp() {
+function moveUp(e) {
   mario.move("up");
 }
 
-function duck() {
+function duck(e) {
   mario.down = true;
 }
 
-function moveLeft() {
+function moveLeft(e) {
   mario.move("left");
 }
 
-function moveRight() {
+function moveRight(e) {
   mario.move("right");
 }
 
-function unduck() {
+function unduck(e) {
   mario.down=false;
 }
 
-function stopLeft() {
+function stopLeft(e) {
   mario.stop("left");
 }
 
-function stopRight() {
+function stopRight(e) {
   mario.stop("right");
 }
 
