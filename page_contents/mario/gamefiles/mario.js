@@ -36,18 +36,18 @@ window.onload = function() {
   document.addEventListener('keydown', keyDown);
   document.addEventListener('keyup', keyUp);
 
-  $(".up").on('touchstart', moveUp);
-  $(".left").on('touchstart', moveLeft);
-  $(".down").on('touchstart', duck);
-  $(".right").on('touchstart', moveRight);
+  $(".up").on({'touchstart': moveUp()});
+  $(".left").on({'touchstart': moveLeft()});
+  $(".down").on({'touchstart': duck()});
+  $(".right").on({'touchstart': moveRight()});
 
-  $(".left").on('touchend', stopLeft);
-  $(".down").on('touchend', unduck);
-  $(".right").on('touchend', stopRight);
+  $(".left").on({'touchend': stopLeft()});
+  $(".down").on({'touchend': unduck()});
+  $(".right").on({'touchend': stopRight()});
 
-  $(".left").on('touchcancel', stopLeft);
-  $(".down").on('touchcancel', unduck);
-  $(".right").on('touchcancel', stopRight);
+  $(".left").on({'touchcancel': stopLeft()});
+  $(".down").on({'touchcancel': unduck()});
+  $(".right").on({'touchcancel': stopRight()});
 }
 
 function moveUp(e) {
