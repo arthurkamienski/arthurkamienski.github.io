@@ -19,13 +19,22 @@ var size = 10;
 
 var prevPos = [0, 0];
 
-$(window).resize(function() {
+function start() {
+  fixAspectRatio();
+  clear();
+  canvas.addEventListener('mousedown', canvasMouseClick);
+  canvas.addEventListener('touchstart', canvasTouch, {passive: false});
+}
+  
+function fixAspectRatio() {
   if($(window).width() <= 700 && canvas.height/canvas.width != 3/2) {
     canvas.height = 3/2*canvas.width;
   } else if ($(window).width() > 700 && canvas.height/canvas.width != 9/16) {
     canvas.height = 9/16*canvas.width;
   }
-});
+}
+
+$(window).resize(fixAspectRatio());
 
 function toHex(num) {
   var hex = Number(num).toString(16);
