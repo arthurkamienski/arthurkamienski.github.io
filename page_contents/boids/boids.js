@@ -64,10 +64,12 @@ function toggleSettings() {
     showSettings = false;
     $("#openSettings").css("background-color","");
     $(".settings-container").css("display", "none");
+    $(".settings-buttons").css("margin-bottom", "20px");
   } else {
     showSettings = true;
     $("#openSettings").css("background-color","#DDDDDD");
     $(".settings-container").css("display", "flex");
+    $(".settings-buttons").css("margin-bottom", "0px");
   }
 }
 
