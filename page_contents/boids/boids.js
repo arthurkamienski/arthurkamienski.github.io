@@ -221,7 +221,6 @@ function updateNumBirds() {
   }
 }
 
-
 function fixAspectRatio() {
   if($(window).width() <= 700 && canvas.height/canvas.width != 3/2) {
     canvas.height = 3/2*canvas.width;
@@ -232,13 +231,17 @@ function fixAspectRatio() {
   }
 }
 
+
 function start() {
   canvas = $("#canvas").get(0);
   ctx = canvas.getContext("2d");
+
+  fixAspectRatio();
   
   reset();
 
   setInterval(function() {
+    fixAspectRatio();
     updateVars();
     updateNumBirds();
     updateBirds();
