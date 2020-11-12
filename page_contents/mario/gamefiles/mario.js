@@ -35,6 +35,47 @@ window.onload = function() {
   // listeners for key down/up
   document.addEventListener('keydown', keyDown);
   document.addEventListener('keyup', keyUp);
+
+  $(".up").addEventListener('touchstart', moveUp, {passive: false});
+  $(".left").addEventListener('touchstart', moveLeft, {passive: false});
+  $(".down").addEventListener('touchstart', duck, {passive: false});
+  $(".right").addEventListener('touchstart', moveRight, {passive: false});
+
+  $(".left").addEventListener('touchend', stopLeft, {passive: false});
+  $(".down").addEventListener('touchend', unduck, {passive: false});
+  $(".right").addEventListener('touchend', stopRight, {passive: false});
+
+  $(".left").addEventListener('touchcancel', stopLeft, {passive: false});
+  $(".down").addEventListener('touchcancel', unduck, {passive: false});
+  $(".right").addEventListener('touchcancel', stopRight, {passive: false});
+}
+
+function moveUp() {
+  mario.move("up");
+}
+
+function duck() {
+  mario.down = true;
+}
+
+function moveLeft() {
+  mario.move("left");
+}
+
+function moveRight() {
+  mario.move("right");
+}
+
+function unduck() {
+  mario.down=false;
+}
+
+function stopLeft() {
+  mario.stop("left");
+}
+
+function stopRight() {
+  mario.stop("right");
 }
 
 // keydown event
@@ -61,6 +102,7 @@ function keyDown(evt) {
     default:
       break;
   }
+
 }
 
 // key up event
@@ -228,3 +270,5 @@ window.addEventListener("keydown", function(e) {
     e.preventDefault();
   }
 }, false);
+
+
