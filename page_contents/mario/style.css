@@ -45,6 +45,6 @@ canvas {
 
 @media screen and (max-width: 700px) {
 	.arrow-container {
-		display: flex;
+		display: none;
 	}
 }
