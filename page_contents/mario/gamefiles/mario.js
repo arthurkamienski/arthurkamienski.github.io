@@ -36,18 +36,18 @@ window.onload = function() {
   document.addEventListener('keydown', keyDown);
   document.addEventListener('keyup', keyUp);
 
-  $(".up").addEventListener('touchstart', moveUp, {passive: false});
-  $(".left").addEventListener('touchstart', moveLeft, {passive: false});
-  $(".down").addEventListener('touchstart', duck, {passive: false});
-  $(".right").addEventListener('touchstart', moveRight, {passive: false});
+  $(".up").on('touchstart', moveUp, {passive: false});
+  $(".left").on('touchstart', moveLeft, {passive: false});
+  $(".down").on('touchstart', duck, {passive: false});
+  $(".right").on('touchstart', moveRight, {passive: false});
 
-  $(".left").addEventListener('touchend', stopLeft, {passive: false});
-  $(".down").addEventListener('touchend', unduck, {passive: false});
-  $(".right").addEventListener('touchend', stopRight, {passive: false});
+  $(".left").on('touchend', stopLeft, {passive: false});
+  $(".down").on('touchend', unduck, {passive: false});
+  $(".right").on('touchend', stopRight, {passive: false});
 
-  $(".left").addEventListener('touchcancel', stopLeft, {passive: false});
-  $(".down").addEventListener('touchcancel', unduck, {passive: false});
-  $(".right").addEventListener('touchcancel', stopRight, {passive: false});
+  $(".left").on('touchcancel', stopLeft, {passive: false});
+  $(".down").on('touchcancel', unduck, {passive: false});
+  $(".right").on('touchcancel', stopRight, {passive: false});
 }
 
 function moveUp() {
