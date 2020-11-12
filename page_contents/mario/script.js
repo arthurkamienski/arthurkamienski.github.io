@@ -7,9 +7,9 @@ function addScript(src) {
   document.head.appendChild(script);
 }
 
-addScript("/page_contents/gamefiles/Character.js?v=1");
-addScript("/page_contents/gamefiles/Objects.js");
-addScript("/page_contents/gamefiles/Hitbox.js");
-addScript("/page_contents/gamefiles/Sound.js");
-addScript("/page_contents/gamefiles/Map.js");
-addScript("/page_contents/gamefiles/main.js");
+addScript("/page_contents/mario/gamefiles/Character.js?v=1");
+addScript("/page_contents/mario/gamefiles/Objects.js");
+addScript("/page_contents/mario/gamefiles/Hitbox.js");
+addScript("/page_contents/mario/gamefiles/Sound.js");
+addScript("/page_contents/mario/gamefiles/Map.js");
+addScript("/page_contents/mario/gamefiles/main.js");
