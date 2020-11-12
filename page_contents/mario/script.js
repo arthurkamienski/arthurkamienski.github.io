@@ -12,4 +12,4 @@ addScript("/page_contents/mario/gamefiles/Objects.js");
 addScript("/page_contents/mario/gamefiles/Hitbox.js");
 addScript("/page_contents/mario/gamefiles/Sound.js");
 addScript("/page_contents/mario/gamefiles/Map.js");
-addScript("/page_contents/mario/gamefiles/main.js");
+addScript("/page_contents/mario/gamefiles/mario.js");
