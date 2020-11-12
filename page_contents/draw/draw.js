@@ -29,8 +29,10 @@ function start() {
 function fixAspectRatio() {
   setInterval(function() {
     if($(window).width() <= 700 && canvas.height/canvas.width != 3/2) {
+      clear();
       canvas.height = 3/2*canvas.width;
     } else if ($(window).width() > 700 && canvas.height/canvas.width != 9/16) {
+      clear();
       canvas.height = 9/16*canvas.width;
     }
   }, 200);
