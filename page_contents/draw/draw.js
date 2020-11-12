@@ -134,8 +134,8 @@ function canvasPos(evtPos) {
   var x = parseInt(evtPos.x-rect.left);
   var y = parseInt(evtPos.y-rect.top);
   
-  var canvasX = x/rect.width*500;
-  var canvasY = y/rect.height*500;
+  var canvasX = x/rect.width*canvas.width;
+  var canvasY = y/rect.height*canvas.height;
 
   return [canvasX, canvasY];
 }
