@@ -36,7 +36,7 @@ window.onload = function() {
   document.addEventListener('keydown', keyDown);
   document.addEventListener('keyup', keyUp);
 
-  $(".up").on({'touchstart': moveUp()});
+  $(".up").on({'click': moveUp()});
   $(".left").on({'touchstart': moveLeft()});
   $(".down").on({'touchstart': duck()});
   $(".right").on({'touchstart': moveRight()});
@@ -50,31 +50,31 @@ window.onload = function() {
   $(".right").on({'touchcancel': stopRight()});
 }
 
-function moveUp(e) {
+function moveUp() {
   mario.move("up");
 }
 
-function duck(e) {
+function duck() {
   mario.down = true;
 }
 
-function moveLeft(e) {
+function moveLeft() {
   mario.move("left");
 }
 
-function moveRight(e) {
+function moveRight() {
   mario.move("right");
 }
 
-function unduck(e) {
+function unduck() {
   mario.down=false;
 }
 
-function stopLeft(e) {
+function stopLeft() {
   mario.stop("left");
 }
 
-function stopRight(e) {
+function stopRight() {
   mario.stop("right");
 }
 
