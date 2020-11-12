@@ -221,6 +221,17 @@ function updateNumBirds() {
   }
 }
 
+
+function fixAspectRatio() {
+  if($(window).width() <= 700 && canvas.height/canvas.width != 3/2) {
+    canvas.height = 3/2*canvas.width;
+    reset();
+  } else if ($(window).width() > 700 && canvas.height/canvas.width != 9/16) {
+    canvas.height = 9/16*canvas.width;
+    reset();
+  }
+}
+
 function start() {
   canvas = $("#canvas").get(0);
   ctx = canvas.getContext("2d");
