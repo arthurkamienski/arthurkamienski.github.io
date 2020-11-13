@@ -102,21 +102,10 @@ function Tile(x, y) {
 	this.isRevealed = false;
 }
 
-function canvasPos(evtPos) {
-  var rect = canvas.getBoundingClientRect();
-  var x = parseInt(evtPos.x-rect.left);
-  var y = parseInt(evtPos.y-rect.top);
-  
-  var canvasX = x/rect.width*canvas.width;
-  var canvasY = y/rect.height*canvas.height;
-
-  return [canvasX, canvasY];
-}
-
 function tileAt(evt) {
         var rect = canvas.getBoundingClientRect();
-        var x = parseInt(evtPos.x-rect.left);
-        var y = parseInt(evtPos.y-rect.top);
+        var x = parseInt(evt.clientX-rect.left);
+        var y = parseInt(evt.clientY-rect.top);
         
         var canvasX = x/rect.width*canvas.width;
         var canvasY = y/rect.height*canvas.height;
