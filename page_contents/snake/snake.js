@@ -10,8 +10,8 @@ var food;
 var interval;
 
 function start() {
-        var canvas = document.getElementById('canvas');
-        var ctx = canvas.getContext("2d");
+        canvas = document.getElementById('canvas');
+        ctx = canvas.getContext("2d");
         snake = [[canvas.width/2, canvas.height/2]]
         draw(snake[0], "white");
 	document.addEventListener('keydown', start);
