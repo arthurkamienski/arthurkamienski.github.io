@@ -45,6 +45,10 @@
     overflow-y: auto;
 }
 
+.prestige .image {
+    background-image: url("prestige.png");
+}
+
 @media screen and (max-width: 700px) {
 	.item {
 	    flex-direction: column;
