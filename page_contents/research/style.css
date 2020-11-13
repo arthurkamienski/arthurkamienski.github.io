@@ -62,11 +62,11 @@
 	    flex-direction: column;
 	}
 
-	.description {
+	.information {
 	    text-align: center;
 	}
 
-	.information {
+	.description {
 	    height: 100px;
 	}
 }
@@ -123,6 +123,7 @@
 }
 
 .add-info {
+	display: none;
 	text-align: left;
 	border: 1px solid lightgrey;
 	border-radius: 10px;
