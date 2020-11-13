@@ -21,7 +21,9 @@
     background: grey;
     width: 130px;
     height: 130px;
-    border-radius: 10px
+    border-radius: 10px;
+    background-size: 100%;
+    border: 1px solid grey;
 }
 
 .description {
