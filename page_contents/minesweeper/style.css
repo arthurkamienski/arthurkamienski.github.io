@@ -10,6 +10,6 @@ canvas {
 
 @media screen and (max-width: 700px) {
 	.content-header {
-		font-size: 80%;
+		font-size: 200%;
 	}
 }
