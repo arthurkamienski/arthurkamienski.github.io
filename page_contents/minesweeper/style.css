@@ -7,3 +7,9 @@ canvas {
 .main {
     width: 95%;
 }
+
+@media screen and (max-width: 700px) {
+	.content-header {
+		font-size: 80%;
+	}
+}
