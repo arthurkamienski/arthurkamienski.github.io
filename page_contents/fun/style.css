@@ -38,6 +38,11 @@
     	user-select: none;
 }
 
+.minesweeper h1 {
+	font-size: 80%;
+
+}
+
 .bg {
 	position: absolute;
 	top: 0;
