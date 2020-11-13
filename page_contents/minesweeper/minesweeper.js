@@ -1,13 +1,12 @@
-var canvas = document.getElementById('canvas');
-var ctx = canvas.getContext("2d");
+var canvas;
+var ctx;
 var field;
 
 canvas.selection = false;
-window.onload = function() {
-	start();
-}
 
 function start() {
+        canvas = document.getElementById('canvas');
+        ctx = canvas.getContext("2d");
 	canvas.removeEventListener('click', start);
 	field = new Field();
 	canvas.width = field.gridSize.x*(field.sqrSize+1)+1;
