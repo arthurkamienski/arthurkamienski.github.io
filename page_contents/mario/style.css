@@ -43,8 +43,17 @@ canvas {
 	align-items: center;
 }
 
+.mobile {
+	display: none;
+	margin: 20px;
+}
+
 @media screen and (max-width: 700px) {
 	.arrow-container {
 		display: none;
+	}
+
+	.mobile {
+		display: block;
 	}
 }
