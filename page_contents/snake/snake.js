@@ -9,7 +9,7 @@ var food;
 
 var interval;
 
-function start() {
+function setup() {
         canvas = document.getElementById('canvas');
         ctx = canvas.getContext("2d");
         snake = [[canvas.width/2, canvas.height/2]]

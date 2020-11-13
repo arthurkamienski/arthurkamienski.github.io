@@ -6,6 +6,6 @@ script.src = "/page_contents/snake/snake.js";
 document.head.appendChild(script);
 
 script.onload = function() {
-  start();
+  setup();
 };
 
