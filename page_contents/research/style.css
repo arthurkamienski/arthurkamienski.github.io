@@ -47,7 +47,7 @@
     overflow-y: auto;
 }
 
-#prestige {
+.prestige {
     background-image: url("prestige.png");
 }
 
@@ -138,4 +138,9 @@ pre {
 	white-space: -pre-wrap;      /* Opera 4-6 */
 	white-space: -o-pre-wrap;    /* Opera 7 */
 	word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+.summary {
+	display: flex;
+	align-items: center;
 }
