@@ -5,6 +5,10 @@ function addScript(src) {
   script.src = src;
 
   document.head.appendChild(script);
+
+  script.onload = function() {
+    start();
+  };
 }
 
 addScript("/page_contents/minesweeper/minesweeper.js");
