@@ -18,6 +18,15 @@
     padding: 10px;
 }
 
+.item:hover {
+    background-color: #F5F5F5;
+}
+
+.summary {
+	display: flex;
+	align-items: center;
+}
+
 .image {
     background: grey;
     width: 130px;
@@ -27,20 +36,16 @@
     border: 1px solid grey;
 }
 
-.description {
-    flex: 1;
-    margin: 10px;
-    text-align: left;
-}
-
 .item-title {
     font-size: 120%;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-.item:hover {
-    background-color: #F5F5F5;
+.description {
+    flex: 1;
+    margin: 10px;
+    text-align: left;
 }
 
 .information {
@@ -119,22 +124,18 @@
 
 .add-info {
 	text-align: left;
+	border: 1px solid lightgrey;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 0;
 }
 
 .abstract {
 	display: none;
-	border: 1px solid lightgrey;
-	border-radius: 10px;
-	padding: 10px;
-	margin: 0;
 }
 
 .bibtex {
 	display: none;
-	border: 1px solid lightgrey;
-	border-radius: 10px;
-	padding: 10px;
-	margin: 0;
 }
 
 pre {
@@ -145,7 +146,3 @@ pre {
 	word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 
-.summary {
-	display: flex;
-	align-items: center;
-}
