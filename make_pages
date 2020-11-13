@@ -1,9 +1,13 @@
 #!/bin/bash
-python page_template.py index
 python page_template.py 404
-python page_template.py draw
-python page_template.py games
-python page_template.py trips
 python page_template.py about
-python page_template.py research
+python page_template.py boids
 python page_template.py contact
+python page_template.py draw
+python page_template.py fun 
+python page_template.py index
+python page_template.py mario
+python page_template.py minesweeper
+python page_template.py research
+python page_template.py snake
+python page_template.py trips

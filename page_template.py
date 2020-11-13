@@ -38,19 +38,21 @@ $(function(){
 </script>
 </head>
 <body>
-  <div class="w3-content w3-center content-div">
-    <div id="header"></div>
-    <div class="main"></div>
+  <div>
+    <div class="w3-content w3-center content-div">
+      <div id="header"></div>
+      <div class="main"></div>
+    </div>
+    <div id="footer"></div>
   </div>
-  <div id="footer"></div>
-</div>
 </body>
 </html>
 '''
 
-new_page_name = sys.argv[1]
+if len(sys.argv) < 3:
+    new_page_name = sys.argv[1]
 
-with open(f"{new_page_name}.html", 'w') as f:
-    f.write(template(new_page_name))
-
-copy_tree("page_contents/template", "page_contents/" + new_page_name)
+    with open(f"{new_page_name}.html", 'w') as f:
+        f.write(template(new_page_name))
+elif sys.argv[2] == "--makedir":
+    copy_tree("page_contents/template", "page_contents/" + new_page_name)
