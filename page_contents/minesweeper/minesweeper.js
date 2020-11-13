@@ -102,12 +102,35 @@ function Tile(x, y) {
 	this.isRevealed = false;
 }
 
-function scan(evt) {
-	var rect = canvas.getBoundingClientRect();
-	var x = parseInt((evt.clientX-rect.left)/(field.sqrSize+1));
-	var y = parseInt((evt.clientY-rect.top)/(field.sqrSize+1));
+function canvasPos(evtPos) {
+  var rect = canvas.getBoundingClientRect();
+  var x = parseInt(evtPos.x-rect.left);
+  var y = parseInt(evtPos.y-rect.top);
+  
+  var canvasX = x/rect.width*canvas.width;
+  var canvasY = y/rect.height*canvas.height;
+
+  return [canvasX, canvasY];
+}
+
+function tileAt(evt) {
+        var rect = canvas.getBoundingClientRect();
+        var x = parseInt(evtPos.x-rect.left);
+        var y = parseInt(evtPos.y-rect.top);
+        
+        var canvasX = x/rect.width*canvas.width;
+        var canvasY = y/rect.height*canvas.height;
+
+	x = parseInt(canvasX/(field.sqrSize+1));
+	y = parseInt(canvasY/(field.sqrSize+1));
 
 	var tile = field.tileAt(x, y);
+
+        return tile;
+}
+
+function scan(evt) {
+	var tile = tileAt(evt);
 
 	if(!tile.isMarked) {
 		if(tile.isRevealed) {
@@ -127,11 +150,7 @@ function scan(evt) {
 
 function mark(evt) {
 	evt.preventDefault()
-	var rect = canvas.getBoundingClientRect();
-	var x = parseInt((evt.clientX-rect.left)/(field.sqrSize+1));
-	var y = parseInt((evt.clientY-rect.top)/(field.sqrSize+1));
-
-	var tile = field.tileAt(x, y);
+	var tile = tileAt(evt);
 
 	if(!tile.isRevealed) {
 		if(!tile.isMarked) {
