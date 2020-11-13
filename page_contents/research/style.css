@@ -54,10 +54,6 @@
     margin-bottom: 10px;
 }
 
-.prestige {
-    background-image: url("prestige.png");
-}
-
 @media screen and (max-width: 700px) {
 	.summary {
 	    flex-direction: column;
