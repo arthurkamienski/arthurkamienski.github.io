@@ -47,7 +47,7 @@
     overflow-y: auto;
 }
 
-.image.prestige {
+#prestige {
     background-image: url("prestige.png");
 }
 
