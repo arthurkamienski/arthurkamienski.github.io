@@ -42,13 +42,13 @@
     margin-bottom: 10px;
 }
 
-.description {
+.information {
     flex: 1;
     margin: 10px;
     text-align: left;
 }
 
-.information {
+.description {
     height: 60px;
     overflow-y: auto;
 }
