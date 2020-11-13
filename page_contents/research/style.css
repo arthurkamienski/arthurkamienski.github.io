@@ -91,6 +91,10 @@
   background: #888;
 }
 
+.button-container {
+	display: flex;
+}
+
 .button {
 	cursor: pointer;
 	text-align: center;
@@ -99,7 +103,7 @@
 	min-width: 100px;
 	max-width: 150px;
 	padding: 5px;
-	margin: 10px;
+	margin-right: 10px;
 }
 
 
@@ -116,10 +120,6 @@
 	align-items: center;
 	justify-content: center;
 	font-weight: bold;
-}
-
-.button-container {
-	display: flex;
 }
 
 .add-info {
