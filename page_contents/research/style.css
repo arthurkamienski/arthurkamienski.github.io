@@ -90,8 +90,37 @@
 	text-align: center;
 	border: 1px solid lightgrey;
 	border-radius: 10px;
-	width: 50%;
+	min-width: 100px;
 	max-width: 150px;
 	padding: 5px;
 	margin: 10px;
+}
+
+
+.paper-info {
+	display: flex;
+	height: 90px;
+	align-items: center;
+}
+
+.year {
+	height: 100px;
+	width: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+}
+
+.button-container {
+	display: flex;
+}
+
+.abstract {
+	display: none;
+	border-radius: 10px;
+}
+
+.bibtex {
+	display: none;
 }
