@@ -2,11 +2,11 @@ var canvas;
 var ctx;
 var field;
 
-canvas.selection = false;
 
 function start() {
         canvas = document.getElementById('canvas');
         ctx = canvas.getContext("2d");
+        canvas.selection = false;
 	canvas.removeEventListener('click', start);
 	field = new Field();
 	canvas.width = field.gridSize.x*(field.sqrSize+1)+1;
