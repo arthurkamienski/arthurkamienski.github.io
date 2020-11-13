@@ -84,3 +84,14 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #888;
 }
+
+.button {
+	cursor: pointer;
+	text-align: center;
+	border: 1px solid lightgrey;
+	border-radius: 10px;
+	width: 50%;
+	max-width: 150px;
+	padding: 5px;
+	margin: 10px;
+}
