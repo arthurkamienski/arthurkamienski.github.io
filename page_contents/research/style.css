@@ -39,7 +39,6 @@
 .item-title {
     font-size: 120%;
     font-weight: bold;
-    margin-bottom: 10px;
 }
 
 .information {
@@ -51,6 +50,8 @@
 .description {
     height: 60px;
     overflow-y: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .prestige {
@@ -64,6 +65,10 @@
 
 	.information {
 	    text-align: center;
+	}
+
+	.button-container {
+	    justify-content: center;
 	}
 
 	.description {
