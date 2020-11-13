@@ -1,4 +1,5 @@
 import sys
+from distutils.dir_util import copy_tree
 
 template = lambda page_name: '''
 <!DOCTYPE html>
@@ -51,3 +52,5 @@ new_page_name = sys.argv[1]
 
 with open(f"{new_page_name}.html", 'w') as f:
     f.write(template(new_page_name))
+
+copy_tree("page_contents/template", "page_contents/" + new_page_name)
