@@ -59,7 +59,7 @@ img {
 
 .information {
     flex: 1;
-    margin: 10px;
+    margin-left: 10px;
     text-align: left;
 }
 
@@ -138,7 +138,6 @@ img {
 	border: 1px solid lightgrey;
 	border-radius: 10px;
 	padding: 10px;
-	margin: 0;
 }
 
 .abstract {
