@@ -70,30 +70,6 @@ img {
     margin-bottom: 10px;
 }
 
-@media screen and (max-width: 700px) {
-	.summary {
-	    flex-direction: column;
-	}
-
-	.information {
-	    text-align: center;
-	}
-
-	.button-container {
-	    justify-content: center;
-	}
-
-	.paper-info {
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-
-	.year {
-		height: auto;
-		width: auto;
-	}
-}
 
 ::-webkit-scrollbar {
   width: 5px;
@@ -233,8 +209,39 @@ hr {
 .info-label {
 	flex: 1;
 	font-weight: bold;
+	margin-right: 10px;
 }
 
 .info-description {
 	color: #444;
+	text-align: right;
+}
+
+@media screen and (max-width: 700px) {
+	.summary {
+	    flex-direction: column;
+	}
+
+	.information {
+	    text-align: center;
+	}
+
+	.button-container {
+	    justify-content: center;
+	}
+
+	.paper-info {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.year {
+		height: auto;
+		width: auto;
+	}
+
+	.anchor {
+		top: -30vw;
+	}
 }
