@@ -199,8 +199,8 @@ hr {
 
 .anchor{
   display: block;
-  position:absolute;
-  top:50%;
+  position:relative;
+  top:-40vh;
   visibility: hidden;
 }
 
