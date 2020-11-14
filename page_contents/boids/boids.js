@@ -4,7 +4,7 @@ var cohesionForce   = 2;
 var separationForce = 1;
 var alignmentForce  = 0.5;
 
-var birdColor;
+var birdColor = "#000000";
 var backgroundColor;
 var maxSpeed;
 
