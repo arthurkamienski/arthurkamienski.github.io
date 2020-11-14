@@ -23,7 +23,7 @@
 }
 
 .item.hovered {
-    background-color: #F5F5F5;
+    background-color: rgba(255, 180, 0, 0.4);
     transition: background-color 1s ease-in-out;
 }
 
