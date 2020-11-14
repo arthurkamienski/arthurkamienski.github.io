@@ -130,8 +130,13 @@ img {
 
 .paper-info {
 	display: flex;
-	height: 90px;
 	align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.authors {
+	color: #888;
 }
 
 .year {
