@@ -83,6 +83,6 @@ function moveTo(id) {
       setTimeout(function() {
         $("#" + id).toggleClass("unhover");
       }, 1000);
-    }, 1000);
+    }, 3000);
   }, 2000);
 }
