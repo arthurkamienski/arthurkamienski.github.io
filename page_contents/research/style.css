@@ -163,6 +163,8 @@ pre {
 	padding: 2px 5px 2px 5px;
 	border-radius: 5px;
 	color: white;
+	font-size: 70%;
+	vertical-align: middle;
 }
 
 hr {
