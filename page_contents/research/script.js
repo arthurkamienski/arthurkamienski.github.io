@@ -18,6 +18,8 @@ function showAbstract(id) {
       btn.css("background-color", "lightgrey");
     } else {
       abst.css("display", "none");
+      infoDir.css("display", "none");
+      btn.css("background-color", "");
     }
   }
 }
@@ -40,6 +42,8 @@ function showBib(id) {
       btn.css("background-color", "lightgrey");
     } else {
       bibtex.css("display", "none");
+      infoDir.css("display", "none");
+      btn.css("background-color", "");
     }
   }
 }
