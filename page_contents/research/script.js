@@ -66,3 +66,15 @@ function showInfo(id) {
     btn.css("background-color", "");
   }
 }
+
+function moveTo(id) {
+  $([document.documentElement, document.body]).animate({
+    scrollTop: $("#" + id + "-anchor").offset().top
+  }, 2000);
+
+  $("#" + id).toggleClass("hovered");
+
+  setTimeout(function() {
+    $("#" + id).toggleClass("hovered");
+  }, 2000);
+}

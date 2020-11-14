@@ -18,7 +18,7 @@
     padding: 10px;
 }
 
-.item:hover {
+.item:hover, .item.hovered {
     background-color: #F5F5F5;
 }
 
