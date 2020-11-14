@@ -213,3 +213,27 @@ hr {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.info-table {
+	display: flex;
+	flex-direction: column;
+}
+
+.info-item {
+	display: flex;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.info-item:hover {
+	background-color: #DDD;
+}
+
+.info-label {
+	flex: 1;
+	font-weight: bold;
+}
+
+.info-description {
+	color: #444;
+}
