@@ -133,6 +133,7 @@ img {
 }
 
 .add-info {
+	width: 100%;
 	display: none;
 	text-align: left;
 	border: 1px solid lightgrey;

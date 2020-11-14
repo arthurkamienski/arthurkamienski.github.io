@@ -28,7 +28,7 @@ function showBib(id) {
   var infoDir = $("#" + id + " .add-info"); 
   var abst    = $("#" + id + " .abstract"); 
   var bibtex  = $("#" + id + " .bibtex"); 
-  var btn     = $("#" + id + " .bibtex-btn");
+  var btn     = $("#" + id + " .bib-btn");
 
   if (infoDir.css("display") == "none") {
     infoDir.css("display", "block");
@@ -50,4 +50,13 @@ function showBib(id) {
 
 function showInfo(id) {
   var infoDir = $("#" + id + " .add-info"); 
+  var btn     = $("#" + id + " .info-btn");
+
+  if (infoDir.css("display") == "none") {
+    infoDir.css("display", "block");
+    btn.css("background-color", "lightgrey");
+  } else {
+    infoDir.css("display", "none");
+    btn.css("background-color", "");
+  }
 }
