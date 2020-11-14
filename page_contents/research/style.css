@@ -166,3 +166,11 @@ pre {
 	border-radius: 5px;
 	color: white;
 }
+
+hr {
+	width: 100%;
+}
+
+.authors-venue {
+	flex: 1;
+}
