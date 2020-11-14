@@ -18,10 +18,10 @@ var separation;
 var birds = [];
 var fps   = 60;
 
-var randomBirdColor = false;
+var randomBirdColor = true;
 var isPaused    = false;
 var showVision  = false;
-var showPath    = false;
+var showPath    = true;
 var showForce   = false;
 var showSpeed   = false;
 var showSettings = false;
@@ -235,6 +235,9 @@ function fixAspectRatio() {
 function start() {
   canvas = $("#canvas").get(0);
   ctx = canvas.getContext("2d");
+  
+  $("#randomBirdColor").css("background-color","#DDDDDD");
+  $("#path").css("background-color","#DDDDDD");
 
   fixAspectRatio();
   
