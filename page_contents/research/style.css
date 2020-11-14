@@ -174,3 +174,10 @@ hr {
 .authors-venue {
 	flex: 1;
 }
+
+.anchor{
+  display: block;
+  position:absolute;
+  top:50%;
+  visibility: hidden;
+}
