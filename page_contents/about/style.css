@@ -5,18 +5,19 @@
 	border-radius: 30px;
 }
 
-a.btn {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
+.button {
+	cursor: pointer;
+	text-align: center;
+	border: 1px solid lightgrey;
+	border-radius: 10px;
+	min-width: 100px;
+	max-width: 150px;
+	padding: 5px;
+	margin-right: 10px;
+}
 
-    text-decoration: none;
-    color: initial;
-
-    width: 100px;
-    border-radius: 5px;
-    border: 1px solid grey;
-    padding: 5px;
+.button:hover {
+	background-color: #DDD;
 }
 
 
