@@ -157,6 +157,7 @@ img {
 
 .add-info {
 	width: 100%;
+	margin-top: 10px;
 	display: none;
 	text-align: left;
 	border: 1px solid lightgrey;
