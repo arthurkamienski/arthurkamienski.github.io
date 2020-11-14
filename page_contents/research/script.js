@@ -77,11 +77,12 @@ function moveTo(id) {
     $("#" + id).toggleClass("hovered");
 
     setTimeout(function() {
-      $("#" + id).css("background-color", "");
+      $("#" + id).toggleClass("hovered");
+      $("#" + id).toggleClass("unhover");
 
       setTimeout(function() {
-        $("#" + id).toggleClass("hovered");
-        }, 1000);
+        $("#" + id).toggleClass("unhover");
+      }, 1000);
     }, 1000);
   }, 2000);
 }

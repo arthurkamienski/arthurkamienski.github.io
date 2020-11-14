@@ -27,6 +27,11 @@
     transition: background-color 1s ease-in-out;
 }
 
+.item.unhover {
+    background-color: none;
+    transition: background-color 1s ease-in-out;
+}
+
 .summary {
 	width: 100%;
 	display: flex;
