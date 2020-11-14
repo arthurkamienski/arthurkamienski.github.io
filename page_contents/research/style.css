@@ -130,9 +130,6 @@ img {
 
 .paper-info {
 	display: flex;
-	align-items: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
 .authors {
@@ -195,4 +192,9 @@ hr {
   position:absolute;
   top:50%;
   visibility: hidden;
+}
+
+.paper-description {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
