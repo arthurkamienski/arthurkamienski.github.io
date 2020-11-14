@@ -113,6 +113,9 @@ img {
 	margin-right: 10px;
 }
 
+.button:hover {
+	background-color: #DDD;
+}
 
 .paper-info {
 	display: flex;
