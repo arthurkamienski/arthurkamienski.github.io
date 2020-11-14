@@ -71,10 +71,6 @@ img {
 	.button-container {
 	    justify-content: center;
 	}
-
-	.description {
-	    height: 100px;
-	}
 }
 
 ::-webkit-scrollbar {
