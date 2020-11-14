@@ -218,10 +218,13 @@ hr {
 @media screen and (max-width: 700px) {
 	.summary {
 	    flex-direction: column;
+	    align-items: center;
 	}
 
 	.information {
 	    text-align: center;
+	    margin-left: 0;
+	    margin-top: 10px
 	}
 
 	.button-container {
