@@ -4,22 +4,25 @@ function showAbstract(id) {
   var infoDir = $("#" + id + " .add-info"); 
   var abst    = $("#" + id + " .abstract"); 
   var bibtex  = $("#" + id + " .bibtex");
-  var btn     = $("#" + id + " .abstract-btn");
+  var bibBtn  = $("#" + id + " .bib-btn");
+  var absBtn  = $("#" + id + " .abstract-btn");
   
   if (infoDir.css("display") == "none") {
     infoDir.css("display", "block");
     abst.css("display", "block");
     bibtex.css("display", "none");
-    btn.css("background-color", "lightgrey");
+    absBtn.css("background-color", "lightgrey");
+    bibBtn.css("background-color", "");
   } else {
     if(abst.css("display") == "none") {
       abst.css("display", "block");
       bibtex.css("display", "none");
-      btn.css("background-color", "lightgrey");
+      absBtn.css("background-color", "lightgrey");
+      bibBtn.css("background-color", "");
     } else {
       abst.css("display", "none");
       infoDir.css("display", "none");
-      btn.css("background-color", "");
+      absBtn.css("background-color", "");
     }
   }
 }
@@ -28,22 +31,25 @@ function showBib(id) {
   var infoDir = $("#" + id + " .add-info"); 
   var abst    = $("#" + id + " .abstract"); 
   var bibtex  = $("#" + id + " .bibtex"); 
-  var btn     = $("#" + id + " .bib-btn");
+  var bibBtn  = $("#" + id + " .bib-btn");
+  var absBtn  = $("#" + id + " .abstract-btn");
 
   if (infoDir.css("display") == "none") {
     infoDir.css("display", "block");
     abst.css("display", "none");
     bibtex.css("display", "block");
-    btn.css("background-color", "lightgrey");
+    absBtn.css("background-color", "");
+    bibBtn.css("background-color", "lightgrey");
   } else {
     if(bibtex.css("display") == "none") {
       abst.css("display", "none");
       bibtex.css("display", "block");
-      btn.css("background-color", "lightgrey");
+      absBtn.css("background-color", "");
+      bibBtn.css("background-color", "lightgrey");
     } else {
       bibtex.css("display", "none");
       infoDir.css("display", "none");
-      btn.css("background-color", "");
+      bibBtn.css("background-color", "");
     }
   }
 }
