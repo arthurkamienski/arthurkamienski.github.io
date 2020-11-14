@@ -70,7 +70,7 @@ function showInfo(id) {
 function moveTo(id) {
   $([document.documentElement, document.body]).animate({
     scrollTop: $("#" + id + "-anchor").offset().top
-  }, 2000);
+  }, 1000);
 
 
   setTimeout(function() {
@@ -84,5 +84,5 @@ function moveTo(id) {
         $("#" + id).toggleClass("unhover");
       }, 1000);
     }, 3000);
-  }, 2000);
+  }, 500);
 }
