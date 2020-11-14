@@ -19,7 +19,7 @@ function showAbstract(id) {
   }
 }
 
-function showBibtex(id) {
+function showBib(id) {
   var infoDir = $("#" + id + " .add-info"); 
   var abst    = $("#" + id + " .abstract"); 
   var bibtex  = $("#" + id + " .bibtex"); 
