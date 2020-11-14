@@ -82,6 +82,17 @@ img {
 	.button-container {
 	    justify-content: center;
 	}
+
+	.paper-info {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.year {
+		height: auto;
+		width: auto;
+	}
 }
 
 ::-webkit-scrollbar {
