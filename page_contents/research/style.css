@@ -18,8 +18,13 @@
     padding: 10px;
 }
 
-.item:hover, .item.hovered {
+.item:hover {
     background-color: #F5F5F5;
+}
+
+.item.hovered {
+    background-color: #F5F5F5;
+    transition: background-color 1s ease-in-out;
 }
 
 .summary {

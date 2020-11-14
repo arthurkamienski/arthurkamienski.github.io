@@ -72,9 +72,16 @@ function moveTo(id) {
     scrollTop: $("#" + id + "-anchor").offset().top
   }, 2000);
 
-  $("#" + id).toggleClass("hovered");
 
   setTimeout(function() {
     $("#" + id).toggleClass("hovered");
+
+    setTimeout(function() {
+      $("#" + id).css("background-color", "");
+
+      setTimeout(function() {
+        $("#" + id).toggleClass("hovered");
+        }, 1000);
+    }, 1000);
   }, 2000);
 }
