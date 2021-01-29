@@ -4,11 +4,11 @@
 	display: block;
 	margin: 0 auto;
 	width: 1024;
+	height: 768;
 	max-width: 1024;
 	min-width: 1024;
 	max-height: 768;
 	min-height: 768;
-	height: 768;
 	overflow: auto;
 }
 
