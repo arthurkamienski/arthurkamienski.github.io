@@ -218,6 +218,24 @@ hr {
 	text-align: right;
 }
 
+.collapsible {
+	display:none;
+}
+
+#pubs {
+	display: block;
+}
+
+.collapse-button {
+	width:100%;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.collapse-button:hover {
+    background-color: #F5F5F5;
+}
+
 @media screen and (max-width: 700px) {
 	.summary {
 	    flex-direction: column;
