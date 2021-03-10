@@ -88,7 +88,7 @@ function moveTo(id) {
 }
 
 function expand(id) {
-  var div = $('#' + id):
+  var div = $('#' + id);
 
   if (div.style.maxHeight) {
     div.style.maxHeight = null;
