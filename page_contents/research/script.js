@@ -87,15 +87,21 @@ function moveTo(id) {
   }, 500);
 }
 
-function expand(id) {
+async function expand(id) {
   var div = $('#' + id);
   var icon = $('#' + id + "-icon")
 
   if (div.css('maxHeight') != '0px') {
+    icon.text('\u2795');
+    div.css('maxHeight', div.prop('scrollHeight') + 'px');
+    await new Promise(r => setTimeout(r, 10));
+    div.css('transition', 'max-height 2s ease-in-out');
     div.css('maxHeight', '0px');
-    icon.text('\u2796')
   } else {
-    div.css('maxHeight', "1000000px");
-    icon.text('\u02795')
+    icon.text('\u2796');
+    div.css('maxHeight', div.prop('scrollHeight') + 'px');
+    await new Promise(r => setTimeout(r, 2000));
+    div.css({transition:''});
+    div.css('maxHeight', '100%');
   }
 }
