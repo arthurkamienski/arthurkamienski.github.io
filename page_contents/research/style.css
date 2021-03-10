@@ -219,11 +219,13 @@ hr {
 }
 
 .collapsible {
-	display:none;
+	max-height: 0;
+    	overflow: hidden;
+    	transition: max-height 0.5s ease-out;
 }
 
 #pubs {
-	display: block;
+	max-height: 10000px;
 }
 
 .collapse-button {

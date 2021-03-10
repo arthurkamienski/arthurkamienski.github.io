@@ -86,3 +86,13 @@ function moveTo(id) {
     }, 3000);
   }, 500);
 }
+
+function expand(id) {
+  var div = $('#' + id):
+
+  if (div.style.maxHeight) {
+    div.style.maxHeight = null;
+  } else {
+    div.style.maxHeight = div.scrollHeight + "px";
+  }
+}
