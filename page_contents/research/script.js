@@ -96,3 +96,13 @@ function expand(id) {
     div.css('maxHeight', div.scrollHeight + "px");
   }
 }
+
+function expand(id) {
+  var div = $('#' + id);
+
+  if (div.css('maxHeight') != '0px') {
+    div.css('maxHeight', '0px');
+  } else {
+    div.css('maxHeight', div.prop('scrollHeight') + "px");
+  }
+}

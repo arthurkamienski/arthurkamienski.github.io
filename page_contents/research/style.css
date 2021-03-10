@@ -225,7 +225,7 @@ hr {
 }
 
 #pubs {
-	max-height: 10000px;
+	max-height: 100%;
 }
 
 .collapse-button {
