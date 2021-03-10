@@ -67,7 +67,30 @@ function showInfo(id) {
   }
 }
 
-function moveTo(id) {
+async function expand(id) {
+  var div = $('#' + id);
+  var icon = $('#' + id + "-icon")
+
+  if (div.css('maxHeight') != '0px') {
+    icon.text('\u2795');
+    div.css({transition:''});
+    await new Promise(r => setTimeout(r, 10));
+    div.css('maxHeight', div.prop('scrollHeight') + 'px');
+    await new Promise(r => setTimeout(r, 10));
+    div.css('transition', 'max-height 2s ease-in-out');
+    div.css('maxHeight', '0px');
+  } else {
+    icon.text('\u2796');
+    div.css('transition', 'max-height 2s ease-in-out');
+    await new Promise(r => setTimeout(r, 10));
+    div.css('maxHeight', div.prop('scrollHeight') + 'px');
+    await new Promise(r => setTimeout(r, 2000));
+    div.css({transition:''});
+    div.css('maxHeight', '100%');
+  }
+}
+
+async function moveTo(id) {
   var toFocus = $('#' + id);
 
   if(toFocus.closest('collapsible').css('maxHeight') == '0px') {
@@ -94,25 +117,3 @@ function moveTo(id) {
   }, 500);
 }
 
-async function expand(id) {
-  var div = $('#' + id);
-  var icon = $('#' + id + "-icon")
-
-  if (div.css('maxHeight') != '0px') {
-    icon.text('\u2795');
-    div.css({transition:''});
-    await new Promise(r => setTimeout(r, 10));
-    div.css('maxHeight', div.prop('scrollHeight') + 'px');
-    await new Promise(r => setTimeout(r, 10));
-    div.css('transition', 'max-height 2s ease-in-out');
-    div.css('maxHeight', '0px');
-  } else {
-    icon.text('\u2796');
-    div.css('transition', 'max-height 2s ease-in-out');
-    await new Promise(r => setTimeout(r, 10));
-    div.css('maxHeight', div.prop('scrollHeight') + 'px');
-    await new Promise(r => setTimeout(r, 2000));
-    div.css({transition:''});
-    div.css('maxHeight', '100%');
-  }
-}
