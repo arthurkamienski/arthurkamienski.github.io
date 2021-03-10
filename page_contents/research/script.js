@@ -1,7 +1,5 @@
 document.title = 'Research - ' + document.title;
 
-$('#pubs').css('maxHeight', $('#pubs').prop('scrollHeight') + "px");
-
 function showAbstract(id) {
   var infoDir = $("#" + id + " .add-info"); 
   var abst    = $("#" + id + " .abstract"); 
@@ -91,20 +89,13 @@ function moveTo(id) {
 
 function expand(id) {
   var div = $('#' + id);
+  var icon = $('#' + id + "-icon")
 
-  if (div.css('maxHeight')) {
-    div.css('maxHeight', null);
+  if (div.css('maxHeight') != '0%') {
+    div.css('maxHeight', '0%');
+    icon.text('&#2796;')
   } else {
-    div.css('maxHeight', div.scrollHeight + "px");
-  }
-}
-
-function expand(id) {
-  var div = $('#' + id);
-
-  if (div.css('maxHeight') != '0px') {
-    div.css('maxHeight', '0px');
-  } else {
-    div.css('maxHeight', div.prop('scrollHeight') + "px");
+    div.css('maxHeight', "100%");
+    icon.text('&#02795;')
   }
 }
