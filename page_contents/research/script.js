@@ -68,20 +68,27 @@ function showInfo(id) {
 }
 
 function moveTo(id) {
+  var toFocus = $('#' + id);
+
+  if(toFocus.closest('collapsible').css('maxHeight') == '0px') {
+    expand(container);
+    await new Promise(r => setTimeout(r, 500));
+  }
+
   $([document.documentElement, document.body]).animate({
     scrollTop: $("#" + id + "-anchor").offset().top
   }, 1000);
 
 
   setTimeout(function() {
-    $("#" + id).toggleClass("hovered");
+    toFocus.toggleClass("hovered");
 
     setTimeout(function() {
-      $("#" + id).toggleClass("hovered");
-      $("#" + id).toggleClass("unhover");
+      toFocus.toggleClass("hovered");
+      toFocus.toggleClass("unhover");
 
       setTimeout(function() {
-        $("#" + id).toggleClass("unhover");
+        toFocus.toggleClass("unhover");
       }, 1000);
     }, 3000);
   }, 500);
