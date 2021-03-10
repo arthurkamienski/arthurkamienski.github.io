@@ -224,10 +224,6 @@ hr {
     	transition: max-height 0.5s ease-out;
 }
 
-#pubs {
-	max-height: 100000px;
-}
-
 .collapse-button {
 	width:100%;
 	border-radius: 5px;
