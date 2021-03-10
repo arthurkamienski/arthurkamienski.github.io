@@ -90,9 +90,9 @@ function moveTo(id) {
 function expand(id) {
   var div = $('#' + id);
 
-  if (div.style.maxHeight) {
-    div.style.maxHeight = null;
+  if (div.css('maxHeight')) {
+    div.css('maxHeight', null);
   } else {
-    div.style.maxHeight = div.scrollHeight + "px";
+    div.css('maxHeight', div.scrollHeight + "px");
   }
 }
