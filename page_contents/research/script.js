@@ -91,11 +91,11 @@ function expand(id) {
   var div = $('#' + id);
   var icon = $('#' + id + "-icon")
 
-  if (div.css('maxHeight') != '0%') {
-    div.css('maxHeight', '0%');
-    icon.text('&#2796;')
+  if (div.css('maxHeight') != '0px') {
+    div.css('maxHeight', '0px');
+    icon.text('\u2796')
   } else {
-    div.css('maxHeight', "100%");
-    icon.text('&#02795;')
+    div.css('maxHeight', "1000000px");
+    icon.text('\u02795')
   }
 }
