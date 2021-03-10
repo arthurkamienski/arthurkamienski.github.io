@@ -93,8 +93,8 @@ async function expand(id) {
 async function moveTo(id) {
   var toFocus = $('#' + id);
 
-  if(toFocus.closest('collapsible').css('maxHeight') == '0px') {
-    expand(container);
+  if(toFocus.closest('.collapsible').css('maxHeight') == '0px') {
+    expand(toFocus.closest('.collapsible').attr('id'));
     await new Promise(r => setTimeout(r, 500));
   }
 
@@ -116,4 +116,3 @@ async function moveTo(id) {
     }, 3000);
   }, 500);
 }
-
