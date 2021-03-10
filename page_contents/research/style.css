@@ -219,9 +219,8 @@ hr {
 }
 
 .collapsible {
-	max-height: 0;
+	max-height: 0px;
     	overflow: hidden;
-    	transition: max-height 0.5s ease-out;
 }
 
 .collapse-button {
