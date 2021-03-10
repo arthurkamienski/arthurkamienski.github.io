@@ -1,5 +1,7 @@
 document.title = 'Research - ' + document.title;
 
+$('#pubs').css('maxHeight', $('#pubs').prop('scrollHeight') + "px");
+
 function showAbstract(id) {
   var infoDir = $("#" + id + " .add-info"); 
   var abst    = $("#" + id + " .abstract"); 
