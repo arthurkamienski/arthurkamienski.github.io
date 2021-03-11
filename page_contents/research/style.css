@@ -278,4 +278,11 @@ hr {
 	.anchor {
 		top: -30vw;
 	}
+
+	.list-title {
+		font-size: 90%;
+	}
+	.collapse-icon {
+		font-size: 10px;
+	}
 }
