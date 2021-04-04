@@ -12,12 +12,12 @@ var nestScentRange = 15;
 var fps = 50;
 
 var gridSizeX = 150;
-var gridSizeY = 150;
+var gridSizeY = 100;
 
 var tileSize = 5;
 
 var nestPos = [15, 15];
-var foodPos = [134, 134];
+var foodPos = [gridSizeX-15, gridSizeY-15];
 
 var startAnts = 30;
 var scouts = startAnts;
