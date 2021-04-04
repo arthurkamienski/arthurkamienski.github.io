@@ -69,6 +69,10 @@
 	background-image: url('/page_contents/fun/snake.png');
 }
 
+.ants .bg {
+	background-image: url('/page_contents/fun/ants.png');
+}
+
 .minesweeper .bg {
 	background-image: url('/page_contents/fun/minesweeper.png');
 }
