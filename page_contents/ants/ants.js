@@ -24,6 +24,9 @@ var scouts = startAnts;
 var maxScouts = startAnts;
 var maxAnts = 500;
 
+var showPheromones = false;
+var showGrid = false;
+
 var updatedTiles;
 var pheromoneTiles;
 
@@ -184,10 +187,16 @@ function Tile(x, y) {
           this.color = "maroon";
         }
       } else if (this.nestPher > 0 && this.nestPher > this.foodPher) {
-        this.color = nestPherColors[9-Math.floor(this.nestPher/maxScentTime*10)];
+        if (showPheromones) {
+          this.color = nestPherColors[9-Math.floor(this.nestPher/maxScentTime*10)];
+        }
+
         pheromoneTiles.push(this);
       } else if (this.foodPher > 0) {
-        this.color = foodPherColors[9-Math.floor(this.foodPher/maxScentTime*10)];
+        if (showPheromones) {
+          this.color = foodPherColors[9-Math.floor(this.foodPher/maxScentTime*10)];
+        }
+        
         pheromoneTiles.push(this);
       } else {
         this.color = this.defaultColor;
