@@ -237,7 +237,7 @@ function Tile(x, y) {
     if (showGrid) {
       ctx.fillRect(this.x*(size+1)+1, this.y*(size+1)+1, size, size);
     } else {
-      ctx.fillRect(this.x*size, this.y*size, size, size);
+      ctx.fillRect(this.x*(size+1)+1, this.y*(size+1)+1, size+2, size+2);
     }
 
   }
