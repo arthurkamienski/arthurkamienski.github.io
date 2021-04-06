@@ -108,7 +108,7 @@ function start() {
 }
 
 function Board() {
-  this.tileSize = tileSize + 2;
+  this.tileSize = tileSize;
   this.gridSize = {x: gridSizeX, y: gridSizeY};
   this.tiles = new Map();
 
@@ -233,7 +233,13 @@ function Tile(x, y) {
   this.draw = function() {
     var size = board.tileSize;
     ctx.fillStyle = this.color;
-    ctx.fillRect(this.x*(size+1)+1, this.y*(size+1)+1, size, size);
+
+    if (showGrid) {
+      ctx.fillRect(this.x*(size+1)+1, this.y*(size+1)+1, size, size);
+    } else {
+      ctx.fillRect(this.x*size, this.y*size, size, size);
+    }
+
   }
 }
 
@@ -345,10 +351,7 @@ function Ant(scouting) {
 function toggleGrid() {
   showGrid = !showGrid;
   if (showGrid) {
-    board.tileSize = tileSize;
     drawGrid();
-  } else {
-    board.tileSize = tileSize + 2;
   }
 }
 
