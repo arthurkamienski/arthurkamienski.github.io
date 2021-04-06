@@ -159,7 +159,7 @@ function Tile(x, y) {
   this.foodPher = 0;
   this.scent    = 0;
 
-  this.defaultColor = backGroundColor;
+  this.defaultColor = backgroundColor;
   this.color = this.defaultColor;
 
   this.init = function() {
