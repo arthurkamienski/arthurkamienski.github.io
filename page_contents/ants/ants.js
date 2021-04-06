@@ -103,6 +103,7 @@ function start() {
   canvas = $('#canvas')[0];
   ctx = canvas.getContext("2d");
   canvas.selection = false;
+  setCanvasSize();
 }
 
 function setCanvasSize() {
