@@ -189,12 +189,16 @@ function Tile(x, y) {
       } else if (this.nestPher > 0 && this.nestPher > this.foodPher) {
         if (showPheromones) {
           this.color = nestPherColors[9-Math.floor(this.nestPher/maxScentTime*10)];
+        } else {
+          this.color = this.defaultColor;
         }
 
         pheromoneTiles.push(this);
       } else if (this.foodPher > 0) {
         if (showPheromones) {
           this.color = foodPherColors[9-Math.floor(this.foodPher/maxScentTime*10)];
+        } else {
+          this.color = this.defaultColor;
         }
         
         pheromoneTiles.push(this);
