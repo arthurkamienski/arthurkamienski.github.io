@@ -70,6 +70,10 @@ $(document).ready(function() {
     t.draw();
   });
 
+  if (showGrid) {
+    drawGrid();
+  }
+
   pheromoneTiles = [];
   
   interval = window.setInterval(function() {
@@ -101,7 +105,6 @@ function start() {
   canvas.selection = false;
   canvas.width  = board.gridSize.x*(board.tileSize+1)+1;
   canvas.height = board.gridSize.y*(board.tileSize+1)+1;
-  drawGrid();
 }
 
 function Board() {
