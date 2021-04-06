@@ -103,8 +103,16 @@ function start() {
   canvas = $('#canvas')[0];
   ctx = canvas.getContext("2d");
   canvas.selection = false;
-  canvas.width  = board.gridSize.x*(board.tileSize+1)+1;
-  canvas.height = board.gridSize.y*(board.tileSize+1)+1;
+}
+
+function setCanvasSize() {
+  canvas.width  = board.gridSize.x*board.tileSize;
+  canvas.height = board.gridSize.y*board.tileSize;
+
+  if (showGrid) {
+    canvas.width++;
+    canvas.height++;
+  }
 }
 
 function Board() {
@@ -232,12 +240,13 @@ function Tile(x, y) {
 
   this.draw = function() {
     var size = board.tileSize;
+
     ctx.fillStyle = this.color;
 
     if (showGrid) {
-      ctx.fillRect(this.x*(size+1)+1, this.y*(size+1)+1, size, size);
+      ctx.fillRect(this.x*size+1, this.y*size+1, size-1, size-1);
     } else {
-      ctx.fillRect(this.x*(size+1), this.y*(size+1), size+1, size+1);
+      ctx.fillRect(this.x*size, this.y*size, size, size);
     }
 
   }
@@ -350,21 +359,11 @@ function Ant(scouting) {
 
 function toggleGrid() {
   showGrid = !showGrid;
+  setCanvasSize();
+
   if (showGrid) {
-    drawGrid();
-  }
-
-  board.tiles.forEach(function(t, k, m) {
-    t.draw();
-  });
-}
-
-function drawGrid() {
-  for (var i = 0; i < canvas.width-2; i+=board.tileSize+1) {
-    for (var j = 0; j < canvas.height-2; j+=board.tileSize+1) {
-      ctx.fillStyle = "black";
-      ctx.fillRect(i, j, (board.tileSize+2), (board.tileSize+2));
-    }
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
   }
 
   board.tiles.forEach(function(t, k, m) {
