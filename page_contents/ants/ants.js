@@ -1,5 +1,8 @@
 var canvas, ctx;
 
+var updatedTiles;
+var pheromoneTiles;
+
 var board;
 var ants;
 
@@ -29,12 +32,18 @@ var showGrid = false;
 
 var scoutRandomness = 0.5;
 var workerRandomness = 0.1;
+var scoutSpawnProb = 0.05;
 
 var foodRadius = 2;
 var nestRadius = 2;
 
-var updatedTiles;
-var pheromoneTiles;
+var backgroundColor = 'white';
+var workerColor = 'black';
+var nestColor = 'chocolate';
+var foodColor = 'darkgreen';
+var foodScentColor = '#d1e4c9';
+var carrierColor = 'forestGreen';
+var scoutColor = 'maroon';
 
 foodPherColors = [
   '#cd9504',
@@ -150,7 +159,7 @@ function Tile(x, y) {
   this.foodPher = 0;
   this.scent    = 0;
 
-  this.defaultColor = 'white';
+  this.defaultColor = backGroundColor;
   this.color = this.defaultColor;
 
   this.init = function() {
@@ -180,11 +189,11 @@ function Tile(x, y) {
     }
 
     if (this.isNest) {
-      this.defaultColor = "chocolate";
+      this.defaultColor = nestColor;
     } else if (this.isFood) {
-      this.defaultColor = "darkgreen";
+      this.defaultColor = foodColor;
     } else if (this.scent > 0) {
-      this.defaultColor = "#d1e4c9";
+      this.defaultColor = foodScentColor;
     }
 
     this.color = this.defaultColor;
@@ -198,11 +207,11 @@ function Tile(x, y) {
     if(!this.isNest && !this.isFood) {
       if (this.hasAnt) {
         if (this.antType == 'worker') {
-          this.color = "black";
+          this.color = workerColor;
         } else if (this.antType == 'carrier') {
-          this.color = "orange";
+          this.color = carrierColor;
         } else {
-          this.color = "maroon";
+          this.color = scoutColor;
         }
       } else if (this.nestPher > 0 && this.nestPher > this.foodPher) {
         if (showPheromones) {
@@ -321,7 +330,7 @@ function Ant(scouting) {
           if (ants.length < maxAnts) {
             ants.push(new Ant(false));
           }
-          if (Math.random() < 0.05 && scouts < maxScouts) {
+          if (Math.random() < scoutSpawnProb && scouts < maxScouts) {
             this.isScouting = true;
             scouts++;
           }
