@@ -27,6 +27,12 @@ var maxAnts = 500;
 var showPheromones = false;
 var showGrid = false;
 
+var scoutRandomness = 0.5;
+var workerRandomness = 0.1;
+
+var foodRadius = 2;
+var nestRadius = 2;
+
 var updatedTiles;
 var pheromoneTiles;
 
@@ -99,7 +105,7 @@ function start() {
 }
 
 function Board() {
-  this.tileSize = tileSize;
+  this.tileSize = tileSize + 2;
   this.gridSize = {x: gridSizeX, y: gridSizeY};
   this.tiles = new Map();
 
@@ -153,11 +159,11 @@ function Tile(x, y) {
 
     this.scent = Math.max(0, foodScentRange - this.distTo(board.food));
 
-    if (this.distTo(board.food) <= 2) {
+    if (this.distTo(board.food) <= foodRadius) {
       this.isFood = true;
     }
 
-    if (this.distTo(board.nest) <= 2) {
+    if (this.distTo(board.nest) <= nestRadius) {
       this.isNest = true;
     }
 
@@ -238,7 +244,6 @@ function Ant(scouting) {
   this.scentStrength = maxScentTime;
 
   this.move = function() {
-    //choose move
     var nextTile = this.tile;
 
     var moves = this.tile.neighbors.filter(
@@ -249,7 +254,7 @@ function Ant(scouting) {
       nextTile = moves[Math.floor(Math.random() * moves.length)];
 
       if (this.isScouting) {
-        if (Math.random() > 0.5) {
+        if (Math.random() > scoutRandomness) {
           var withScent = moves.filter(t => t.scent > 0);
           
           if (withScent.length > 0) {
@@ -263,7 +268,7 @@ function Ant(scouting) {
           }
         }
       } else if (this.hasFood) {
-        if (Math.random() > 0.1) {
+        if (Math.random() > workerRandomness) {
           var withScent = moves.filter(t => t.nestPher > 0);
 
           if (withScent.length > 0) {
@@ -273,7 +278,7 @@ function Ant(scouting) {
           }
         }
       } else {
-        if (Math.random() > 0.1) {
+        if (Math.random() > workerRandomness) {
           var withScent = moves.filter(t => t.foodPher > 0);
   
           if (withScent.length > 0) {
@@ -284,7 +289,6 @@ function Ant(scouting) {
         }
       }
 
-      //update when arrived
       if (nextTile.isEqual(board.food)) {
         this.scentStrength = maxScentTime;
         this.hasFood = true;
@@ -308,7 +312,6 @@ function Ant(scouting) {
         this.scentStrength = maxScentTime;
       }
 
-      //update tiles
       this.lastTile = this.tile;
       this.tile = nextTile;
       nextTile.hasAnt = true;
@@ -325,7 +328,6 @@ function Ant(scouting) {
         nextTile.antType = 'worker';
       }
 
-      //update scents
       this.scentStrength = Math.max(0.1*maxScentTime, this.scentStrength-antScentDecay);
 
       if (this.hasFood) {
@@ -337,13 +339,25 @@ function Ant(scouting) {
   }
 }
 
+function toggleGrid() {
+  showGrid = !showGrid;
+  if (showGrid) {
+    board.tileSize = tileSize;
+    drawGrid();
+  } else {
+    board.tileSize = tileSize + 2;
+  }
+}
+
 function drawGrid() {
   for (var i = 0; i < canvas.width-2; i+=board.tileSize+1) {
     for (var j = 0; j < canvas.height-2; j+=board.tileSize+1) {
       ctx.fillStyle = "black";
       ctx.fillRect(i, j, (board.tileSize+2), (board.tileSize+2));
-      ctx.fillStyle = "white";
-      ctx.fillRect(i+1, j+1, board.tileSize, board.tileSize);
     }
   }
+
+  board.tiles.forEach(function(t, k, m) {
+    t.draw();
+  });
 }
