@@ -27,7 +27,7 @@ var scouts = startAnts;
 var maxScouts = startAnts;
 var maxAnts = 500;
 
-var showPheromones = false;
+var showPheromones = true;
 var showGrid = false;
 
 var scoutRandomness = 0.5;
