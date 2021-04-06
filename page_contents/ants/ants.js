@@ -65,14 +65,14 @@ nestPherColors = [
 $(document).ready(function() {
   start();
 
+  if (showGrid) {
+    drawGrid();
+  }
+
   board.tiles.forEach(function(t, k, m) {
     t.init();
     t.draw();
   });
-
-  if (showGrid) {
-    drawGrid();
-  }
 
   pheromoneTiles = [];
   
@@ -237,7 +237,7 @@ function Tile(x, y) {
     if (showGrid) {
       ctx.fillRect(this.x*(size+1)+1, this.y*(size+1)+1, size, size);
     } else {
-      ctx.fillRect(this.x*(size+1)+1, this.y*(size+1)+1, size+2, size+2);
+      ctx.fillRect(this.x*(size+2), this.y*(size+2), size+2, size+2);
     }
 
   }
@@ -353,6 +353,10 @@ function toggleGrid() {
   if (showGrid) {
     drawGrid();
   }
+
+  board.tiles.forEach(function(t, k, m) {
+    t.draw();
+  });
 }
 
 function drawGrid() {
