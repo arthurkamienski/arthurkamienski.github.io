@@ -32,8 +32,8 @@ function vecLength(p1, p2) {
 }
 
 function rotationAngle(p) {
-  var g  = {x: c.x, y: 0};
   var c  = p.attach;
+  var g  = {x: c.x, y: 0};
   var cp = vecLength(c, p);
   var cg = vecLength(c, g);
   var gp = vecLength(g, p);
@@ -49,6 +49,10 @@ function update(p) {
   var angle = rotationAngle(p);
   var sin = Math.sin(angle);
   var cos = Math.cos(angle);
+
+  console.log(angle);
+  console.log(p.x);
+  console.log(p.y);
 
   p.x -= p.attach.x;
   p.y -= p.attach.y;
