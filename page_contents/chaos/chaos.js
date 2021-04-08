@@ -15,7 +15,7 @@ $(document).ready(function() {
     draw(center);
     draw(pendulum);
     update(pendulum);
-  }, 1000/30);
+  }, 1000/1);
 });
 
 function Pendulum(x, y, attach, r){
@@ -42,7 +42,7 @@ function cosBetween(c, p) {
 
 function update(p) {
   var cos = cosBetween(p.attach, p);
-  var sin = Math.sqrt(1-cor**2);
+  var sin = Math.sqrt(1-cos**2);
 
   var f = pendulum.mass * g * sin;
 
