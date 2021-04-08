@@ -46,8 +46,8 @@ function update(p) {
 
   var f = pendulum.mass * g * sin;
 
-  p.speed.x += cos * f / pendulum.mass;
-  p.speed.y += sin * f / pendulum.mass;
+  p.speed.x = cos * f / pendulum.mass;
+  p.speed.y = sin * f / pendulum.mass;
 
   p.x += p.speed.x;
   p.y += p.speed.y;
