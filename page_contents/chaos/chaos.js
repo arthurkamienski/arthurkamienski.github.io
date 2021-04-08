@@ -31,26 +31,33 @@ function vecLength(p1, p2) {
   return Math.sqrt((p1.x - p2.x)**2 + (p1.y - p2.y)**2)
 }
 
-function cosBetween(c, p) {
-  var g  = {x: c.x, y: 0}
+function rotationAngle(p) {
+  var g  = {x: c.x, y: 0};
+  var c  = p.attach;
   var cp = vecLength(c, p);
   var cg = vecLength(c, g);
   var gp = vecLength(g, p);
 
-  return (cp**2 + cg**2 - gp**2) / (2*cp*cg)
+  var cos = (cp**2 + cg**2 - gp**2) / (2*cp*cg)
+  var sin = Math.sqrt(1-cos**2);
+  var angle = p.mass * g * sin / p.mass / p.r;
+
+  return angle;
 }
 
 function update(p) {
-  var cos = cosBetween(p.attach, p);
-  var sin = Math.sqrt(1-cos**2);
+  var angle = rotationAngle(p);
+  var sin = Math.sin(angle);
+  var cos = Math.cos(angle);
 
-  var f = pendulum.mass * g * sin;
+  p.x -= p.attach.x;
+  p.y -= p.attach.y;
 
-  p.speed.x = cos * f / pendulum.mass;
-  p.speed.y = sin * f / pendulum.mass;
+  p.x = p.x * cos - p.y * sin;
+  p.y = p.x * sin + p.y * cos;
 
-  p.x += p.speed.x;
-  p.y += p.speed.y;
+  p.x += p.attach.x;
+  p.y += p.attach.y;
 }
 
 function blank() {
