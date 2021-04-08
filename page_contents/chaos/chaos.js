@@ -33,17 +33,15 @@ function vecLength(p1, p2) {
 
 function rotationAngle(p) {
   var c  = p.attach;
-  var g  = {x: c.x, y: 0};
+  var ground  = {x: c.x, y: 0};
   var cp = vecLength(c, p);
-  var cg = vecLength(c, g);
-  var gp = vecLength(g, p);
+  var cg = vecLength(c, ground);
+  var gp = vecLength(ground, p);
 
   var cos = (cp**2 + cg**2 - gp**2) / (2*cp*cg);
   var sin = Math.sqrt(1-cos**2);
   var speed = g * sin;
   var angular = speed / p.r;
-
-  console.log(cos, sin, f, speed, angular);
 
   return angular;
 }
