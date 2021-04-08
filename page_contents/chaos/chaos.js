@@ -38,13 +38,13 @@ function rotationAngle(p) {
   var cg = vecLength(c, g);
   var gp = vecLength(g, p);
 
-  var cos = (cp**2 + cg**2 - gp**2) / (2*cp*cg)
+  var cos = (cp**2 + cg**2 - gp**2) / (2*cp*cg);
   var sin = Math.sqrt(1-cos**2);
-  var f = p.mass * g * sin
+  var f = p.mass * g * sin;
   var speed = f / p.mass;
   var angular = speed / p.r;
 
-  console.log(f, speed, angular);
+  console.log(c, cp, cg, gp, cos, sin, f, speed, angular);
 
   return angular;
 }
