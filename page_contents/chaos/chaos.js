@@ -8,7 +8,7 @@ $(document).ready(function() {
   ctx = canvas.getContext("2d");
   canvas.selection = false;
   center = new Pendulum(canvas.width/2, canvas.height/2, null, 1);
-  pendulum = new Pendulum(canvas.width/2 + 10, canvas.height/2, center, 10);
+  pendulum = new Pendulum(canvas.width/2 + 50, canvas.height/2, center, 3);
 
   interval = window.setInterval(function() {
     blank();
@@ -35,7 +35,7 @@ function cosBetween(c, p) {
   var g  = {x: c.x, y: 0}
   var cp = vecLength(c, p);
   var cg = vecLength(c, g);
-  var gp = vecLebgth(g, p);
+  var gp = vecLength(g, p);
 
   return (cp**2 + cg**2 - gp**2) / (2*cp*cg)
 }
