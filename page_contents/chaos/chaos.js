@@ -1,5 +1,5 @@
 var canvas, ctx;
-var g = 9.8;
+var g = 1;
 var center;
 var pendulum;
 
@@ -11,12 +11,15 @@ $(document).ready(function() {
   pendulum = new Pendulum(canvas.width/2 + 50, canvas.height/2, center, 3);
 
   interval = window.setInterval(function() {
+  }, 1000/1);
+});
+
+function updateScreen() {
     blank();
     draw(center);
     draw(pendulum);
     update(pendulum);
-  }, 1000/1);
-});
+}
 
 function Pendulum(x, y, attach, r){
   this.attach = attach;
@@ -50,10 +53,6 @@ function update(p) {
   var angle = rotationAngle(p);
   var sin = Math.sin(angle);
   var cos = Math.cos(angle);
-
-  console.log(angle);
-  console.log(p.x);
-  console.log(p.y);
 
   p.x -= p.attach.x;
   p.y -= p.attach.y;
