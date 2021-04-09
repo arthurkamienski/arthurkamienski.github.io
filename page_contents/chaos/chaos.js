@@ -8,7 +8,7 @@ $(document).ready(function() {
   ctx = canvas.getContext("2d");
   canvas.selection = false;
   center = new Pendulum(canvas.width/2, canvas.height/2, null, 1);
-  pendulum = new Pendulum(canvas.width/2 + 50, canvas.height/2, center, 3);
+  pendulum = new Pendulum(canvas.width/2 + 100, canvas.height/2, center, 3);
 
   interval = window.setInterval(function() {
     updateScreen();
@@ -80,4 +80,8 @@ function draw(p) {
   ctx.beginPath();
   ctx.arc(p.x, p.y, p.r, 0, 2 * Math.PI);
   ctx.fill();
+  ctx.beginPath();
+  ctx.moveTo(p.x, p.y);
+  ctx.lineTo(p.attach.x, p.attach.y);
+  ctx.stroke();
 }
