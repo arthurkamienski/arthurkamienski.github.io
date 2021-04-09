@@ -1,5 +1,5 @@
 var canvas, ctx;
-var g = 1;
+var g = 0.1;
 var center;
 var pendulum;
 
@@ -11,7 +11,8 @@ $(document).ready(function() {
   pendulum = new Pendulum(canvas.width/2 + 50, canvas.height/2, center, 3);
 
   interval = window.setInterval(function() {
-  }, 1000/1);
+    updateScreen();
+  }, 1000/30);
 });
 
 function updateScreen() {
