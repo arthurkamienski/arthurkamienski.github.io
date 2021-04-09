@@ -27,7 +27,7 @@ function Pendulum(x, y, attach, r){
   this.x = x;
   this.y = y;
   this.mass = 1;
-  this.speed = {x: 0, y: 0};
+  this.speed = 0;
 }
 
 function vecLength(p1, p2) {
@@ -43,10 +43,10 @@ function rotationAngle(p) {
 
   var cos = (cp**2 + cg**2 - gp**2) / (2*cp*cg);
   var sin = Math.sqrt(1-cos**2);
-  var speed = g * sin;
-  var angular = speed / p.r;
+  
+  p.speed += g * sin;
 
-  return angular;
+  return p.speed / p.r;
 }
 
 function update(p) {
@@ -57,11 +57,11 @@ function update(p) {
   p.x -= p.attach.x;
   p.y -= p.attach.y;
 
-  p.x = p.x * cos - p.y * sin;
-  p.y = p.x * sin + p.y * cos;
+  var x = p.x * cos - p.y * sin;
+  var y = p.x * sin + p.y * cos;
 
-  p.x += p.attach.x;
-  p.y += p.attach.y;
+  p.x = x + p.attach.x;
+  p.y = y + p.attach.y;
 }
 
 function blank() {
