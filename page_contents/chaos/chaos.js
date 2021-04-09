@@ -23,7 +23,12 @@ function updateScreen() {
 }
 
 function Pendulum(x, y, attach, r){
-  this.attach = attach;
+  if (attach == null) {
+    this.attach = this;
+  } else {
+    this.attach = attach;
+  }
+
   this.r = r;
   this.x = x;
   this.y = y;
