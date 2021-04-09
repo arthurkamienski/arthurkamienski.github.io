@@ -45,7 +45,12 @@ function rotationAngle(p) {
   var cos = (cp**2 + cg**2 - gp**2) / (2*cp*cg);
   var sin = Math.sqrt(1-cos**2);
   
-  p.speed += g * sin;
+  if (p.x - c.x > 0) {
+    p.speed += g * sin;
+  } else {
+    p.speed -= g * sin;
+  }
+  
 
   return p.speed / p.r;
 }
