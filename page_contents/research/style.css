@@ -124,7 +124,6 @@ img {
 }
 
 .year {
-	height: 100px;
 	width: 100px;
 	display: flex;
 	align-items: center;
@@ -157,6 +156,13 @@ pre {
 	white-space: -o-pre-wrap;    /* Opera 7 */
 	word-wrap: break-word;       /* Internet Explorer 5.5+ */
 	margin: 0px;
+}
+
+
+.item-tags {
+	display:flex;
+	flex-wrap: wrap;
+	font-weight: bold;
 }
 
 .tag {
