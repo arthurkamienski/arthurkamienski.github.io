@@ -41,10 +41,12 @@ header {
 .topnav {
 	overflow: hidden;
 	min-width: 125px;
+        border-radius: 5px;
 }
 
 .topnav .icon {
 	display: none;
+        border-radius: 5px;
 }
 
 .content-div {
