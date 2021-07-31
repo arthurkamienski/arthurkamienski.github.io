@@ -14,6 +14,7 @@
 						"authors": ["A. Kamienski", "C. Bezemer"],
 						"venue": "Empirical Software Engineering Journal",
 						"year": "2021",
+						"post-date": "30-07-2021",
 						"resources": {
 							"PDF": "http://asgaard.ece.ualberta.ca/papers/arthur_EMSE_gamedev_qa_websites.pdf"
 						},
@@ -41,6 +42,7 @@
 						"authors": ["A. V. Kamienski", "L. Palechor", "C. Bezemer", "A. Hindle"],
 						"venue": "18th International Conference on Mining Software Repositories (MSR)",
 						"year": "2021",
+						"post-date": "01-05-2021",
 						"resources": {
 							"PDF": "https://www.researchgate.net/publication/349899864_PySStuBs_Characterizing_Single-Statement_Bugs_in_Popular_Open-Source_Python_Projects",
 							"Slides": "https://docs.google.com/presentation/d/1RASa_5MC8QrwiNauJCXA_ZqF4VEf15Ai-maMMneHGMc/edit?usp=sharing"
@@ -65,6 +67,7 @@
 						"authors": ["A. V. Kamienski", "R. J. P. Damaceno", "J. P. Mena-Chalco"],
 						"venue": "8th Brazillian Workshop on Social Network Analysis and Mining (BraSNAM)",
 						"year": "2019",
+						"post-date": "01-01-2019",
 						"resources": {
 							"PDF": "https://www.researchgate.net/publication/333282148_Prestigio_em_grafos_de_genealogia_academica_Uma_proposta_baseada_em_PageRank",
 							"Slides": "https://docs.google.com/presentation/d/1V3hsk_OE9llBKA5521t0095ZgOKLi0mHDXxZv9DRfEw/edit?usp=sharing"
@@ -160,6 +163,7 @@
 						"authors": ["A. V. Kamienski", "J. P. Mena-Chalco"],
 						"description": "Undergraduate thesis submitted in partial fulfillment of the requirements for the BSc in Computer Science degree at the Federal University of ABC (UFABC).",
 						"year": "2019",
+						"post-date": "01-01-2019",
 						"resources": {
 							"PDF": "/page_contents/research/files/evolution/evolution_graphs.pdf",
 							"Slides": "https://docs.google.com/presentation/d/1X3KfLE08PBbxqcHFuF8sm91RCWQgqtOq_Z-wkR9zO2k/edit?usp=sharing"
@@ -174,6 +178,7 @@
 						"authors": ["A. V. Kamienski", "J. P. Mena-Chalco"],
 						"description": "Final report for my undergraduate research project (a.k.a. scientific initiation project).",
 						"year": "2018",
+						"post-date": "01-01-2018",
 						"resources": {
 							"PDF": "/page_contents/research/files/identifying/final_report_identifying.pdf"
 						},

@@ -183,10 +183,10 @@ def get_item_indexes(data):
     item_indexes = {}
     for l in data:
         if l['type'] == 'publications':
-            list_items = [i for s in l['lists'] for i in s['items']]
-            list_items = sorted(list_items, key=lambda i: str(i['year']))
-            list_items = {p['id']: i for i, p in enumerate(list_items, start=1)}
-            item_indexes |= list_items
+            for s in l['lists']:
+                list_items = sorted(s['items'], key=lambda i: str(i['post-date']))
+                list_items = {p['id']: i for i, p in enumerate(list_items, start=1)}
+                item_indexes |= list_items
     return item_indexes
 
 def list_template(list_id, list_name, content):
