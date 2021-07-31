@@ -70,6 +70,8 @@ async function expand(id) {
   var div = $('#' + id);
   var icon = $('#' + id + "-icon")
 
+  div.css('pointer-events', 'none');
+
   if (div.css('maxHeight') != '0px') {
     icon.text('\u2795');
     div.css({transition:''});
@@ -87,6 +89,8 @@ async function expand(id) {
     div.css({transition:''});
     div.css('maxHeight', '100%');
   }
+
+  div.css('pointer-events', 'auto');
 }
 
 async function moveTo(id) {
