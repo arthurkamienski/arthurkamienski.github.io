@@ -27,7 +27,7 @@ def bibtex_button(data):
     bibtex = ""
     if "bibtex" in data:
         pub_id = data['id']
-        bibtex = f"""<div class="button bib-btn" onclick="showBib('{pub_id}');">BibTeX</div>"""
+        bibtex = f"""<div class="button bibtex-btn" onclick="showBib('{pub_id}');">BibTeX</div>"""
     return bibtex
 
 def url_button(name, url):
