@@ -80,6 +80,7 @@ async function expand(id) {
     await new Promise(r => setTimeout(r, 10));
     div.css('transition', 'max-height 2s ease-in-out');
     div.css('maxHeight', '0px');
+    await new Promise(r => setTimeout(r, 2000));
     icon.text('\u2795');
   } else {
     icon.text('\u2796');
