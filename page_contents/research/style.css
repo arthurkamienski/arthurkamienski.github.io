@@ -114,6 +114,10 @@ img {
 	background-color: #DDD;
 }
 
+.button .selected {
+  background-color: lightgray;
+}
+
 .paper-info {
 	display: flex;
 }
