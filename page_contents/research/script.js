@@ -117,4 +117,6 @@ async function moveTo(id) {
   }, 500);
 }
 
-expand('publications')
+$( document ).ready(function() {
+    expand('publications');
+});
