@@ -114,7 +114,7 @@ img {
 	background-color: #DDD;
 }
 
-.button .selected {
+.button.selected {
   background-color: lightgray;
 }
 
