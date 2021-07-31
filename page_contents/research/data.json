@@ -1,0 +1,186 @@
+[
+	{
+		"name": "PUBLICATIONS",
+		"id": "pubs",
+		"type": "publications",
+		"lists": [
+			{
+				"name": "JOURNAL PAPERS",
+				"items": [
+					{
+						"id": "empirical-qa-gamedev-pub",
+						"image": "/page_contents/research/files/empirical_qa_gamedev/empirical_qa_gamedev.png",
+						"title": "An Empirical Study of Q&amp;A Websites for Game Developers",
+						"authors": ["A. Kamienski", "C. Bezemer"],
+						"venue": "Empirical Software Engineering",
+						"year": "2021",
+						"resources": {
+							"PDF": "http://asgaard.ece.ualberta.ca/papers/arthur_EMSE_gamedev_qa_websites.pdf"
+						},
+						"abstract": "The game development industry is growing, and training new developers in game development-specific abilities is essential to satisfying its need for skilled game developers. These developers require effective learning resources to acquire the information they need and improve their game development skills. Question and Answer (Q&A) websites stand out as some of the most used online learning resources in software development. Many studies have investigated how Q&A websites help software developers become more experienced. However, no studies have explored Q&A websites aimed at game development, and there is little information about how game developers use and interact with these websites. In this paper, we study four Q&A communities by analyzing game development data we collected from their websites and the 347 responses received on a survey we ran with game developers. We observe that the communities have declined over the past few years and identify factors that correlate to these changes. Using a Latent Dirichlet Allocation (LDA) model, we characterize the topics discussed in the communities. We also analyze how topics differ across communities and identify the most discussed topics. Furthermore, we find that survey respondents have a mostly negative view of the communities and tended to stop using the websites once they became more experienced. Finally, we provide recommendations on where game developers should post their questions, which can help mitigate the websites’ declines and improve their effectiveness.",
+						"bibtex": {
+							"type": "article",
+							"id": "kamienski2021empirical",
+							"title": "An Empirical Study of Q\\&A Websites for Game Developers",
+							"author": "Kamienski, Arthur and Bezemer, Cor-Paul",
+							"journal": "Empirical Software Engineering",
+							"year": "2021",
+							"publisher": "Springer"
+						}
+					}
+				]
+			},
+			{
+				"name": "CONFERENCE PAPERS",
+				"items": [
+					{
+						"id": "pysstubs-pub",
+						"image": "/page_contents/research/files/pysstubs/pysstubs.png",
+						"title": "PySStuBs: Characterizing Single-Statement Bugs in Popular Open-Source Python Projects",
+						"tags": ["Best Presentation Award"],
+						"authors": ["A. V. Kamienski", "L. Palechor", "C. Bezemer", "A. Hindle"],
+						"venue": "18th International Conference on Mining Software Repositories (MSR)",
+						"year": "2021",
+						"resources": {
+							"PDF": "https://www.researchgate.net/publication/349899864_PySStuBs_Characterizing_Single-Statement_Bugs_in_Popular_Open-Source_Python_Projects",
+							"Slides": "https://docs.google.com/presentation/d/1RASa_5MC8QrwiNauJCXA_ZqF4VEf15Ai-maMMneHGMc/edit?usp=sharing"
+						},
+						"abstract": "Single-statement bugs (SStuBs) can have a severe impact on developer productivity. Despite usually being simple and not offering much of a challenge to fix, these bugs may still disturb a developer's workflow and waste precious development time. However, few studies have paid attention to these simple bugs, focusing instead on bugs of any size and complexity. In this study, we explore the occurrence of SStuBs in some of the most popular open-source Python projects on GitHub, while also characterizing their patterns and distribution. We further compare these bugs to SStuBs found in a previous study on Java Maven projects. We find that these Python projects have different SStuB patterns than the ones in Java Maven projects and identify 7 new SStuB patterns. Our results may help uncover the importance of understanding these bugs for the Python programming language, and how developers can handle them more effectively.",
+						"bibtex": {
+							"type": "inproceedings",
+							"id": "kamienski2021pysstubs",
+							"title": "PySStuBs: Characterizing Single-Statement Bugs in Popular Open-Source Python Projects",
+							"author": "Kamienski, Arthur V and Palechor, Luisa and Bezemer, Cor-Paul and Hindle, Abram",
+							"booktitle": "2021 IEEE/ACM 18th International Conference on Mining Software Repositories (MSR)",
+							"pages": "520--524",
+							"year": "2021",
+							"organization": "IEEE"
+						}
+					},
+					{
+						"id": "pagerank-pub",
+						"image": "/page_contents/research/files/prestige/prestige.png",
+						"title": "Prestige in Academic Genealogy Graphs: A PageRank-Based Proposal",
+						"tags": ["Published in Portuguese"],
+						"authors": ["A. V. Kamienski", "R. J. P. Damaceno", "J. P. Mena-Chalco"],
+						"venue": "8th Brazillian Workshop on Social Network Analysis and Mining (BraSNAM)",
+						"year": "2019",
+						"resources": {
+							"PDF": "https://www.researchgate.net/publication/333282148_Prestigio_em_grafos_de_genealogia_academica_Uma_proposta_baseada_em_PageRank",
+							"Slides": "https://docs.google.com/presentation/d/1V3hsk_OE9llBKA5521t0095ZgOKLi0mHDXxZv9DRfEw/edit?usp=sharing"
+						},
+						"abstract": "Identifying prestigious researchers in their fields of research is an arduous task. The greatest difficulty is the evaluation of the prestige of each researcher on the local structure that surrounds them. In this work we present a new adaptation of the PageRank algorithm on an academic genealogical graph, called Normalized Local Inverted PageRank, in means of identifying the most prestigious researchers in terms of human resources production constrained by the number of academic generations. As a case study, we use data gathered from more than a million of researchers.",
+						"bibtex": {
+							"type": "inproceedings",
+							"id": "kamienski2019prestige",
+							"title": "Prestige in Academic Genealogy Graphs: A PageRank-Based Proposal", 
+							"author": "Arthur Kamienski and Rafael  Damaceno and Jesús Mena-Chalco",
+							"booktitle": "8th Brazilian Workshop on Social Network Analysis and Mining (BraSNAM)",
+							"pages": "167--172",
+							"year": "2019",
+							"organization": "SBC"
+						}
+					}
+				]
+			}
+		]
+	},
+	{
+		"name": "PROJECTS",
+		"id": "projects",
+		"type": "projects",
+		"lists": [
+			{
+				"name": "IN PROGRESS",
+				"items": [
+					{
+						"id": "gamedev-qa-proj",
+						"image": "/page_contents/research/files/project_images/gamedev_qa.png",
+						"title": "Game Development Q&amp;A Websites",
+						"description": "Question and answer (Q&amp;A) websites are currently some of the most popular online learning resources. Software developers are especially fond of these websites and frequently use them to acquire the solution to their development-related questions and problems. Game developers are a particular type of software developer, and as such, also share a liking for Q&amp;A websites. However, we still know little about how these developers use and interact with these websites. With that in mind, we analyze some of the most popular game development Q&amp;A websites, seeking to deepen our knowledge on the many facets of game development.",
+						"info": {
+							"What": "MSc thesis project",
+							"When": "2020-2021",
+							"Where": "University of Alberta",
+							"Supervisor": "Dr. Cor-Paul Bezemer",
+							"Status": "In progress",
+							"Publications": ["empirical-qa-gamedev-pub"]
+						}
+					},
+					{
+						"id": "graph-growth-proj",
+						"image": "/page_contents/research/files/project_images/graph_growth.png",
+						"title": "Graph Growth in Academic Genealogy Graphs",
+						"description": "Academic genealogy graphs are useful for analyzing the members, relationships, and knowledge flow of an academic community. However, studies on these graphs usually analyze them in a static manner, without considering the time-related information they contain. This information, given by the dates in which advisership relations occurred, is an important asset to understanding the history and the evolution of the communities they represent. Therefore, this project analyzes academic genealogy graphs’ growth over time to bring a new view of these communities. Our results include a description of these graphs’ characteristics over time and the introduction of a method for analyzing their history and evolution.",
+						"info": {
+							"What": "Undergraduate thesis project",
+							"When": "2019-2021",
+							"Where": "Federal University of ABC (UFABC)",
+							"Supervisor": "Df. Jesús Mena-Chalco",
+							"Status": "In progress",
+							"Other work": ["evolution-other"]
+						}
+					}
+				]
+			},
+			{
+				"name": "COMPLETED",
+				"items": [
+					{
+						"id": "pagerank-proj",
+						"image": "/page_contents/research/files/project_images/pagerank.png",
+						"title": "Prestige in Academic Genealogy Graphs",
+						"description": "A researcher’s prestige is usually measured by their bibliometric production, such as their number of publications and citations. However, we can also use a researcher’s contribution to the academic community’s growth to indicate such prestige. This contribution can be modeled by academic genealogy graphs, which show the advisership relations between professors and students. This project explores how we can use the PageRank algorithm to identify important researchers in academic genealogy graphs. Our results include an adaptation to the PageRank algorithm that can identify important researchers more reliably and a list of important researchers in the Brazillian academic community as of 2019.",
+						"info": {
+							"What": "Undergraduate research project",
+							"When": "2016-2019",
+							"Where": "Federal University of ABC (UFABC)",
+							"Supervisor": "Df. Jesús Mena-Chalco",
+							"Status": "Done",
+							"Publications": ["pagerank-pub"],
+							"Other work": ["identifying-other"]
+						}
+					}
+				]
+			}
+		]
+	},
+	{
+		"name": "OTHER WORKS",
+		"id": "others",
+		"type": "publications",
+		"lists" : [
+			{
+				"items": [
+					{
+						"id": "evolution-other",
+						"image": "/page_contents/research/files/evolution/evolution.png",
+						"title": "Evolution of Academic Genealogy Graphs",
+						"tags": ["In Portuguese"],
+						"authors": ["A. V. Kamienski", "J. P. Mena-Chalco"],
+						"description": "Undergraduate thesis submitted in partial fulfillment of the requirements for the BSc in Computer Science degree at the Federal University of ABC (UFABC).",
+						"year": "2019",
+						"resources": {
+							"PDF": "/page_contents/research/files/evolution/evolution_graphs.pdf",
+							"Slides": "https://docs.google.com/presentation/d/1X3KfLE08PBbxqcHFuF8sm91RCWQgqtOq_Z-wkR9zO2k/edit?usp=sharing"
+						},
+						"abstract": "Academic genealogy is the area of knowledge that seeks to understand the flow of knowledge and the development of an academic community through the relations of advisership between professors and students. These relations can be structured as graphs that model researchers as vertices and their adviserships as directed edges which show the direction of the passage of knowledge. These graphs, despite being represented in their static form for a fixed instant of time, are constantly developing and evolving through the creation of new researchers and new advisership relations. However, few studies have explored these graphs’ temporal nature, despite it showing a great potential of bringing a better understanding of the growth of science and the community of researchers. Therefore, this work uses historical information on the way these graphs evolved to gather new knowledge about their main characteristics and about the path that they may take in the future. Using data manipulation and machine learning methods, we define a process of temporal information extraction from academic genealogy graphs. We further trained models using supervised learning using these data. The results of our methods indicate growth patterns such as the decline of the number of new researchers appearing over the years and the main features related to a researcher having new advisership relations. At the end of this project, we achieved a well-defined approach to accomplished the aforementioned tasks, introducing a new tool to the analysis of academic genealogy, evolutionary graphs and related fields of study."
+					},
+					{
+						"id": "identifying-other",
+						"image": "/page_contents/research/files/identifying/identifying.png",
+						"title": "Identifying Relevant Researchers in Academic Genealogy Graphs: A PageRank-Based Approach",
+						"tags": ["In Portuguese"],
+						"authors": ["A. V. Kamienski", "J. P. Mena-Chalco"],
+						"description": "Final report for my undergraduate research project (a.k.a. scientific initiation project).",
+						"year": "2018",
+						"resources": {
+							"PDF": "/page_contents/research/files/identifying/final_report_identifying.pdf"
+						},
+						"abstract": "Identifying relevant researchers in their respective fields is an arduous task, despite being of great importance. The analysis of relevance involves different indicators not only in science but also in the sociopolitical scenario. Currently, there are many quantitative and qualitative studies to evaluate researchers in different contexts. In the quantitative methods, the greatest hurdle is associating and evaluating the impact of these indicators not only in the whole community to which a researcher belongs but also in the local structure that surrounds him. In this project, we use the PageRank algorithm in an academic genealogy graph to analyze the relevance of each member that it comprises. Additionally, we modify this algorithm to obtain local information (as opposed to global information), in order to find the most important researchers more reliably. This project’s contributions are, besides identifying important researchers,  the creation of new methods and metrics capable of aiding future studies about academic genealogy."
+					}
+				]
+			}
+		]
+	}
+]
