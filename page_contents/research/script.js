@@ -116,3 +116,5 @@ async function moveTo(id) {
     }, 3000);
   }, 500);
 }
+
+expand('publications')
