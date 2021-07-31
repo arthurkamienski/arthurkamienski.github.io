@@ -69,8 +69,9 @@ function showInfo(id) {
 async function expand(id) {
   var div = $('#' + id);
   var icon = $('#' + id + "-icon")
+  var btn = $('#' + id + "-expand-button");
 
-  div.css('pointer-events', 'none');
+  btn.css('pointer-events', 'none');
 
   if (div.css('maxHeight') != '0px') {
     icon.text('\u2795');
@@ -90,7 +91,7 @@ async function expand(id) {
     div.css('maxHeight', '100%');
   }
 
-  div.css('pointer-events', 'auto');
+  btn.css('pointer-events', 'auto');
 }
 
 async function moveTo(id) {
