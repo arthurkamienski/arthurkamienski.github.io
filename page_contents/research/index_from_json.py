@@ -191,7 +191,7 @@ def get_item_indexes(data):
 
 def list_template(list_id, list_name, content):
     return f"""
-    <div class="collapse-button" onclick="expand('{list_id}');">
+    <div id="{list_id}-expand-button" class="collapse-button" onclick="expand('{list_id}');">
       <h1 class="list-title">{list_name}</h1>
       <div id="{list_id}-icon" class="collapse-icon">&#x02795;</div> 
     </div>

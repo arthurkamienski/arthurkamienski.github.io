@@ -1,7 +1,7 @@
 [
 	{
 		"name": "PUBLICATIONS",
-		"id": "pubs",
+		"id": "publications",
 		"type": "publications",
 		"lists": [
 			{
