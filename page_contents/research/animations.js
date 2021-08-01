@@ -1,13 +1,9 @@
 async function expandElement(e, t) {
-  e.css('transition', `max-height ${t}s ease-in-out`);
-  await new Promise(r => setTimeout(r, 10));
   e.css('maxHeight', e.prop('scrollHeight') + 'px');
   await new Promise(r => setTimeout(r, t*1000));
 }
 
 async function collapseElement(e, t) {
-  e.css('transition', `max-height ${t}s ease-in-out`);
-  await new Promise(r => setTimeout(r, 10));
   e.css('maxHeight', '0px');
   await new Promise(r => setTimeout(r, t*1000));
 }
@@ -75,11 +71,18 @@ async function expand(id) {
   btn.css('pointer-events', 'none');
 
   if (div.css('maxHeight') != '0px') {
+    div.css('transition', '');
+    await new Promise(r => setTimeout(r, 20));
+    div.css('maxHeight', div.prop('scrollHeight') + 'px');
+    await new Promise(r => setTimeout(r, 20));
+    div.css('transition', `max-height 2s ease-in-out`);
+    await new Promise(r => setTimeout(r, 20));
     await collapseElement(div, 2);
     icon.text('\u2795');
   } else {
     icon.text('\u2796');
     await expandElement(div, 2);
+    div.css('maxHeight', '100%');
   }
 
   btn.css('pointer-events', 'auto');
