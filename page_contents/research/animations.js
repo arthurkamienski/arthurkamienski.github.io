@@ -14,7 +14,7 @@ async function toggleInfo(id, info) {
   var content = infoDir.children(`.${info}`);
   var buttonCont = parent.find('.button-container');
 
-  buttonCont.children('.button').each(function() {
+  buttonCont.children('.info-button').each(function() {
     if (!$(this).hasClass(`${info}-btn`)) {
       $(this).removeClass('selected');
     } else {
@@ -45,7 +45,7 @@ async function toggleInfo(id, info) {
     await expandElement(content, 1);
   }
 
-  buttonCont.children('.button').each(function() {
+  buttonCont.children('.info-button').each(function() {
     $(this).css('pointer-events', 'auto');
   });
 }

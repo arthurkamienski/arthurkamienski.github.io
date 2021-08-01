@@ -20,7 +20,7 @@ def info_button(data, name, label):
     btn = ""
     if name in data:
         pub_id = data['id']
-        btn = f"""<div class="button {name}-btn" onclick="toggleInfo('{pub_id}', '{name}');">{label}</div>"""
+        btn = f"""<div class="button {name}-btn info-button" onclick="toggleInfo('{pub_id}', '{name}');">{label}</div>"""
     return btn
 
 def url_button(name, url):
