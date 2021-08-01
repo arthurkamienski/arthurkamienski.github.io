@@ -18,7 +18,7 @@ function touchend() {
 }
 
 async function copyEmail() {
-    if timer != null {
+    if (timer != null) {
       timer = null;
       var emailInput = $(this).find("input")[0];
       navigator.clipboard.writeText(emailInput.value.replace('[at]', '@'));
