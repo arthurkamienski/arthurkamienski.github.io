@@ -1,8 +1,26 @@
-function toggleInfo(id, info) {
-  var infoDir = $("#" + id + " .add-info"); 
-  var content = $("#" + id + " .add-info ." + info); 
-  infoDir.toggleClass('visible');
-  content.toggle();
+async function toggleInfo(id, info) {
+  var infoDir = $("#" + id + " .add-info");
+  var content = $("#" + id + " .add-info ." + info);
+
+  if (content.css('maxHeight') != '0px') {
+    content.css({transition:''});
+    await new Promise(r => setTimeout(r, 10));
+    content.css('maxHeight', content.prop('scrollHeight') + 'px');
+    await new Promise(r => setTimeout(r, 10));
+    content.css('transition', 'max-height 1s ease-in-out');
+    await new Promise(r => setTimeout(r, 10));
+    content.css('maxHeight', '0px');
+    infoDir.toggleClass('visible');
+    await new Promise(r => setTimeout(r, 1000));
+  } else {
+    infoDir.toggleClass('visible');
+    content.css('transition', 'max-height 1s ease-in-out');
+    await new Promise(r => setTimeout(r, 10));
+    content.css('maxHeight', content.prop('scrollHeight') + 'px');
+    await new Promise(r => setTimeout(r, 1000));
+    content.css({transition:''});
+    content.css('maxHeight', '100%');
+  }
 }
 
 function showAbstract(id) {

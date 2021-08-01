@@ -162,11 +162,13 @@ img {
 
 
 .abstract {
-	display: none;
+  max-height: 0px;
+  overflow: hidden;
 }
 
 .bibtex {
-	display: none;
+  max-height: 0px;
+  overflow: hidden;
 }
 
 pre {
