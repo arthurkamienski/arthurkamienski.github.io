@@ -5,7 +5,7 @@ var touchduration = 800; //length of time we want the user to touch before we do
 function touchstart(e) {
     e.preventDefault();
     if (!timer) {
-        timer = setTimeout(copyEmail, touchduration);
+        timer = setTimeout(function() {copyEmail($(this))}, touchduration);
     }
 }
 
@@ -20,17 +20,17 @@ function touchend() {
 
 function click() {
     timer = False;
-    copyEmail();
+    copyEmail($(this));
 }
 
-async function copyEmail() {
+async function copyEmail(d) {
     if (timer != null) {
       timer = null;
-      var emailInput = $(this).find("input")[0];
+      var emailInput = d.find("input")[0];
       navigator.clipboard.writeText(emailInput.value.replace('[at]', '@'));
 
-      var originalText = $(this).find("span.copy-text");
-      var copied = $(this).find("span.email-copied");
+      var originalText = d.find("span.copy-text");
+      var copied = d.find("span.email-copied");
 
       originalText.removeClass('fadein');
       copied.addClass('fadeout');
