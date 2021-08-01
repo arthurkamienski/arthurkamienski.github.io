@@ -9,6 +9,6 @@ script.onload = function() {
   var divs = $('.gmail, .ualberta');
 
   divs.on('click', click);
-  divs.on('touchstart', touchstart);
-  divs.on('touchend', touchend);
+  divs.on('touchstart', touchstart, {passive: false});
+  divs.on('touchend', touchend, {passive: false});
 };
