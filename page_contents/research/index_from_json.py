@@ -16,19 +16,12 @@ def pub_authors(data):
     authors = ', '.join(authors)
     return authors
 
-def abstract_button(data):
-    abstract = ""
-    if "abstract" in data:
+def info_button(data, name, label):
+    btn = ""
+    if name in data:
         pub_id = data['id']
-        abstract = f"""<div class="button abstract-btn" onclick="showAbstract('{pub_id}');">Abstract</div>"""
-    return abstract
-
-def bibtex_button(data):
-    bibtex = ""
-    if "bibtex" in data:
-        pub_id = data['id']
-        bibtex = f"""<div class="button bibtex-btn" onclick="showBib('{pub_id}');">BibTeX</div>"""
-    return bibtex
+        btn = f"""<div class="button {name}-btn" onclick="toggleInfo('{pub_id}', '{name}');">{label}</div>"""
+    return btn
 
 def url_button(name, url):
     return f"""<div class="button" onclick="window.open('{url}', '_blank')">{name}</div>"""
@@ -41,8 +34,8 @@ def pub_resources(data):
     return buttons
 
 def pub_buttons(data):
-    abstract = abstract_button(data)
-    bibtex = bibtex_button(data)
+    abstract = info_button(data, 'abstract', 'Abstract')
+    bibtex = info_button(data, 'bibtex', 'BibTeX')
     resources = pub_resources(data)
     
     return '\n'.join([abstract, bibtex, resources])
