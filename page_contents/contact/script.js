@@ -1,4 +1,5 @@
 document.title = 'Contact - ' + document.title;
+$('#topnav-contact').toggleClass('active');
 
 var script = document.createElement('script');
 script.src = "/page_contents/contact/copyEmail.js";

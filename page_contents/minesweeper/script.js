@@ -1,4 +1,5 @@
 document.title = 'Minesweeper - ' + document.title;
+$('#topnav-fun').toggleClass('active');
 
 function addScript(src) {
   var script = document.createElement('script');

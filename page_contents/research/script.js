@@ -1,4 +1,5 @@
 document.title = 'Research - ' + document.title;
+$('#topnav-research').toggleClass('active');
 
 var script = document.createElement('script');
 script.src = "/page_contents/research/animations.js";
