@@ -65,14 +65,24 @@ header {
 }
 
 .topnav {
+	border: 1px solid lightgrey;
 	overflow: hidden;
 	min-width: 125px;
-        border-radius: 5px;
+    border-radius: 5px;
+  	position: relative;
+  	display: flex;
+}
+
+.topnav-btn {
+	padding: 8px 16px 8px 16px;
+	text-align: left;
+  	overflow:hidden;
 }
 
 .topnav .icon {
 	display: none;
-        border-radius: 5px;
+    border-radius: 5px;
+	padding: 8px 16px 8px 16px;
 }
 
 .content-div {
@@ -94,30 +104,38 @@ header {
 	margin: 0 auto;
 }
 
+
+.topnav-wrapper {
+	display: flex;
+	justify-content: center;
+}
+
 @media screen and (max-width: 700px) {
-  #topnav {
+  .topnav {
     width: 95%;
+  	flex-direction: column;
   }
-  .topnav a:not(:first-child) {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-  .page-title {
-    display: block;
-  }
-  .topnav.responsive {
-    position: relative;
-    width: 70%;
-  }
-  .topnav.responsive a.icon {
+
+  .topnav .icon {
+  	display: block;
     position: absolute;
     right: 0;
     top: 0;
   }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
+
+  .topnav-btn {
+  	max-height: 0px;
+  	padding: 0 16px 0 16px;
+  	transition-property: max-height, padding;
+  	transition-duration: 1s;
+  	transition-timing-function: ease-in-out;
+  }
+
+  .topnav-btn.active {
+  	max-height: 50px;
+  	padding: 8px 16px 8px 16px;
+  	transition-property: max-height, padding;
+  	transition-duration: 1s;
+  	transition-timing-function: ease-in-out;
   }
 }
