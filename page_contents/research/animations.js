@@ -2,10 +2,7 @@ function toggleInfo(id, info) {
   var infoDir = $("#" + id + " .add-info"); 
   var content = $("#" + id + " .add-info ." + info); 
   infoDir.toggleClass('visible');
-
-  if (infoDir.hasClass('visible')) {
-    infoDir.height(infoDir.height() + content.height());
-  }
+  content.toggle();
 }
 
 function showAbstract(id) {
