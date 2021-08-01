@@ -17,6 +17,12 @@ function touchend() {
     }
 }
 
+
+function click() {
+    timer = False;
+    copyEmail();
+}
+
 async function copyEmail() {
     if (timer != null) {
       timer = null;
