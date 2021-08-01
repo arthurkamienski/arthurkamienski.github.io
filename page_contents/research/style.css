@@ -154,7 +154,7 @@ img {
 .abstract, .bibtex, .more-info {
   max-height: 0px;
   transition: max-height 1s ease-in-out;
-  overflow: auto;
+  overflow-y: hidden;
 }
 
 pre {
