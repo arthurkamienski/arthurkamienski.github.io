@@ -1,44 +1,11 @@
 document.title = 'Contact - ' + document.title;
 
-var onlongtouch;
-var timer = null;
-var touchduration = 800; //length of time we want the user to touch before we do something
+var script = document.createElement('script');
+script.src = "/page_contents/contact/copyEmail.js";
 
-function touchstart(e) {
-    e.preventDefault();
-    if (!timer) {
-        timer = setTimeout(copyEmail, touchduration);
-    }
-}
+document.head.appendChild(script);
 
-function touchend() {
-    //stops short touches from firing the event
-    if (timer) {
-        clearTimeout(timer);
-        timer = null;
-    }
-}
-
-async function copyEmail() {
-    if timer != null {
-      timer = null;
-      var emailInput = $(this).find("input")[0];
-      navigator.clipboard.writeText(emailInput.value.replace('[at]', '@'));
-
-      var originalText = $(this).find("span.copy-text");
-      var copied = $(this).find("span.email-copied");
-
-      originalText.removeClass('fadein');
-      copied.addClass('fadeout');
-
-      setTimeout(function (){
-          originalText.addClass('fadein');
-          copied.removeClass('fadeout');
-      }, 3000);
-  }
-}
-
-$(document).ready(function() {
+script.onload = function() {
   var divs = $('gmail, ualberta');
 
   divs.on('click', copyEmail)
