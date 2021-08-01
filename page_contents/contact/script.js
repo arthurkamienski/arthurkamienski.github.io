@@ -8,7 +8,7 @@ document.head.appendChild(script);
 script.onload = function() {
   var divs = $('.gmail, .ualberta');
 
-  divs.on('click', copyEmail);
+  divs.on('click', click);
   divs.on('touchstart', touchstart);
   divs.on('touchend', touchend);
 };
