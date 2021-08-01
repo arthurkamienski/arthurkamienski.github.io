@@ -18,11 +18,6 @@
     transition: background-color 0.4s ease-in-out;
 }
 
-.item:hover {
-    background-color: #F5F5F5;
-    transition: background-color 0.4s ease-in-out;
-}
-
 .item.hovered {
     background-color: rgba(255, 180, 0, 0.4);
     transition: background-color 1s ease-in-out;
@@ -97,9 +92,7 @@ img {
         user-select: none;
 }
 
-.button:hover {
-	background-color: #DDD;
-}
+
 
 .button.selected {
   background-color: lightgray;
@@ -218,10 +211,6 @@ hr {
 	border-radius: 10px;
 }
 
-.info-item:hover {
-	background-color: #DDD;
-}
-
 .info-label {
 	flex: 1;
 	font-weight: bold;
@@ -248,10 +237,6 @@ hr {
     align-items: center;
 }
 
-.collapse-button:hover {
-    background-color: #F5F5F5;
-}
-
 .list-title {
 	flex:1;
 }
@@ -261,6 +246,25 @@ hr {
   width: 0px;
   font-size: 20px;
   left: -40px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .collapse-button:hover {
+      background-color: #F5F5F5;
+  }
+
+  .info-item:hover {
+  	background-color: #DDD;
+  }
+  
+  .button:hover {
+  	background-color: #DDD;
+  }
+  
+  .item:hover {
+      background-color: #F5F5F5;
+      transition: background-color 0.4s ease-in-out;
+  }
 }
 
 @media screen and (max-width: 700px) {

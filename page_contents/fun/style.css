@@ -76,15 +76,9 @@
 	background-image: url('/page_contents/fun/minesweeper.png');
 }
 
-.name:hover ~ .bg {
+.name ~ .bg {
 	filter: blur(4px);
  	-webkit-filter: blur(4px);
-	transition: filter 0.5s ease-in-out;
-}
-
-.name ~ .bg {
-	filter: blur(0px);
- 	-webkit-filter: blur(0px);
 	transition: filter 0.5s ease-in-out;
 }
 
@@ -98,15 +92,9 @@
 	justify-content: center;
 	align-items: center;
 	z-index: 20;
-	opacity: 0;
-	transition: opacity 0.5s ease-in-out;
-	cursor: pointer;
-}
-
-.name:hover {
 	opacity: 1;
 	transition: opacity 0.5s ease-in-out;
-	transition-delay: 0.3s;
+	cursor: pointer;
 }
 
 .desktop {
@@ -115,6 +103,30 @@
 
 .mobile {
 	display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .name ~ .bg {
+  	filter: blur(0px);
+   	-webkit-filter: blur(0px);
+  	transition: filter 0.5s ease-in-out;
+  }
+
+  .name:hover ~ .bg {
+  	filter: blur(4px);
+   	-webkit-filter: blur(4px);
+  	transition: filter 0.5s ease-in-out;
+  }
+
+  .name{
+    opacity: 0;
+  }
+  .name:hover {
+  	opacity: 1;
+  	transition: opacity 0.5s ease-in-out;
+  	transition-delay: 0.3s;
+  }
+
 }
 
 @media screen and (max-width: 700px) {

@@ -1,7 +1,6 @@
 var holding;
 
 function touchstart(e) {
-  e.preventDefault();
   holding = true;
   var d = $(this);
   $(this).find('.contact-info-name').addClass('hovered');

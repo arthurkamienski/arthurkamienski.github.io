@@ -66,10 +66,12 @@ button {
 	margin: 10px;
 }
 
-button:hover {
-	opacity: 0.5;
-}
-
 span {
 	margin-left: 10px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  button:hover {
+  	opacity: 0.5;
+  }
 }

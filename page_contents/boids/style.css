@@ -26,10 +26,6 @@ canvas {
   transition: opacity .2s;
 }
 
-.custom-slider:hover {
-  opacity: 1;
-}
-
 .custom-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -128,10 +124,6 @@ canvas {
 }
 
 
-.button:hover {
-	background-color: #EEEEEE;
-}
-
 .slider {
 	display: flex;
 	flex-direction: column;
@@ -167,6 +159,17 @@ canvas {
 	align-items: center;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .button:hover {
+  	background-color: #EEEEEE;
+  }
+  
+  .custom-slider:hover {
+    opacity: 1;
+  }
+}
+
+
 @media screen and (max-width: 700px) {
 	canvas {
 		height: 350px;
@@ -186,9 +189,5 @@ canvas {
 
 	.color-column {
 		width: 95%;
-	}
-
-	.button:hover {
-		background-color: white;
 	}
 }

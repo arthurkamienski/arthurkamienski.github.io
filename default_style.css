@@ -38,15 +38,16 @@ header {
   border-radius: 10px;
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #888;
-}
-
-
-.main a:hover {
-	opacity: 0.5;
-}
+@media (hover: hover) and (pointer: fine) {
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #888;
+  }
+  
+  .main a:hover {
+  	opacity: 0.5;
+  }
+} 
 
 .title {
 	margin: 32px 0 32px 0;

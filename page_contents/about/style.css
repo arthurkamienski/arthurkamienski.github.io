@@ -22,8 +22,10 @@
         user-select: none;
 }
 
-.button:hover {
-	background-color: #DDD;
+@media (hover: hover) and (pointer: fine) {
+  .button:hover {
+  	background-color: #DDD;
+  }
 }
 
 
