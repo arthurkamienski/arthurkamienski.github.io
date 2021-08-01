@@ -20,24 +20,28 @@ function touchend() {
 }
 
 async function copyEmail() {
-    timer = null;
-    var emailInput = $(this).find("input")[0];
-    navigator.clipboard.writeText(emailInput.value.replace('[at]', '@'));
+    if timer != null {
+      timer = null;
+      var emailInput = $(this).find("input")[0];
+      navigator.clipboard.writeText(emailInput.value.replace('[at]', '@'));
 
-    var originalText = $(this).find("span.copy-text");
-    var copied = $(this).find("span.email-copied");
+      var originalText = $(this).find("span.copy-text");
+      var copied = $(this).find("span.email-copied");
 
-    originalText.removeClass('fadein');
-    copied.addClass('fadeout');
+      originalText.removeClass('fadein');
+      copied.addClass('fadeout');
 
-    setTimeout(function (){
-        originalText.addClass('fadein');
-        copied.removeClass('fadeout');
-    }, 3000);
+      setTimeout(function (){
+          originalText.addClass('fadein');
+          copied.removeClass('fadeout');
+      }, 3000);
+  }
 }
 
 $(document).ready(function() {
   var divs = $('gmail, ualberta');
 
   divs.on('click', copyEmail)
+  divs.on('touchstart', touchstart)
+  divs.on('touchend', touchend)
 });
