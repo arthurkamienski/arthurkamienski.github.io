@@ -1,6 +1,10 @@
 body, h1, h2 {font-family: "Raleway", Arial, sans-serif}
 h1, h2 {letter-spacing: 6px}
 
+div {
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
 	margin: 0 0;
 	padding: 0;
