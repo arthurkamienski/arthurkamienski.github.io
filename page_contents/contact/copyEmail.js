@@ -19,7 +19,7 @@ function touchend() {
 
 
 function click() {
-    timer = False;
+    timer = false;
     copyEmail($(this));
 }
 
