@@ -304,4 +304,8 @@ hr {
 	.collapse-icon {
 		font-size: 10px;
 	}
+
+	.bibtex {
+		white-space: pre;
+	}
 }
