@@ -3,16 +3,9 @@ async function expandElement(e, t) {
   await new Promise(r => setTimeout(r, 10));
   e.css('maxHeight', e.prop('scrollHeight') + 'px');
   await new Promise(r => setTimeout(r, t*1000));
-  e.css({transition:''});
-  await new Promise(r => setTimeout(r, 10));
-  e.css('maxHeight', '100%');
 }
 
 async function collapseElement(e, t) {
-  e.css({transition:''});
-  await new Promise(r => setTimeout(r, 10));
-  e.css('maxHeight', e.prop('scrollHeight') + 'px');
-  await new Promise(r => setTimeout(r, 10));
   e.css('transition', `max-height ${t}s ease-in-out`);
   await new Promise(r => setTimeout(r, 10));
   e.css('maxHeight', '0px');
@@ -23,30 +16,42 @@ async function toggleInfo(id, info) {
   var parent = $(`#${id}`);
   var infoDir = parent.children('.add-info');
   var content = infoDir.children(`.${info}`);
-  var btn = parent.children(`.${info}-btn`);
+  var buttonCont = parent.find('.button-container');
 
-  parent.children('.button').each(function() {
-    $(this).removeClass('selected');
-  })
+  buttonCont.children('.button').each(function() {
+    if (!$(this).hasClass(`${info}-btn`)) {
+      $(this).removeClass('selected');
+    } else {
+      $(this).toggleClass('selected');
+    }
+    $(this).css('pointer-events', 'none');
+  });
 
-  btn.toggleClass('selected');
-  btn.css('pointer-events', 'none');
+  var toClose = null;
 
   infoDir.children().each(function() {
-    if ($(this).css('maxHeight') != '0px') {
-      collapseElement($(this), 1);
+    if (!$(this).hasClass(`${info}`)) {
+      if ($(this).css('maxHeight') != '0px') {
+        toClose = $(this);
+      }
     }
-  })
+  });
 
-  if (content.css('maxHeight') != '0px') {
-    collapseElement(content, 1);
-    infoDir.toggleClass('visible');
+  if (toClose !== null) {
+    await collapseElement(toClose, 1);
   } else {
     infoDir.toggleClass('visible');
-    expandElement(content, 1);
   }
-  
-  btn.css('pointer-events', 'auto');
+
+  if (content.css('maxHeight') != '0px') {
+    await collapseElement(content, 1);
+  } else {
+    await expandElement(content, 1);
+  }
+
+  buttonCont.children('.button').each(function() {
+    $(this).css('pointer-events', 'auto');
+  });
 }
 
 function showInfo(id) {
@@ -70,11 +75,11 @@ async function expand(id) {
   btn.css('pointer-events', 'none');
 
   if (div.css('maxHeight') != '0px') {
-    collapseElement(div, 2);
+    await collapseElement(div, 2);
     icon.text('\u2795');
   } else {
     icon.text('\u2796');
-    expandElement(div, 2);
+    await expandElement(div, 2);
   }
 
   btn.css('pointer-events', 'auto');
