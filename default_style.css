@@ -12,13 +12,33 @@ body {
 footer {
 	width: 100%;
 	padding-top: 5px;
-	padding-bottom: 5px;
-        min-width: 310px;
 }
 
 header {
 	width: 100%;
 }
+
+::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #CCC;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
 
 .main a:hover {
 	opacity: 0.5;
