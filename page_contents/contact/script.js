@@ -9,5 +9,5 @@ script.onload = function() {
   var divs = $('.gmail, .ualberta');
 
   divs.on('click', copyEmail);
-  divs.on('taphold', copyEmail);
+  divs.on('touchstart', touchstart);
 };

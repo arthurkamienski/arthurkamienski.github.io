@@ -1,3 +1,7 @@
+function touchstart() {
+  console.log('touch')
+}
+
 async function copyEmail() {
       d = $(this);
       var emailInput = d.find("input")[0];
