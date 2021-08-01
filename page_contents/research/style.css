@@ -39,6 +39,12 @@
 	display: flex;
 }
 
+.item-tags {
+  display: flex;
+  margin-top: 5px;
+  flex-wrap: wrap;
+}
+
 .image {
     background: grey;
     width: 130px;
@@ -304,6 +310,10 @@ hr {
 
 	.anchor {
 		top: -30vw;
+	}
+
+	.item-tags {
+		justify-content: center;
 	}
 
 	.list-title {
