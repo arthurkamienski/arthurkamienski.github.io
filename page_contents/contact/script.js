@@ -11,4 +11,4 @@ script.onload = function() {
   divs.on('click', copyEmail)
   divs.on('touchstart', touchstart)
   divs.on('touchend', touchend)
-});
+};
