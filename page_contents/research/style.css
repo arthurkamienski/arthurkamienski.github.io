@@ -255,7 +255,6 @@ hr {
 
 .collapsible {
 	max-height: 0px;
-        transition: max-height 2s ease-in-out;
     	overflow: hidden;
 }
 
