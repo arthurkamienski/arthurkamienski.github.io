@@ -135,6 +135,10 @@ img {
 	margin-top: 5px;
 }
 
+.author {
+	white-space: nowrap;
+}
+
 .year {
 	width: 100px;
 	display: flex;
@@ -144,6 +148,8 @@ img {
 }
 
 .add-info {
+	display: table;
+	table-layout:fixed;
 	width: 100%;
 	text-align: left;
 	border-radius: 10px;
@@ -166,9 +172,10 @@ img {
 
 
 .abstract, .bibtex, .more-info {
+  width: 0px;
   max-height: 0px;
   transition: max-height 1s ease-in-out;
-  overflow: hidden;
+  overflow: auto;
 }
 
 pre {
@@ -176,7 +183,6 @@ pre {
 	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
 	white-space: -pre-wrap;      /* Opera 4-6 */
 	white-space: -o-pre-wrap;    /* Opera 7 */
-	word-wrap: break-word;       /* Internet Explorer 5.5+ */
 	margin: 0px;
 }
 
