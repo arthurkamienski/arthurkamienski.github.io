@@ -1,9 +1,33 @@
+var holding;
+
 function touchstart() {
-  console.log('touch')
+  e.preventDefault();
+  holding = true;
+  var d = $(this);
+  $(this).find('.contact-info-name').addClass('hovered');
+  $(this).find('.contact-info-icon').addClass('hovered');
+
+  setTimeout(function () {
+    d.find('.contact-info-name').removeClass('hovered');
+    d.find('.contact-info-icon').removeClass('hovered');
+  }, 2000);
+
+  setTimeout(function () {
+    copyEmail(d);
+  }, 800);
 }
 
-async function copyEmail() {
-      d = $(this);
+function touchend() {
+  holding=false;
+}
+
+function click() {
+  holding=true;
+  copyEmail($(this));
+}
+
+async function copyEmail(d) {
+  if (holding) {
       var emailInput = d.find("input")[0];
       navigator.clipboard.writeText(emailInput.value.replace('[at]', '@'));
 
@@ -17,4 +41,5 @@ async function copyEmail() {
           originalText.addClass('fadein');
           copied.removeClass('fadeout');
       }, 3000);
+  }
 }
