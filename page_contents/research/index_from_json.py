@@ -160,14 +160,14 @@ def make_project(data, item_indexes):
           <div class="item-title">{title}</div>
           <div class="description">{description}</div>
           <div class="button-container">
-            <div class="button info-btn" onclick="showInfo('{proj_id}');">
+            <div class="button more-info-btn" onclick="toggleInfo('{proj_id}', 'more-info');">
               More information
             </div>
           </div>
         </div>
       </div>
       <div class="add-info">
-        <div class="info-table">\n{info_table}
+        <div class="more-info">\n{info_table}
         </div>
       </div>
     </div>"""
