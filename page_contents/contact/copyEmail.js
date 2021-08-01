@@ -4,8 +4,9 @@ var touchduration = 800; //length of time we want the user to touch before we do
 
 function touchstart(e) {
     e.preventDefault();
+    var d = $(this);
     if (!timer) {
-        timer = setTimeout(function() {copyEmail($(this))}, touchduration);
+        timer = setTimeout(function() {copyEmail(d)}, touchduration);
     }
 }
 
