@@ -10,7 +10,7 @@ function touchstart(e) {
   setTimeout(function () {
     d.find('.contact-info-name').removeClass('hovered');
     d.find('.contact-info-icon').removeClass('hovered');
-  }, 2000);
+  }, 5000);
 
   setTimeout(function () {
     copyEmail(d);
