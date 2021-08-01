@@ -5,12 +5,12 @@
   </div>
   <div class="topnav-wrapper">
     <div class="topnav">
-      <div class="topnav-btn active">Home</div>
-      <div class="topnav-btn">Fun!</div>
-      <div class="topnav-btn">About</div>
-      <div class="topnav-btn">Research</div>
-      <div class="topnav-btn">Contact</div>
-      <div class="icon" onclick="toggleTopnav()">
+      <div class="topnav-btn active" onclick="window.open('/')">Home</div>
+      <div class="topnav-btn" onclick="window.open('/fun')">Fun!</div>
+      <div class="topnav-btn" onclick="window.open('/about')">About</div>
+      <div class="topnav-btn" onclick="window.open('/research')">Research</div>
+      <div class="topnav-btn" onclick="window.open('/contact')">Contact</div>
+      <div class="icon" onclick="$('.topnav').toggleClass('expanded');">
         <i class="fa fa-bars"></i>
       </div>
     </div>

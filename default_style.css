@@ -77,6 +77,7 @@ header {
 	padding: 8px 16px 8px 16px;
 	text-align: left;
   	overflow:hidden;
+  	cursor: pointer;
 }
 
 .topnav .icon {
@@ -129,6 +130,16 @@ header {
   	transition-property: max-height, padding;
   	transition-duration: 1s;
   	transition-timing-function: ease-in-out;
+  	pointer-events: none;
+  }
+
+  .topnav.expanded .topnav-btn {
+  	max-height: 50px;
+  	padding: 8px 16px 8px 16px;
+  	transition-property: max-height, padding;
+  	transition-duration: 1s;
+  	transition-timing-function: ease-in-out;
+  	pointer-events: auto;
   }
 
   .topnav-btn.active {
@@ -139,3 +150,4 @@ header {
   	transition-timing-function: ease-in-out;
   }
 }
+
