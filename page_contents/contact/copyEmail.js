@@ -1,6 +1,6 @@
 var holding;
 
-function touchstart() {
+function touchstart(e) {
   e.preventDefault();
   holding = true;
   var d = $(this);
