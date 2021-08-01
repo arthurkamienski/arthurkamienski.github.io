@@ -43,7 +43,7 @@ async function toggleInfo(id, info) {
     infoDir.toggleClass('visible');
   } else {
     infoDir.toggleClass('visible');
-    collapseElement(content, 1);
+    expandElement(content, 1);
   }
   
   btn.css('pointer-events', 'auto');
