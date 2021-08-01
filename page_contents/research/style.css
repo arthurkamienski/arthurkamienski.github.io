@@ -167,11 +167,13 @@ img {
 
 .abstract {
   max-height: 0px;
+  transition: max-height 1s ease-in-out;
   overflow: hidden;
 }
 
 .bibtex {
   max-height: 0px;
+  transition: max-height 1s ease-in-out;
   overflow: hidden;
 }
 
