@@ -1,5 +1,5 @@
 async function expandElement(e, t) {
-  e.css('maxHeight', e.prop('scrollHeight') + 'px');
+  e.css('maxHeight', e.prop('scrollHeight') + 5 + 'px');
   await new Promise(r => setTimeout(r, t*1000));
 }
 
