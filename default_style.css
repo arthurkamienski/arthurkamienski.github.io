@@ -45,7 +45,7 @@ header {
 }
 
 .title {
-	margin: 32px
+	margin: 32px 0 32px 0;
 }
 
 .title-img{
