@@ -6,7 +6,12 @@ $(function(){
 function goto(url) {
     $('.topnav-btn.active').removeClass('active');
     $('.topnav').toggleClass('expanded');
+    $('.main').toggleClass('visible');
     setTimeout(function() {
         window.location.href = url;
     }, 1000);
 }
+
+$(document).ready(function () {
+    $('.main').toggleClass('visible');
+});
