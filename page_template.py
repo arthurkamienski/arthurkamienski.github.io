@@ -57,10 +57,23 @@ $(function(){
 </html>
 '''
 
-if len(sys.argv) < 3:
-    new_page_name = sys.argv[1]
+pages = [
+        '404',
+        'about',
+        'ants',
+        'boids',
+        'chaos',
+        'contact',
+        'draw',
+        'fun',
+        'index',
+        'mario',
+        'minesweeper',
+        'research',
+        'snake',
+        'trips'
+]
 
-    with open(f"{new_page_name}.html", 'w') as f:
-        f.write(template(new_page_name))
-elif sys.argv[2] == "--makedir":
-    copy_tree("page_contents/template", "page_contents/" + new_page_name)
+for p in pages:
+    with open(f"{p}.html", 'w') as f:
+        f.write(template(p))
