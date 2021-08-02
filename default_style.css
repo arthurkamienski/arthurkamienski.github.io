@@ -67,6 +67,7 @@ header {
 	text-align: left;
   	overflow:hidden;
   	cursor: pointer;
+        user-select: none;
 }
 
 .topnav .icon {
