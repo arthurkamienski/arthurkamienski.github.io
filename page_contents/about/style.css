@@ -1,8 +1,23 @@
 .profile-pic {
+	opacity: 0;
+	width: 100%;
+	border-radius: 30px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.fadein {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+.img-wrapper {
+	position: relative;
 	width: 30%;
+	padding-top: 40%;
 	margin-right: 15px;
 	float: left;
-	border-radius: 30px;
 }
 
 .button {
@@ -30,6 +45,13 @@
 
 
 @media screen and (max-width: 700px) {
+	.profile-pic {
+		min-width: 40%;
+	}
+}
+
+
+@media screen and (max-width: 500px) {
 	.profile-pic {
 		min-width: 100%;
 		margin-right: 0px;
