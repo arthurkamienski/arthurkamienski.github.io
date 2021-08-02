@@ -45,6 +45,7 @@ $(function(){
   $.getScript(page_script);
   $(document).ready(function() {
     $('.main').toggleClass('visible');
+    $('.topnav').toggleClass('visible');
   });
 });
 </script>

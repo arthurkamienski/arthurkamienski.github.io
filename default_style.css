@@ -54,12 +54,18 @@ header {
 }
 
 .topnav {
+        opacity: 0;
 	border: 1px solid lightgrey;
 	overflow: hidden;
 	min-width: 125px;
-    border-radius: 5px;
+        border-radius: 5px;
   	position: relative;
   	display: flex;
+}
+
+.topnav.visible {
+        opacity: 1;
+        transition: opacity 1s ease-in-out;
 }
 
 .topnav-btn {

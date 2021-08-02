@@ -7,6 +7,7 @@ function goToTopnav(url) {
     $('.topnav-btn').css('pointer-events', 'none');
     $('.topnav-btn.active').removeClass('active');
     $('.topnav').toggleClass('expanded');
+    $('.topnav').toggleClass('visible');
     goTo(url);
 }
 
