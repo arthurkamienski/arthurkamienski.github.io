@@ -9,5 +9,5 @@ document.head.appendChild(script);
 script.onload = function() {
   setTimeout(function() {
     expand('publications');
-  }, 2000);
+  }, 1000);
 };
