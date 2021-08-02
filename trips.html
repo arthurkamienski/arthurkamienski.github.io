@@ -2,6 +2,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N0M3KNTG24"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N0M3KNTG24');
+</script>
 <title>Arthur Kamienski</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,8 +18,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
-<link rel="stylesheet" href="default_style.css">
-<link rel="icon" type="image/png" href="images/icons/icon_black_bg.png"/>
+<link rel="stylesheet" href="/default_style.css">
+<link rel="icon" type="image/png" href="/images/icons/icon_black_bg.png"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="/scripts/defaultScript.js"></script>
 <script>
@@ -31,6 +40,7 @@ $(function(){
   );
 
   $.getScript(page_script);
+  $(document).ready(onPageLoad);
 });
 </script>
 </head>

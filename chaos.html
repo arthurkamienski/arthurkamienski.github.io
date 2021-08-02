@@ -2,6 +2,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N0M3KNTG24"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N0M3KNTG24');
+</script>
 <title>Arthur Kamienski</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,6 +40,7 @@ $(function(){
   );
 
   $.getScript(page_script);
+  $(document).ready(onPageLoad);
 });
 </script>
 </head>
