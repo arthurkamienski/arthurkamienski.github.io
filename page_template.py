@@ -43,7 +43,9 @@ $(function(){
   );
 
   $.getScript(page_script);
-  $(document).ready(onPageLoad);
+  $(document).ready(function() {
+    $('.main').toggleClass('visible');
+  });
 });
 </script>
 </head>

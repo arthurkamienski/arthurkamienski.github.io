@@ -11,7 +11,3 @@ function goto(url) {
         window.location.href = url;
     }, 1000);
 }
-
-function onPageLoad() {
-    $('.main').toggleClass('visible');
-});
