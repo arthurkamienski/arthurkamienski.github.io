@@ -12,6 +12,6 @@ function goto(url) {
     }, 1000);
 }
 
-$(document).ready(function () {
+function onPageLoad() {
     $('.main').toggleClass('visible');
 });

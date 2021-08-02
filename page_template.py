@@ -43,6 +43,7 @@ $(function(){
   );
 
   $.getScript(page_script);
+  $(document).ready(onPageLoad);
 });
 </script>
 </head>
