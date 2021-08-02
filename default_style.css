@@ -61,6 +61,7 @@ header {
         border-radius: 5px;
   	position: relative;
   	display: flex;
+        transition: opacity 1s ease-in-out;
 }
 
 .topnav.visible {
