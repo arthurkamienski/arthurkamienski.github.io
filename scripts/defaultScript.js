@@ -3,7 +3,8 @@ $(function(){
   $("#footer").load("/page_contents/footer.html");
 });
 
-function goto(url) {
+function goTo(url) {
+    $('.topnav-btn').css('pointer-events', 'none');
     $('.topnav-btn.active').removeClass('active');
     $('.topnav').toggleClass('expanded');
     $('.main').toggleClass('visible');
