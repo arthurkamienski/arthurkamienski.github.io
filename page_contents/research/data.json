@@ -52,7 +52,7 @@
 						"bibtex": {
 							"type": "inproceedings",
 							"id": "kamienski2021pysstubs",
-							"title": "PySStuBs: Characterizing Single-Statement Bugs in Popular Open-Source Python Projects",
+							"title": "{PySStuBs}: Characterizing Single-Statement Bugs in Popular Open-Source Python Projects",
 							"author": "Kamienski, Arthur V and Palechor, Luisa and Bezemer, Cor-Paul and Hindle, Abram",
 							"booktitle": "2021 IEEE/ACM 18th International Conference on Mining Software Repositories (MSR)",
 							"pages": "520--524",
@@ -63,9 +63,9 @@
 					{
 						"id": "pagerank-pub",
 						"image": "/page_contents/research/files/prestige/prestige.png",
-						"title": "Prestige in Academic Genealogy Graphs: A PageRank-Based Proposal",
+						"title": "Prestige in Academic Genealogy Graphs: A {PageRank}-Based Proposal",
 						"tags": ["Published in Portuguese"],
-						"authors": ["A. V. Kamienski", "R. J. P. Damaceno", "J. P. Mena-Chalco"],
+						"authors": ["A. Kamienski", "R. J. P. Damaceno", "J. P. Mena-Chalco"],
 						"venue": "8th Brazillian Workshop on Social Network Analysis and Mining (BraSNAM)",
 						"year": "2019",
 						"post-date": "01-01-2019",
