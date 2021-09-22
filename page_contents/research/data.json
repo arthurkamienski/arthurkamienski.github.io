@@ -15,6 +15,10 @@
 						"tags": ["Pre-print", "Under review"],
 						"year": "2021",
 						"post-date": "21-09-2021",
+						"resources": {
+							"Code": "https://github.com/asgaardlab/done-21-arthur-duplicate_gamedev_questions-code",
+							"Data": "https://zenodo.org/record/5500268#.YUqAqWZKj0o"
+						},
 						"abstract": "Game development is currently the largest industry in the entertainment segment and has a high demand for skilled game developers that can produce high-quality games. To satiate this demand, game developers need resources that can provide them with the knowledge they need to learn and improve their skills. Question and Answer (Q&A) websites are one of such resources that provide a valuable source of knowledge about game development practices. However, the presence of duplicate questions on Q&A websites hinders their ability to effectively provide information for their users. While several researchers created and analyzed techniques for duplicate question detection on websites such as Stack Overflow, so far no studies have explored how well those techniques work on Q&A websites for game development. With that in mind, in this chapter we analyze how we can use pre-trained and unsupervised techniques to detect duplicate questions on Q&A websites focused on game development using data extracted from the Game Development Stack Exchange and Stack Overflow. We also explore how we can leverage labelled data to improve the performance of those techniques. The pre-trained technique based on MPNet achieved the highest results in identifying duplicate questions about game development, and we could achieve a better performance when combining multiple unsupervised techniques into a single supervised model. Furthermore, the supervised models could identify duplicate questions on websites different from those they were trained on with little to no decrease in performance. Our results lay the groundwork for building better duplicate question detection systems in game development Q&A websites and ultimately providing game developers with a more effective Q&A community.",
 						"bibtex": {
 							"type": "article",
@@ -33,7 +37,8 @@
 						"year": "2021",
 						"post-date": "30-07-2021",
 						"resources": {
-							"PDF": "http://asgaard.ece.ualberta.ca/papers/arthur_EMSE_gamedev_qa_websites.pdf"
+							"PDF": "http://asgaard.ece.ualberta.ca/papers/arthur_EMSE_gamedev_qa_websites.pdf",
+							"Code": "https://github.com/asgaardlab/done-21-arthur-gamedev_qa_websites-code"
 						},
 						"abstract": "The game development industry is growing, and training new developers in game development-specific abilities is essential to satisfying its need for skilled game developers. These developers require effective learning resources to acquire the information they need and improve their game development skills. Question and Answer (Q&A) websites stand out as some of the most used online learning resources in software development. Many studies have investigated how Q&A websites help software developers become more experienced. However, no studies have explored Q&A websites aimed at game development, and there is little information about how game developers use and interact with these websites. In this paper, we study four Q&A communities by analyzing game development data we collected from their websites and the 347 responses received on a survey we ran with game developers. We observe that the communities have declined over the past few years and identify factors that correlate to these changes. Using a Latent Dirichlet Allocation (LDA) model, we characterize the topics discussed in the communities. We also analyze how topics differ across communities and identify the most discussed topics. Furthermore, we find that survey respondents have a mostly negative view of the communities and tended to stop using the websites once they became more experienced. Finally, we provide recommendations on where game developers should post their questions, which can help mitigate the websites’ declines and improve their effectiveness.",
 						"bibtex": {
@@ -62,6 +67,7 @@
 						"post-date": "01-05-2021",
 						"resources": {
 							"PDF": "https://www.researchgate.net/publication/349899864_PySStuBs_Characterizing_Single-Statement_Bugs_in_Popular_Open-Source_Python_Projects",
+							"Data": "https://zenodo.org/record/4589607#.YUqApmZKj0o",
 							"Slides": "https://docs.google.com/presentation/d/1RASa_5MC8QrwiNauJCXA_ZqF4VEf15Ai-maMMneHGMc/edit?usp=sharing",
 							"Video": "https://www.youtube.com/watch?v=S29Zr5kqE8s"
 						},
@@ -88,7 +94,8 @@
 						"post-date": "01-01-2019",
 						"resources": {
 							"PDF": "https://www.researchgate.net/publication/333282148_Prestigio_em_grafos_de_genealogia_academica_Uma_proposta_baseada_em_PageRank",
-							"Slides": "https://docs.google.com/presentation/d/1V3hsk_OE9llBKA5521t0095ZgOKLi0mHDXxZv9DRfEw/edit?usp=sharing"
+							"Slides": "https://docs.google.com/presentation/d/1V3hsk_OE9llBKA5521t0095ZgOKLi0mHDXxZv9DRfEw/edit?usp=sharing",
+							"Code": "https://github.com/arthurkamienski/academic-genealogy-pagerank"
 						},
 						"abstract": "Identifying prestigious researchers in their fields of research is an arduous task. The greatest difficulty is the evaluation of the prestige of each researcher on the local structure that surrounds them. In this work we present a new adaptation of the PageRank algorithm on an academic genealogical graph, called Normalized Local Inverted PageRank, in means of identifying the most prestigious researchers in terms of human resources production constrained by the number of academic generations. As a case study, we use data gathered from more than a million of researchers.",
 						"bibtex": {
