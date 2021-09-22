@@ -10,4 +10,5 @@ script.onload = function() {
   setTimeout(function() {
     expand('publications');
   }, 700);
+  btn.css('pointer-events', 'auto');
 };
