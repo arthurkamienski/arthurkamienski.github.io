@@ -9,6 +9,6 @@ document.head.appendChild(script);
 script.onload = function() {
   setTimeout(function() {
     expand('publications');
+    $(".collapse-button").css('pointer-events', 'auto');
   }, 700);
-  btn.css('pointer-events', 'auto');
 };
