@@ -122,20 +122,6 @@
 				"name": "IN PROGRESS",
 				"items": [
 					{
-						"id": "gamedev-qa-proj",
-						"image": "/page_contents/research/files/project_images/gamedev_qa.png",
-						"title": "Game Development Q&amp;A Websites",
-						"description": "Question and answer (Q&amp;A) websites are currently some of the most popular online learning resources. Software developers are especially fond of these websites and frequently use them to acquire the solution to their development-related questions and problems. Game developers are a particular type of software developer, and as such, also share a liking for Q&amp;A websites. However, we still know little about how these developers use and interact with these websites. With that in mind, we analyze some of the most popular game development Q&amp;A websites, seeking to deepen our knowledge on the many facets of game development.",
-						"info": {
-							"What": "MSc thesis project",
-							"When": "2020-2021",
-							"Where": "University of Alberta",
-							"Supervisor": "Dr. Cor-Paul Bezemer",
-							"Status": "In progress",
-							"Publications": ["empirical-qa-gamedev-pub"]
-						}
-					},
-					{
 						"id": "graph-growth-proj",
 						"image": "/page_contents/research/files/project_images/graph_growth.png",
 						"title": "Graph Growth in Academic Genealogy Graphs",
@@ -154,6 +140,20 @@
 			{
 				"name": "COMPLETED",
 				"items": [
+					{
+						"id": "gamedev-qa-proj",
+						"image": "/page_contents/research/files/project_images/gamedev_qa.png",
+						"title": "Game Development Q&amp;A Websites",
+						"description": "Question and answer (Q&amp;A) websites are currently some of the most popular online learning resources. Software developers are especially fond of these websites and frequently use them to acquire the solution to their development-related questions and problems. Game developers are a particular type of software developer, and as such, also share a liking for Q&amp;A websites. However, we still know little about how these developers use and interact with these websites. With that in mind, we analyze some of the most popular game development Q&amp;A websites, seeking to deepen our knowledge on the many facets of game development.",
+						"info": {
+							"What": "MSc thesis project",
+							"When": "2020-2021",
+							"Where": "University of Alberta",
+							"Supervisor": "Dr. Cor-Paul Bezemer",
+							"Status": "Done",
+							"Publications": ["empirical-qa-gamedev-pub", "duplicate-detection-techniques-pub"]
+						}
+					},
 					{
 						"id": "pagerank-proj",
 						"image": "/page_contents/research/files/project_images/pagerank.png",
