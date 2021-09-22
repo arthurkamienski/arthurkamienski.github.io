@@ -8,6 +8,23 @@
 				"name": "JOURNAL PAPERS",
 				"items": [
 					{
+						"id": "duplicate-detection-techniques-pub",
+						"image": "/page_contents/research/files/duplicate_detection_techniques/duplicate_detection_techniques.png",
+						"title": "Analyzing Techniques for Duplicate Question Detection on Q&A Websites for Game Developers",
+						"authors": ["A. Kamienski", "A. Hindle", "C. Bezemer"],
+						"tags": ["Pre-print", "Under review"],
+						"year": "2021",
+						"post-date": "21-09-2021",
+						"abstract": "Game development is currently the largest industry in the entertainment segment and has a high demand for skilled game developers that can produce high-quality games. To satiate this demand, game developers need resources that can provide them with the knowledge they need to learn and improve their skills. Question and Answer (Q&A) websites are one of such resources that provide a valuable source of knowledge about game development practices. However, the presence of duplicate questions on Q&A websites hinders their ability to effectively provide information for their users. While several researchers created and analyzed techniques for duplicate question detection on websites such as Stack Overflow, so far no studies have explored how well those techniques work on Q&A websites for game development. With that in mind, in this chapter we analyze how we can use pre-trained and unsupervised techniques to detect duplicate questions on Q&A websites focused on game development using data extracted from the Game Development Stack Exchange and Stack Overflow. We also explore how we can leverage labelled data to improve the performance of those techniques. The pre-trained technique based on MPNet achieved the highest results in identifying duplicate questions about game development, and we could achieve a better performance when combining multiple unsupervised techniques into a single supervised model. Furthermore, the supervised models could identify duplicate questions on websites different from those they were trained on with little to no decrease in performance. Our results lay the groundwork for building better duplicate question detection systems in game development Q&A websites and ultimately providing game developers with a more effective Q&A community.",
+						"bibtex": {
+							"type": "article",
+							"id": "kamienski2021analyzing",
+							"title": "Analyzing Techniques for Duplicate Question Detection on Q&A Websites for Game Developers",
+							"author": "Kamienski, Arthur and Hindle, Abram and Bezemer, Cor-Paul",
+							"year": "2021"
+						}
+					},
+					{
 						"id": "empirical-qa-gamedev-pub",
 						"image": "/page_contents/research/files/empirical_qa_gamedev/empirical_qa_gamedev.png",
 						"title": "An Empirical Study of Q&amp;A Websites for Game Developers",
