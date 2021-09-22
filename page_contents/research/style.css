@@ -33,12 +33,6 @@
 	display: flex;
 }
 
-.item-tags {
-  display: flex;
-  margin-top: 5px;
-  flex-wrap: wrap;
-}
-
 .image {
     background: grey;
     width: 130px;
@@ -163,6 +157,7 @@ pre {
 	display:flex;
 	flex-wrap: wrap;
 	font-weight: bold;
+  	margin-top: 5px;
 }
 
 .tag {
@@ -173,6 +168,7 @@ pre {
 	font-size: 90%;
 	font-weight: bold;
 	vertical-align: middle;
+	margin-right: 3px;
 }
 
 hr {
