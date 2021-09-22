@@ -7,7 +7,7 @@ script.src = "/page_contents/research/animations.js";
 document.head.appendChild(script);
 
 script.onload = function() {
-  setTimeout(function() {
+  setTimeout(async function() {
     await expand('publications');
     $(".collapse-button").css('pointer-events', 'auto');
   }, 700);
