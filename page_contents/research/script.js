@@ -8,7 +8,7 @@ document.head.appendChild(script);
 
 script.onload = function() {
   setTimeout(function() {
-    expand('publications');
+    await expand('publications');
     $(".collapse-button").css('pointer-events', 'auto');
   }, 700);
 };
