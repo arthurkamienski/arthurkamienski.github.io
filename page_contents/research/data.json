@@ -14,7 +14,7 @@
 						"authors": ["A. Kamienski", "A. Hindle", "C. Bezemer"],
 						"tags": ["Pre-print", "Under review"],
 						"year": "2021",
-						"post-date": "21-09-2021",
+						"post-date": "2021-09-21",
 						"resources": {
 							"Code": "https://github.com/asgaardlab/done-21-arthur-duplicate_gamedev_questions-code",
 							"Data": "https://zenodo.org/record/5500268#.YUqAqWZKj0o"
@@ -35,7 +35,7 @@
 						"authors": ["A. Kamienski", "C. Bezemer"],
 						"venue": "Empirical Software Engineering Journal",
 						"year": "2021",
-						"post-date": "30-07-2021",
+						"post-date": "2021-07-31",
 						"resources": {
 							"PDF": "http://asgaard.ece.ualberta.ca/papers/arthur_EMSE_gamedev_qa_websites.pdf",
 							"Code": "https://github.com/asgaardlab/done-21-arthur-gamedev_qa_websites-code"
@@ -64,7 +64,7 @@
 						"authors": ["A. V. Kamienski", "L. Palechor", "C. Bezemer", "A. Hindle"],
 						"venue": "18th International Conference on Mining Software Repositories (MSR)",
 						"year": "2021",
-						"post-date": "01-05-2021",
+						"post-date": "2021-05-01",
 						"resources": {
 							"PDF": "https://www.researchgate.net/publication/349899864_PySStuBs_Characterizing_Single-Statement_Bugs_in_Popular_Open-Source_Python_Projects",
 							"Data": "https://zenodo.org/record/4589607#.YUqApmZKj0o",
@@ -91,7 +91,7 @@
 						"authors": ["A. Kamienski", "R. J. P. Damaceno", "J. P. Mena-Chalco"],
 						"venue": "8th Brazillian Workshop on Social Network Analysis and Mining (BraSNAM)",
 						"year": "2019",
-						"post-date": "01-01-2019",
+						"post-date": "2019-01-01",
 						"resources": {
 							"PDF": "https://www.researchgate.net/publication/333282148_Prestigio_em_grafos_de_genealogia_academica_Uma_proposta_baseada_em_PageRank",
 							"Slides": "https://docs.google.com/presentation/d/1V3hsk_OE9llBKA5521t0095ZgOKLi0mHDXxZv9DRfEw/edit?usp=sharing",
