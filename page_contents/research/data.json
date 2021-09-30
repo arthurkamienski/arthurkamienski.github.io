@@ -9,7 +9,7 @@
 				"items": [
 					{
 						"id": "duplicate-detection-techniques-pub",
-						"image": "/page_contents/research/files/duplicate_detection_techniques/duplicate_detection_techniques.png",
+						"image": "/page_contents/research/files/duplicate_detection_gamedev/duplicate_detection_techniques.png",
 						"title": "Analyzing Techniques for Duplicate Question Detection on Q&A Websites for Game Developers",
 						"authors": ["A. Kamienski", "A. Hindle", "C. Bezemer"],
 						"tags": ["Pre-print", "Under review"],
@@ -85,7 +85,7 @@
 					},
 					{
 						"id": "pagerank-pub",
-						"image": "/page_contents/research/files/prestige/prestige.png",
+						"image": "/page_contents/research/files/prestige_pagerank/prestige.png",
 						"title": "Prestige in Academic Genealogy Graphs: A {PageRank}-Based Proposal",
 						"tags": ["Published in Portuguese"],
 						"authors": ["A. Kamienski", "R. J. P. Damaceno", "J. P. Mena-Chalco"],
@@ -219,7 +219,7 @@
 						"year": "2018",
 						"post-date": "01-01-2018",
 						"resources": {
-							"PDF": "/page_contents/research/files/identifying/arthur_kamienski_final_report_identifying.pdf"
+							"PDF": "/page_contents/research/files/sci_initiation/arthur_kamienski_final_report_identifying.pdf"
 						},
 						"abstract": "Identifying relevant researchers in their respective fields is an arduous task, despite being of great importance. The analysis of relevance involves different indicators not only in science but also in the sociopolitical scenario. Currently, there are many quantitative and qualitative studies to evaluate researchers in different contexts. In the quantitative methods, the greatest hurdle is associating and evaluating the impact of these indicators not only in the whole community to which a researcher belongs but also in the local structure that surrounds him. In this project, we use the PageRank algorithm in an academic genealogy graph to analyze the relevance of each member that it comprises. Additionally, we modify this algorithm to obtain local information (as opposed to global information), in order to find the most important researchers more reliably. This project’s contributions are, besides identifying important researchers,  the creation of new methods and metrics capable of aiding future studies about academic genealogy."
 					}
