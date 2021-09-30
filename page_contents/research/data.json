@@ -132,7 +132,7 @@
 							"Where": "Federal University of ABC (UFABC)",
 							"Supervisor": "Df. Jesús Mena-Chalco",
 							"Status": "In progress",
-							"Other work": ["evolution-other"]
+							"Other work": ["bsc-thesis"]
 						}
 					}
 				]
@@ -151,7 +151,8 @@
 							"Where": "University of Alberta",
 							"Supervisor": "Dr. Cor-Paul Bezemer",
 							"Status": "Done",
-							"Publications": ["empirical-qa-gamedev-pub", "duplicate-detection-techniques-pub"]
+							"Publications": ["empirical-qa-gamedev-pub", "duplicate-detection-techniques-pub"],
+							"Other work": ["msc-thesis"]
 						}
 					},
 					{
@@ -166,7 +167,7 @@
 							"Supervisor": "Df. Jesús Mena-Chalco",
 							"Status": "Done",
 							"Publications": ["pagerank-pub"],
-							"Other work": ["identifying-other"]
+							"Other work": ["sci-initiation"]
 						}
 					}
 				]
@@ -181,31 +182,44 @@
 			{
 				"items": [
 					{
-						"id": "evolution-other",
-						"image": "/page_contents/research/files/evolution/evolution.png",
+						"id": "msc-thesis",
+						"image": "/page_contents/research/files/msc_thesis/msc_thesis.png",
+						"title": "Studying Trends, Topics, and Duplicate Questions on Q&A Websites for Game Developers",
+						"authors": ["A. V. Kamienski"],
+						"description": "M.Sc. thesis submitted in partial fulfillment of the requirements for the M.Sc. in Electrical and Computer Engineering degree at the University of Alberta.",
+						"year": "2021",
+						"post-date": "29-09-2021",
+						"resources": {
+							"Slides": "https://docs.google.com/presentation/d/1zqOr7lkvv7ENuXQjXIWTEGtRUOPDgiSD9AmAqZHzNc4/edit?usp=sharing"
+						},
+						"abstract": "The game development industry is growing and there is a high demand for developers that can produce high-quality games. These developers need resources to learn and improve the skills required to build those games in a reliable and easy manner. Question and Answer (Q&A) websites are learning resources that are commonly used by software developers to share knowledge and acquire the information they need. However, we still know little about how game developers use and interact with Q&A websites. In this thesis, we analyze the largest Q&A websites that discuss game development to understand how effective they are as learning resources and what can be improved to build a better Q&A community for their users. In the first part of this thesis, we analyzed data collected from four Q&A websites, namely Unity Answers, the Unreal Engine 4 (UE4) AnswerHub, the Game Development Stack Exchange, and Stack Overflow, to assess their effectiveness in helping game developers. We also used the 347 responses collected from a survey we ran with game developers to gauge their perception of Q&A websites. We found that the studied websites are in decline, with their activity and effectiveness decreasing over the last few years and users having an overall negative view of the studied Q&A communities. We also characterized the topics discussed in those websites using a latent Dirichlet allocation (LDA) model, and analyze how those topics differ across websites. Finally, we give recommendations to guide developers to the websites that are most effective in answering the types of questions they have, which could help the websites in overcoming their decline. In the second part of the thesis, we explored how we can further help Q&A websites for game developers by automatically identifying duplicate questions. Duplicate questions have a negative impact on Q&A websites by overloading them with questions that have already been answered. Therefore, we analyzed the performance of seven unsupervised and pre-trained techniques on the task of detecting duplicate questions on Q&A websites for game developers. We achieved the highest performance when comparing all the text content of questions and their answers using a pre-trained technique based on MPNet. Furthermore, we could almost double the performance by combining all of the techniques into a single question similarity score using supervised models. Lastly, we show that the supervised models can be used on websites different from the ones they were trained on with little to no decrease in performance. Our findings can be used by Q&A websites and future researchers to build better systems for duplicate question detection, which can ultimately provide game developers with better Q&A communities."
+					},
+					{
+						"id": "bsc-thesis",
+						"image": "/page_contents/research/files/bsc_thesis/bsc_thesis.png",
 						"title": "Evolution of Academic Genealogy Graphs",
 						"tags": ["In Portuguese"],
-						"authors": ["A. V. Kamienski", "J. P. Mena-Chalco"],
-						"description": "Undergraduate thesis submitted in partial fulfillment of the requirements for the BSc in Computer Science degree at the Federal University of ABC (UFABC).",
+						"authors": ["A. V. Kamienski"],
+						"description": "Undergraduate thesis submitted in partial fulfillment of the requirements for the B.Sc. in Computer Science degree at the Federal University of ABC (UFABC).",
 						"year": "2019",
 						"post-date": "01-01-2019",
 						"resources": {
-							"PDF": "/page_contents/research/files/evolution/evolution_graphs.pdf",
+							"PDF": "/page_contents/research/files/bsc_thesis/arthur_kamienski_bsc_thesis.pdf",
 							"Slides": "https://docs.google.com/presentation/d/1X3KfLE08PBbxqcHFuF8sm91RCWQgqtOq_Z-wkR9zO2k/edit?usp=sharing"
 						},
 						"abstract": "Academic genealogy is the area of knowledge that seeks to understand the flow of knowledge and the development of an academic community through the relations of advisership between professors and students. These relations can be structured as graphs that model researchers as vertices and their adviserships as directed edges which show the direction of the passage of knowledge. These graphs, despite being represented in their static form for a fixed instant of time, are constantly developing and evolving through the creation of new researchers and new advisership relations. However, few studies have explored these graphs’ temporal nature, despite it showing a great potential of bringing a better understanding of the growth of science and the community of researchers. Therefore, this work uses historical information on the way these graphs evolved to gather new knowledge about their main characteristics and about the path that they may take in the future. Using data manipulation and machine learning methods, we define a process of temporal information extraction from academic genealogy graphs. We further trained models using supervised learning using these data. The results of our methods indicate growth patterns such as the decline of the number of new researchers appearing over the years and the main features related to a researcher having new advisership relations. At the end of this project, we achieved a well-defined approach to accomplished the aforementioned tasks, introducing a new tool to the analysis of academic genealogy, evolutionary graphs and related fields of study."
 					},
 					{
-						"id": "identifying-other",
-						"image": "/page_contents/research/files/identifying/identifying.png",
+						"id": "sci-initiation",
+						"image": "/page_contents/research/files/sci_initiation/sci_initiation.png",
 						"title": "Identifying Relevant Researchers in Academic Genealogy Graphs: A PageRank-Based Approach",
 						"tags": ["In Portuguese"],
-						"authors": ["A. V. Kamienski", "J. P. Mena-Chalco"],
+						"authors": ["A. V. Kamienski"],
 						"description": "Final report for my undergraduate research project (a.k.a. scientific initiation project).",
 						"year": "2018",
 						"post-date": "01-01-2018",
 						"resources": {
-							"PDF": "/page_contents/research/files/identifying/final_report_identifying.pdf"
+							"PDF": "/page_contents/research/files/identifying/arthur_kamienski_final_report_identifying.pdf"
 						},
 						"abstract": "Identifying relevant researchers in their respective fields is an arduous task, despite being of great importance. The analysis of relevance involves different indicators not only in science but also in the sociopolitical scenario. Currently, there are many quantitative and qualitative studies to evaluate researchers in different contexts. In the quantitative methods, the greatest hurdle is associating and evaluating the impact of these indicators not only in the whole community to which a researcher belongs but also in the local structure that surrounds him. In this project, we use the PageRank algorithm in an academic genealogy graph to analyze the relevance of each member that it comprises. Additionally, we modify this algorithm to obtain local information (as opposed to global information), in order to find the most important researchers more reliably. This project’s contributions are, besides identifying important researchers,  the creation of new methods and metrics capable of aiding future studies about academic genealogy."
 					}
