@@ -1,56 +1,147 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N0M3KNTG24"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-N0M3KNTG24');
-</script>
-<title>Arthur Kamienski</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
-<link rel="stylesheet" href="/default_style.css">
-<link rel="icon" type="image/png" href="/images/icons/icon_black_bg.png"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="/scripts/defaultScript.js"></script>
-<script>
-$(function(){
-  var page_name    = "index"
-  var page_content = `/page_contents/${page_name}/index.html`
-  var page_style   = `/page_contents/${page_name}/style.css`
-  var page_script  = `/page_contents/${page_name}/script.js`
-
-  $(".main").load(page_content);
-
-  $('head').append(
-    $("<link />",{
-      rel: "stylesheet",
-      type: "text/css",
-      href: page_style
-    })
-  );
-
-  $.getScript(page_script);
-  $(document).ready(function() {
-    $('.main').toggleClass('visible');
-  });
-});
-</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arthur Kamienski</title>
+  <meta name="description" content="Arthur Kamienski: AI researcher on the founding team at Vetto AI.">
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <div class="w3-content w3-center content-div">
-      <div id="header"></div>
-      <div class="main"></div>
-    </div>
-    <div id="footer"></div>
+  <main class="page">
+
+
+    <header class="card hero">
+      <img class="avatar" src="/images/profile.jpg" alt="Photo of Arthur Kamienski" width="600" height="800">
+      <div class="hero-text">
+        <p class="tag">Hello, I'm</p>
+        <h1>Arthur Kamienski</h1>
+        <p class="role">AI researcher &middot; Founding team at Vetto AI</p>
+        <nav class="links" aria-label="Profiles">
+          <a class="btn btn-yellow" href="https://scholar.google.com/citations?user=F3rKzhgAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+          <a class="btn btn-pink" href="https://github.com/arthurkamienski" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-blue" href="https://www.linkedin.com/in/arthur-kamienski-90174a16a/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-green" href="https://x.com/akmiens" target="_blank" rel="noopener">X / Twitter</a>
+          <a class="btn btn-white" id="email" href="mailto:arthur.kamienski@gmail.com" title="arthur.kamienski@gmail.com">Email</a>
+        </nav>
+      </div>
+    </header>
+
+    <a class="card banner" href="https://papperoni.kamienski.com.br" target="_blank" rel="noopener">
+      <span class="banner-badge">New</span>
+      <span class="banner-text">
+        Check out <b>Papperoni</b> <img class="banner-logo" src="/images/papperoni.svg" alt="" width="32" height="32">
+        <span class="banner-desc">A home for the papers you read: your library, lists and notes, connected by the citation graph.</span>
+      </span>
+      <span class="banner-arrow">&rarr;</span>
+    </a>
+
+    <section class="card">
+      <h2 class="label label-pink">Bio</h2>
+      <p>
+        I'm an AI researcher on the founding team of <a href="https://vetto.ai" target="_blank" rel="noopener">Vetto AI</a>,
+        where I build benchmarks and datasets to evaluate and train frontier models. Lately I've been focused
+        on synthetic and human-augmented data for AI for Science.
+      </p>
+      <p>
+        Before that, I spent almost five years at Nubank. I started as a machine learning engineer and ended up
+        leading a team of nine engineers who built the company's internal data, ML and AI infrastructure.
+        I hold an M.Sc. in Software Engineering from the University of Alberta and a B.Sc. in Computer
+        Science from the Federal University of ABC (UFABC) in Brazil.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2 class="label label-yellow">Resume</h2>
+      <ol class="timeline">
+        <li>
+          <span class="when">Jun 2026 &ndash; now</span>
+          <div>
+            <h3>AI Researcher (Founding Team)</h3>
+            <p class="where">Vetto AI</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">Aug 2021 &ndash; May 2026</span>
+          <div>
+            <h3>Machine Learning Engineer &amp; Manager</h3>
+            <p class="where">Nubank</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">Jan 2020 &ndash; Sep 2021</span>
+          <div>
+            <h3>M.Sc., Software Engineering</h3>
+            <p class="where">University of Alberta &middot; Edmonton, Canada</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">May 2015 &ndash; Dec 2019</span>
+          <div>
+            <h3>B.Sc., Computer Science</h3>
+            <p class="where">Federal University of ABC (UFABC) &middot; S&atilde;o Paulo, Brazil</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2 class="label label-blue">Teaching</h2>
+      <ol class="timeline">
+        <li>
+          <span class="when">Mar 2025 &ndash; Mar 2026</span>
+          <div>
+            <h3>Course Instructor (AI)</h3>
+            <p class="where">Rocketseat &middot; Graduate-level courses on LLMs, RAG and AI agents</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">2020 &ndash; 2021</span>
+          <div>
+            <h3>Teaching Assistant</h3>
+            <p class="where">University of Alberta &middot; Software Requirements Engineering, Software Systems Design</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">2016 &ndash; 2022</span>
+          <div>
+            <h3>Volunteer English &amp; Math Teacher</h3>
+            <p class="where">Free courses for over 50 students from low-income backgrounds</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <a class="card legacy" href="/legacy/">
+      <span class="legacy-kicker">From the archive &rarr;</span>
+      <span class="legacy-title">My old, hand-made website</span>
+      <span class="legacy-desc">
+        Games, simulations and toys coded from scratch, by hand, in pure JavaScript
+        during my undergrad and M.Sc. years.
+      </span>
+    </a>
+
+    <footer class="footer">&copy; <span id="year">2026</span> Arthur Kamienski</footer>
+  </main>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // mailto: silently does nothing without a mail app, so also reveal the
+    // address and try to copy it.
+    var email = document.getElementById('email');
+    var address = 'arthur.kamienski@gmail.com';
+    email.addEventListener('click', function () {
+      email.textContent = address;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(address).then(function () {
+          email.textContent = 'Copied: ' + address;
+        }, function () {});
+      }
+    });
+  </script>
 </body>
 </html>
