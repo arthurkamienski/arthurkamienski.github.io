@@ -1,15 +1,202 @@
 /* Adapted from source: http://aleclownes.com/2017/02/01/crt-display.html */
 
+/* The desk the monitor sits on: centers the monitor in the window. */
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+  box-sizing: border-box;
+  background: radial-gradient(ellipse at center, #3a3631 0%, #1b1916 70%);
+}
+
+/* Beige plastic bezel. */
 #crt-monitor {
-	display: block;
-	margin: 0 auto;
-	width: 1024;
-	height: 768;
-	max-width: 1024;
-	min-width: 1024;
-	max-height: 768;
-	min-height: 768;
-	overflow: auto;
+  --bezel: 44px;
+  --chin: 76px;
+  position: relative;
+  box-sizing: border-box;
+  padding: var(--bezel) var(--bezel) var(--chin);
+  border-radius: 14px;
+  background: linear-gradient(160deg, #ece4cf 0%, #d9cfb4 55%, #c4b996 100%);
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -6px 12px rgba(0, 0, 0, 0.18),
+    0 30px 60px rgba(0, 0, 0, 0.6),
+    0 4px 0 #a99d7b;
+}
+
+/* The glass: scrolls its content, curved corners, sunk into the bezel. */
+.crt {
+  position: relative;
+  box-sizing: border-box;
+  /* 4:3, like the real thing: as big as fits in the window. */
+  width: min(1024px,
+             calc(100vw - 48px - 2 * var(--bezel)),
+             calc((100vh - 48px - var(--bezel) - var(--chin)) * 4 / 3));
+  aspect-ratio: 4 / 3;
+  overflow: auto;
+  padding: 16px 24px;
+  border-radius: 10px / 8px;
+  background: #f4f6f2;
+  box-shadow: 0 0 0 6px #2a2824, 0 0 0 9px #9d9273;
+}
+
+.crt img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Windows 98-style scrollbar. */
+.crt::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+.crt::-webkit-scrollbar-track {
+  background-color: #dfdfdf;
+  background-image:
+    linear-gradient(45deg, #c0c0c0 25%, transparent 25%, transparent 75%, #c0c0c0 75%),
+    linear-gradient(45deg, #c0c0c0 25%, transparent 25%, transparent 75%, #c0c0c0 75%);
+  background-size: 2px 2px;
+  background-position: 0 0, 1px 1px;
+}
+
+.crt::-webkit-scrollbar-thumb,
+.crt::-webkit-scrollbar-button {
+  background-color: #c0c0c0;
+  box-shadow:
+    inset -1px -1px #0a0a0a,
+    inset 1px 1px #dfdfdf,
+    inset -2px -2px #808080,
+    inset 2px 2px #ffffff;
+}
+
+.crt::-webkit-scrollbar-button {
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.crt::-webkit-scrollbar-button:active {
+  box-shadow: inset 1px 1px #808080, inset -1px -1px #808080;
+}
+
+.crt::-webkit-scrollbar-button:vertical:start:decrement {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M8 5 L12 10 L4 10 Z' fill='black'/%3E%3C/svg%3E");
+}
+
+.crt::-webkit-scrollbar-button:vertical:end:increment {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M4 6 L12 6 L8 11 Z' fill='black'/%3E%3C/svg%3E");
+}
+
+.crt::-webkit-scrollbar-button:horizontal:start:decrement {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M5 8 L10 4 L10 12 Z' fill='black'/%3E%3C/svg%3E");
+}
+
+.crt::-webkit-scrollbar-button:horizontal:end:increment {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M6 4 L11 8 L6 12 Z' fill='black'/%3E%3C/svg%3E");
+}
+
+/* Only one arrow at each end. */
+.crt::-webkit-scrollbar-button:start:increment,
+.crt::-webkit-scrollbar-button:end:decrement {
+  display: none;
+}
+
+.crt::-webkit-scrollbar-corner {
+  background: #c0c0c0;
+}
+
+/* Firefox has no ::-webkit-scrollbar; give it the closest flat colors. */
+@supports not selector(::-webkit-scrollbar) {
+  .crt { scrollbar-color: #c0c0c0 #dfdfdf; }
+}
+
+/* Scanlines and flicker are pinned to the glass, so they stay put while the page scrolls. */
+#crt-monitor::before,
+#crt-monitor::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: var(--bezel);
+  left: var(--bezel);
+  right: var(--bezel);
+  bottom: var(--chin);
+  border-radius: 10px / 8px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+#crt-monitor::before {
+  background:
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 2px, 3px 100%;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.28);
+}
+
+#crt-monitor::after {
+  background: rgba(18, 16, 16, 0.04);
+  opacity: 0;
+  animation: flicker 0.15s infinite;
+}
+
+/* Brand plate and power LED on the chin. */
+.crt-brand {
+  position: absolute;
+  left: 50%;
+  bottom: 26px;
+  transform: translateX(-50%);
+  font: bold 13px/1 Verdana, Geneva, sans-serif;
+  letter-spacing: 0.35em;
+  color: #8a7f60;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.crt-led {
+  position: absolute;
+  right: 56px;
+  bottom: 28px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #6dff6d;
+  box-shadow: 0 0 8px 2px rgba(80, 255, 80, 0.7), inset 0 -2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.crt-led::before {
+  content: "";
+  position: absolute;
+  right: 22px;
+  top: -6px;
+  width: 34px;
+  height: 22px;
+  border-radius: 4px;
+  background: linear-gradient(#cfc5a8, #e6dec7);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 700px) {
+  body { padding: 8px; }
+  #crt-monitor { --bezel: 18px; --chin: 48px; border-radius: 10px; }
+  .crt {
+    width: calc(100vw - 16px - 2 * var(--bezel));
+    height: calc(100vh - 16px - var(--bezel) - var(--chin));
+    aspect-ratio: auto;
+    padding: 10px 12px;
+  }
+  .crt-brand { bottom: 18px; font-size: 10px; }
+  .crt-led { right: 26px; bottom: 19px; }
+  .crt-led::before { display: none; }
 }
 
 @keyframes flicker {
@@ -76,36 +263,4 @@
   100% {
     opacity: 0.24387;
   }
-}
-
-.crt {
-	position:relative;
-}
-
-.crt::after {
-  content: " ";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(18, 16, 16, 0.1);
-  opacity: 0;
-  z-index: 2;
-  pointer-events: none;
-  animation: flicker 0.15s infinite;
-}
-.crt::before {
-  content: " ";
-  display: block;
-  position:absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-  z-index: 2;
-  background-size: 100% 2px, 3px 100%;
-  pointer-events: none;
 }
