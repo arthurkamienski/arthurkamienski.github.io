@@ -26,7 +26,7 @@
           <a class="btn btn-pink" href="https://github.com/arthurkamienski" target="_blank" rel="noopener">GitHub</a>
           <a class="btn btn-blue" href="https://www.linkedin.com/in/arthur-kamienski-90174a16a/" target="_blank" rel="noopener">LinkedIn</a>
           <a class="btn btn-green" href="https://x.com/akmiens" target="_blank" rel="noopener">X / Twitter</a>
-          <a class="btn btn-white" id="email" href="mailto:arthur.kamienski@gmail.com" title="arthur.kamienski@gmail.com">Email</a>
+          <button type="button" class="btn btn-white" id="email" title="Copy my email address">Email</button>
         </nav>
       </div>
     </header>
@@ -130,8 +130,7 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // mailto: silently does nothing without a mail app, so also reveal the
-    // address and try to copy it.
+    // Copy the address instead of opening a mail app; show it either way.
     var email = document.getElementById('email');
     var address = 'arthur.kamienski@gmail.com';
     email.addEventListener('click', function () {
