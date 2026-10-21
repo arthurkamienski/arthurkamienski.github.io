@@ -7,7 +7,15 @@ html, body {
 }
 
 body {
+  --bezel: 44px;
+  --chin: 76px;
+  --header-h: 118px;
+  /* The whole screen is 4:3, like the real thing: as big as fits in the window. */
+  --screen-w: min(1024px,
+                  calc(100vw - 48px - 2 * var(--bezel)),
+                  calc((100vh - 48px - var(--header-h) - var(--bezel) - var(--chin)) * 4 / 3));
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
@@ -17,9 +25,36 @@ body {
 }
 
 /* Beige plastic bezel. */
+/* What this page is, above the monitor. */
+.cak-intro {
+  box-sizing: border-box;
+  width: calc(var(--screen-w) + 2 * var(--bezel));
+  height: var(--header-h);
+  padding: 0 4px 16px;
+  color: #e9e1cc;
+  font: 15px/1.5 Georgia, "Times New Roman", serif;
+}
+
+.cak-intro h1 {
+  margin: 0 0 4px;
+  font-size: 22px;
+}
+
+.cak-intro p { margin: 0; color: #bdb49c; }
+
+.cak-intro a { color: #ffd84d; }
+
+.cak-intro .cak-back {
+  float: right;
+  font: 13px/2.2 Verdana, Geneva, sans-serif;
+}
+
 #crt-monitor {
-  --bezel: 44px;
-  --chin: 76px;
+  /* Height of the IE6 window chrome above and below the page (set by ie6.js). */
+  --chrome-h: 0px;
+  display: flex;
+  width: calc(var(--screen-w) + 2 * var(--bezel));
+  flex-direction: column;
   position: relative;
   box-sizing: border-box;
   padding: var(--bezel) var(--bezel) var(--chin);
@@ -32,20 +67,17 @@ body {
     0 4px 0 #a99d7b;
 }
 
-/* The glass: scrolls its content, curved corners, sunk into the bezel. */
+#crt-monitor.has-ie { --chrome-h: 138px; }
+
+/* The page itself: scrolls inside the browser window. */
 .crt {
   position: relative;
   box-sizing: border-box;
-  /* 4:3, like the real thing: as big as fits in the window. */
-  width: min(1024px,
-             calc(100vw - 48px - 2 * var(--bezel)),
-             calc((100vh - 48px - var(--bezel) - var(--chin)) * 4 / 3));
-  aspect-ratio: 4 / 3;
+  width: var(--screen-w);
+  height: calc(var(--screen-w) * 3 / 4 - var(--chrome-h));
   overflow: auto;
   padding: 16px 24px;
-  border-radius: 10px / 8px;
-  background: #f4f6f2;
-  box-shadow: 0 0 0 6px #2a2824, 0 0 0 9px #9d9273;
+  background: #fff;
 }
 
 .crt img {
@@ -131,7 +163,7 @@ body {
   left: var(--bezel);
   right: var(--bezel);
   bottom: var(--chin);
-  border-radius: 10px / 8px;
+  border-radius: 6px;
   z-index: 2;
   pointer-events: none;
 }
@@ -141,7 +173,8 @@ body {
     linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
     linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
   background-size: 100% 2px, 3px 100%;
-  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.28);
+  /* Vignette on the glass, plus the dark ring where the glass meets the bezel. */
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.28), 0 0 0 6px #2a2824, 0 0 0 9px #9d9273;
 }
 
 #crt-monitor::after {
@@ -149,6 +182,170 @@ body {
   opacity: 0;
   animation: flicker 0.15s infinite;
 }
+
+/* Internet Explorer 6 window around the page (markup injected by ie6.js).
+   Heights add up to --chrome-h: 24 + 22 + 44 + 26 + 22 = 138px. */
+.ie-titlebar, .ie-menubar, .ie-toolbar, .ie-address, .ie-status {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-width: 0;
+  font: 11px/1 Tahoma, "MS Sans Serif", Geneva, sans-serif;
+  color: #000;
+  background: #d4d0c8;
+  user-select: none;
+}
+
+.ie-titlebar {
+  order: -5;
+  height: 24px;
+  padding: 0 3px 0 4px;
+  gap: 4px;
+  background: linear-gradient(90deg, #0a246a, #a6caf0);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 6px 6px 0 0;
+}
+
+.ie-titlebar .ie-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ie-winbtn {
+  width: 16px;
+  height: 14px;
+  padding: 0;
+  margin-left: 2px;
+  border: 0;
+  background: #d4d0c8 center / 8px 8px no-repeat;
+  box-shadow: inset -1px -1px #404040, inset 1px 1px #fff, inset -2px -2px #808080;
+  cursor: pointer;
+}
+
+.ie-winbtn:active, .ie-tbtn:active {
+  box-shadow: inset 1px 1px #404040, inset -1px -1px #fff;
+}
+
+.ie-winbtn.min { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Crect x='1' y='6' width='5' height='2'/%3E%3C/svg%3E"); }
+.ie-winbtn.max { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath d='M0 0h8v8H0zM1 2v5h6V2z' fill-rule='evenodd'/%3E%3C/svg%3E"); }
+.ie-winbtn.close { margin-left: 4px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath d='M0 0l8 8M8 0L0 8' stroke='black' stroke-width='1.6'/%3E%3C/svg%3E"); }
+
+.ie-menubar {
+  order: -4;
+  height: 22px;
+  padding: 0 4px;
+  border-bottom: 1px solid #808080;
+}
+
+.ie-menubar span { padding: 3px 7px; }
+.ie-menubar span:hover { box-shadow: inset -1px -1px #808080, inset 1px 1px #fff; }
+
+.ie-menubar .ie-flag {
+  margin-left: auto;
+  width: 20px;
+  height: 18px;
+  padding: 0;
+  background: #000 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 18'%3E%3Cpath d='M5 5h4v4H5z' fill='%23f33'/%3E%3Cpath d='M10 5h4v4h-4z' fill='%233c3'/%3E%3Cpath d='M5 10h4v4H5z' fill='%2336f'/%3E%3Cpath d='M10 10h4v4h-4z' fill='%23fc0'/%3E%3C/svg%3E");
+}
+
+.ie-toolbar {
+  order: -3;
+  height: 44px;
+  padding: 2px 4px;
+  gap: 1px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #808080;
+}
+
+.ie-tbtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: 46px;
+  height: 38px;
+  padding: 0 4px;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.ie-tbtn:hover { box-shadow: inset -1px -1px #808080, inset 1px 1px #fff; }
+.ie-tbtn svg { width: 22px; height: 22px; }
+
+.ie-sep {
+  width: 2px;
+  height: 32px;
+  margin: 0 3px;
+  box-shadow: inset 1px 0 #808080, inset -1px 0 #fff;
+}
+
+.ie-address {
+  order: -2;
+  height: 26px;
+  padding: 0 4px;
+  gap: 6px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #808080;
+}
+
+.ie-address label { color: #444; }
+
+.ie-url {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 20px;
+  padding: 0 4px;
+  background: #fff;
+  box-shadow: inset 1px 1px #808080, inset -1px -1px #fff, inset 2px 2px #404040;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ie-url svg { flex-shrink: 0; width: 14px; height: 14px; }
+
+.ie-go {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 4px;
+}
+
+.ie-go svg { width: 14px; height: 14px; }
+
+.ie-status {
+  order: 5;
+  height: 22px;
+  padding: 2px;
+  gap: 2px;
+  border-radius: 0 0 6px 6px;
+}
+
+.ie-status > span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 100%;
+  padding: 0 4px;
+  box-shadow: inset 1px 1px #808080, inset -1px -1px #fff;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ie-status .ie-msg { flex: 1; min-width: 0; text-overflow: ellipsis; }
+.ie-status .ie-zone { width: 120px; }
+.ie-status svg { flex-shrink: 0; width: 14px; height: 14px; }
 
 /* Brand plate and power LED on the chin. */
 .crt-brand {
@@ -186,14 +383,23 @@ body {
 }
 
 @media (max-width: 700px) {
-  body { padding: 8px; }
-  #crt-monitor { --bezel: 18px; --chin: 48px; border-radius: 10px; }
+  body {
+    --bezel: 18px;
+    --chin: 48px;
+    --screen-w: calc(100vw - 16px - 2 * var(--bezel));
+    padding: 8px;
+    justify-content: flex-start;
+  }
+  .cak-intro { height: auto; font-size: 14px; }
+  .cak-intro h1 { font-size: 18px; }
+  .cak-intro .cak-back { float: none; display: block; }
+  #crt-monitor { border-radius: 10px; }
+  #crt-monitor.has-ie { --chrome-h: 72px; }
   .crt {
-    width: calc(100vw - 16px - 2 * var(--bezel));
-    height: calc(100vh - 16px - var(--bezel) - var(--chin));
-    aspect-ratio: auto;
+    height: calc(100vh - 16px - var(--bezel) - var(--chin) - var(--chrome-h));
     padding: 10px 12px;
   }
+  .ie-menubar, .ie-toolbar { display: none; }
   .crt-brand { bottom: 18px; font-size: 10px; }
   .crt-led { right: 26px; bottom: 19px; }
   .crt-led::before { display: none; }

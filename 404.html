@@ -15,6 +15,10 @@
     if (legacyPages.indexOf(first) !== -1) {
       location.replace('/legacy' + location.pathname + location.search + location.hash);
     }
+    // The CAK pages moved from /cak_ufpe to /cak (and cak.html became the folder index).
+    if (first === 'cak_ufpe') {
+      location.replace(location.pathname.replace(/^\/cak_ufpe(\/cak\.html)?/, '/cak') + location.search + location.hash);
+    }
   </script>
 </head>
 <body>
