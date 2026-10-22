@@ -92,4 +92,57 @@
   page.addEventListener('mouseleave', function () {
     message.textContent = 'Done';
   });
+
+  // Old pages that have since been taken down: show an error instead of leaving.
+  var dead = [
+    /^www\.cin\.ufpe\.br\/~cak\//,
+    /^www\.di\.ufpe\.br\//,
+    /(^|\.)cefetpb\.br\//
+  ];
+
+  function isDead(link) {
+    if (!/^https?:$/.test(link.protocol)) return false;
+    var where = link.hostname + link.pathname;
+    return dead.some(function (re) { return re.test(where); });
+  }
+
+  var dialog = el('ie-dialog',
+    '<div class="ie-dialog-box" role="alertdialog" aria-modal="true" aria-labelledby="ie-dialog-title" aria-describedby="ie-dialog-text">' +
+    '<div class="ie-dialog-title" id="ie-dialog-title">Microsoft Internet Explorer</div>' +
+    '<div class="ie-dialog-body">' +
+    '<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="#d22" stroke="#800"/><path d="M10 10l12 12M22 10L10 22" stroke="#fff" stroke-width="3.5"/></svg>' +
+    '<p id="ie-dialog-text">The page cannot be displayed.<br><br>' +
+    '<span class="ie-dialog-url"></span> is no longer available. It was taken down long ago.</p>' +
+    '</div>' +
+    '<button type="button" class="ie-dialog-ok">OK</button>' +
+    '</div>');
+  var dialogUrl = dialog.querySelector('.ie-dialog-url');
+  var ok = dialog.querySelector('.ie-dialog-ok');
+  var lastFocus = null;
+  monitor.appendChild(dialog);
+
+  function closeDialog() {
+    monitor.classList.remove('ie-alert');
+    message.textContent = 'Done';
+    if (lastFocus) lastFocus.focus();
+  }
+
+  page.addEventListener('click', function (e) {
+    var link = e.target.closest('a[href]');
+    if (!link || !isDead(link)) return;
+    e.preventDefault();
+    lastFocus = link;
+    dialogUrl.textContent = link.href;
+    message.textContent = 'Cannot find server';
+    monitor.classList.add('ie-alert');
+    ok.focus();
+  });
+
+  ok.addEventListener('click', closeDialog);
+  dialog.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' || e.key === 'Enter') {
+      e.preventDefault();
+      closeDialog();
+    }
+  });
 })();
